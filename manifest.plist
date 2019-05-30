@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>assets</key>
+			<array>
+				<dict>
+					<key>kind</key>
+					<string>software-package</string>
+					<key>url</key>
+					<string>http://154.92.16.124/胖虎国际服免越狱.ipa</string>
+				</dict>
+				<dict>
+					<key>kind</key>
+					<string>full-size-image</string>
+					<key>needs-shine</key>
+					<true/>
+					<key>url</key>
+					<string>https://is5-ssl.mzstatic.com/image/thumb/Purple123/v4/2c/99/f4/2c99f4de-2b4b-86e7-d755-80dc17a23805/source/100x100bb.jpg</string>
+				</dict>
+				<dict>
+					<key>kind</key>
+					<string>display-image</string>
+					<key>needs-shine</key>
+					<true/>
+					<key>url</key>
+					<string>https://is5-ssl.mzstatic.com/image/thumb/Purple123/v4/2c/99/f4/2c99f4de-2b4b-86e7-d755-80dc17a23805/source/100x100bb.jpg</string>
+				</dict>
+			</array>
+			<key>metadata</key>
+			<dict>
+				<key>bundle-identifier</key>
+				<string>com.tencent.ig</string>
+				<key>bundle-version</key>
+				<string>0.12.0</string>
+				<key>kind</key>
+				<string>software</string>
+				<key>subtitle</key>
+				<string>胖虎</string>
+				<key>title</key>
+				<string>胖虎免越狱国际服一键修改 在线安装</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
