@@ -81,5 +81,5 @@ jobs:
         with:
           source_repo: "https://github.com/6Svip120apk69/gitee_q8qsTAUA_cThxc1RBVUE.git"
           source_branch: "main"
-          destination_branch: "main"
+          destination_branch: "ZIYE"
           github_token: ${{ secrets.PAT }}
