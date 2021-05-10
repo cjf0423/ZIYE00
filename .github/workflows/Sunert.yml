@@ -27,7 +27,7 @@ on:
   watch:
     types: started
   repository_dispatch:
-    types: sync-Sunert-Script
+    types: sync-Sunert-Script-tree
 jobs:
   repo-sync:
     env:
@@ -39,7 +39,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync Sunert-Script
+      - name: sync Sunert-Script-tree
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
