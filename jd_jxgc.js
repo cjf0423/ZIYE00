@@ -115,7 +115,7 @@ function ch(timeout = 0) {
   return new Promise((resolve) => {
     setTimeout( ()=>{
       let url = {
-        url : `https://m.jingxi.com/dreamfactory/diminfo/GetCommodityDetails?zone=dream_factory&commodityId=1596&_time=1622368714368&_stk=_time%2CcommodityId%2Czone&_ste=1&h5st=20210530175834397%3B6987023816710162%3B10001%3Btk01wce011c9ea8najBOVWRVVEUzvgfTpGqmpLva8ODZmOh%2FSfg4MYhw6FsCx6KQRuEL257IJdgvMY%2Bj%2Bi4IhIhHvqft%3Be9f78b0f52f8054705b9226d871b3f81dd5c75cc14ce16657e0a17ff62496b07&_=1622368714399&sceneval=2&g_login_type=1&callback=jsonpCBKKK&g_ty=ls`,
+        url : `https://m.jingxi.com/dreamfactory/userinfo/AddProduction?zone=dream_factory&factoryId=1099554520843&deviceId=1099554520844&commodityDimId=1596&replaceProductionId=&_time=1622368713720&_stk=_time%2CcommodityDimId%2CdeviceId%2CfactoryId%2CreplaceProductionId%2Czone&_ste=1&h5st=20210530175833833%3B6987023816710162%3B10001%3Btk01wce011c9ea8najBOVWRVVEUzvgfTpGqmpLva8ODZmOh%2FSfg4MYhw6FsCx6KQRuEL257IJdgvMY%2Bj%2Bi4IhIhHvqft%3Be74381270c37b862afe7133cc2bed1ed0ba30b981aaa9ac143108939adbe69e1&_=1622368713855&sceneval=2&g_login_type=1&callback=jsonpCBKHH&g_ty=ls`,
       "headers": {
         "Host": "m.jingxi.com",
         "Connection": "keep-alive",
@@ -161,7 +161,7 @@ function xyj(timeout = 0) {
   return new Promise((resolve) => {
     setTimeout( ()=>{
       let url = {
-        url : `https://m.jingxi.com/dreamfactory/diminfo/GetCommodityDetails?zone=dream_factory&commodityId=1599&_time=1622368714368&_stk=_time%2CcommodityId%2Czone&_ste=1&h5st=20210530175834397%3B6987023816710162%3B10001%3Btk01wce011c9ea8najBOVWRVVEUzvgfTpGqmpLva8ODZmOh%2FSfg4MYhw6FsCx6KQRuEL257IJdgvMY%2Bj%2Bi4IhIhHvqft%3Be9f78b0f52f8054705b9226d871b3f81dd5c75cc14ce16657e0a17ff62496b07&_=1622368714399&sceneval=2&g_login_type=1&callback=jsonpCBKKK&g_ty=ls`,
+        url : `https://m.jingxi.com/dreamfactory/userinfo/AddProduction?zone=dream_factory&factoryId=1099554520843&deviceId=1099554520844&commodityDimId=1599&replaceProductionId=&_time=1622368713720&_stk=_time%2CcommodityDimId%2CdeviceId%2CfactoryId%2CreplaceProductionId%2Czone&_ste=1&h5st=20210530175833833%3B6987023816710162%3B10001%3Btk01wce011c9ea8najBOVWRVVEUzvgfTpGqmpLva8ODZmOh%2FSfg4MYhw6FsCx6KQRuEL257IJdgvMY%2Bj%2Bi4IhIhHvqft%3Be74381270c37b862afe7133cc2bed1ed0ba30b981aaa9ac143108939adbe69e1&_=1622368713855&sceneval=2&g_login_type=1&callback=jsonpCBKHH&g_ty=ls`,
       "headers": {
         "Host": "m.jingxi.com",
         "Connection": "keep-alive",
