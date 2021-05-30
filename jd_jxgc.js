@@ -91,9 +91,9 @@ function ddc(timeout = 0) {
         try {
           //console.log(url.url)
           //console.log(data)
-          data = JSON.parse(data);
+          //data = JSON.parse(data);
           console.log(data)
-          await notify.sendNotify(`${$.name} - 柠檬jxgc`, `京东账号${$.index} ${$.nickName}`+"\n"+data)
+          await notify.sendNotify(`${$.name} - 柠檬jxgc`, `京东账号${$.index} ${$.nickName}`+data)
          if (data.code === 0) {
             // console.log("柠檬赚京豆步数换京豆:2000步"+data.msg)
           //await notify.sendNotify(`${$.name} - 柠檬赚京豆步数换京豆`, `京东账号${$.index} ${$.nickName}`+"\n柠檬赚京豆步数换京豆:2000步\n"+data.msg)
