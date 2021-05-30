@@ -49,8 +49,8 @@ const JD_API_HOST = 'https://api.m.jd.com/client.action';
       }
       
       await ddc()
-     // await bs5000()
-      //await bs10000()
+     await ch()
+      await xyj()
      // await bs20000()
       
 
@@ -110,12 +110,12 @@ function ddc(timeout = 0) {
     },timeout)
   })
 }
-function ddc(timeout = 0) {
+function ch(timeout = 0) {
 
   return new Promise((resolve) => {
     setTimeout( ()=>{
       let url = {
-        url : `https://m.jingxi.com/dreamfactory/diminfo/GetCommodityDetails?zone=dream_factory&commodityId=1593&_time=1622368714368&_stk=_time%2CcommodityId%2Czone&_ste=1&h5st=20210530175834397%3B6987023816710162%3B10001%3Btk01wce011c9ea8najBOVWRVVEUzvgfTpGqmpLva8ODZmOh%2FSfg4MYhw6FsCx6KQRuEL257IJdgvMY%2Bj%2Bi4IhIhHvqft%3Be9f78b0f52f8054705b9226d871b3f81dd5c75cc14ce16657e0a17ff62496b07&_=1622368714399&sceneval=2&g_login_type=1&callback=jsonpCBKKK&g_ty=ls`,
+        url : `https://m.jingxi.com/dreamfactory/diminfo/GetCommodityDetails?zone=dream_factory&commodityId=1596&_time=1622368714368&_stk=_time%2CcommodityId%2Czone&_ste=1&h5st=20210530175834397%3B6987023816710162%3B10001%3Btk01wce011c9ea8najBOVWRVVEUzvgfTpGqmpLva8ODZmOh%2FSfg4MYhw6FsCx6KQRuEL257IJdgvMY%2Bj%2Bi4IhIhHvqft%3Be9f78b0f52f8054705b9226d871b3f81dd5c75cc14ce16657e0a17ff62496b07&_=1622368714399&sceneval=2&g_login_type=1&callback=jsonpCBKKK&g_ty=ls`,
       "headers": {
         "Host": "m.jingxi.com",
         "Connection": "keep-alive",
@@ -139,7 +139,53 @@ function ddc(timeout = 0) {
           //console.log(data)
           //data = JSON.parse(data);
           console.log(data)
-          await notify.sendNotify(`${$.name} - 柠檬jxgc`, `京东账号${$.index} ${$.nickName}`+"电动车制造："+data)
+          await notify.sendNotify(`${$.name} - 柠檬jxgc`, `京东账号${$.index} ${$.nickName}`+"茶壶制造："+data)
+         if (data.code === 0) {
+            // console.log("柠檬赚京豆步数换京豆:2000步"+data.msg)
+          //await notify.sendNotify(`${$.name} - 柠檬赚京豆步数换京豆`, `京东账号${$.index} ${$.nickName}`+"\n柠檬赚京豆步数换京豆:2000步\n"+data.msg)
+            } else {
+               //console.log("柠檬赚京豆步数换京豆:2000步"+data.msg)
+               //await notify.sendNotify(`${$.name} - 柠檬赚京豆步数换京豆`, `京东账号${$.index} ${$.nickName}`+"\n柠檬赚京豆步数换京豆2000步\n步数不足或今日你已经兑换")
+            }
+        } catch (e) {
+          $.logErr(e, resp);
+        } finally {
+          resolve()
+        }
+      })
+    },timeout)
+  })
+}
+function xyj(timeout = 0) {
+
+  return new Promise((resolve) => {
+    setTimeout( ()=>{
+      let url = {
+        url : `https://m.jingxi.com/dreamfactory/diminfo/GetCommodityDetails?zone=dream_factory&commodityId=1599&_time=1622368714368&_stk=_time%2CcommodityId%2Czone&_ste=1&h5st=20210530175834397%3B6987023816710162%3B10001%3Btk01wce011c9ea8najBOVWRVVEUzvgfTpGqmpLva8ODZmOh%2FSfg4MYhw6FsCx6KQRuEL257IJdgvMY%2Bj%2Bi4IhIhHvqft%3Be9f78b0f52f8054705b9226d871b3f81dd5c75cc14ce16657e0a17ff62496b07&_=1622368714399&sceneval=2&g_login_type=1&callback=jsonpCBKKK&g_ty=ls`,
+      "headers": {
+        "Host": "m.jingxi.com",
+        "Connection": "keep-alive",
+        "Sec-Fetch-Mode": "no-cors",
+        "Accept": "*/*",
+        "X-Requested-With": "com.jd.pingou",
+        "Sec-Fetch-Site": "same-site",
+        "Referer": "https://st.jingxi.com/pingou/dream_factory/index.html?sceneval=2&ptag=7155.9.46",
+        "Accept-Encoding": "gzip, deflate",
+        "Accept-Language": "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7",
+        "Cookie": cookie,
+        "Referer": "https://wqs.jd.com/my/jingdou/my.shtml?sceneval=2",
+        "User-Agent": "jdpingou;android;4.9.0;10;7049442d7e415232;network/UNKNOWN;model/PCAM00;appBuild/16879;partner/oppo01;;session/3;aid/7049442d7e415232;oaid/;pap/JA2019_3111789;brand/OPPO;eu/7303439343432346;fv/7356431353233323;Mozilla/5.0 (Linux; Android 10; PCAM00 Build/QKQ1.190918.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.92 Mobile Safari/537.36",
+      }
+       
+      }
+
+      $.get(url, async (err, resp, data) => {
+        try {
+          //console.log(url.url)
+          //console.log(data)
+          //data = JSON.parse(data);
+          console.log(data)
+          await notify.sendNotify(`${$.name} - 柠檬jxgc`, `京东账号${$.index} ${$.nickName}`+"洗衣机制造："+data)
          if (data.code === 0) {
             // console.log("柠檬赚京豆步数换京豆:2000步"+data.msg)
           //await notify.sendNotify(`${$.name} - 柠檬赚京豆步数换京豆`, `京东账号${$.index} ${$.nickName}`+"\n柠檬赚京豆步数换京豆:2000步\n"+data.msg)
