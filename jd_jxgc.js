@@ -2,7 +2,7 @@
 
 
  [task_local]
- #柠檬赚京豆步数换京豆 自行去刷步数
+ #柠檬惊喜工厂
  * 15 * * * http://nm66.top/jd_bs.js, tag=柠檬赚京豆步数换京豆, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
 */
 const $ = new Env('柠檬惊喜工厂');
