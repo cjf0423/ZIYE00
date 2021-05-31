@@ -48,7 +48,7 @@ const JD_API_HOST = 'https://api.m.jd.com/client.action';
         continue
       }
       
-      await star()
+      //await star()
      await rank()
      // await xyj()
      // await bs20000()
@@ -338,7 +338,7 @@ function rank(timeout = 0) {
          if (data.errorCode === 0) {
              console.log("\n今日任务已完成\n")
              console.log("\n当前个人积分："+data.score+"\n当前个人排名："+data.rank)
-          await notify.sendNotify(`${$.name} - 柠檬赚京豆步数换京豆`, `京东账号${$.index} ${$.nickName}`+"\n今日任务已完成\n"+"\n当前个人积分："+data.score+"\n当前个人排名："+data.rank)
+          //await notify.sendNotify(`${$.name} - 柠檬赚京豆步数换京豆`, `京东账号${$.index} ${$.nickName}`+"\n今日任务已完成\n"+"\n当前个人积分："+data.score+"\n当前个人排名："+data.rank)
             } else {
                //console.log("柠檬赚京豆步数换京豆:2000步"+data.msg)
                //await notify.sendNotify(`${$.name} - 柠檬赚京豆步数换京豆`, `京东账号${$.index} ${$.nickName}`+"\n柠檬赚京豆步数换京豆2000步\n步数不足或今日你已经兑换")
