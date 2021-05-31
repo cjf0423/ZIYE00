@@ -386,14 +386,14 @@ function info(timeout = 0) {
           //console.log(data) startTime":"2021-05-31 00:00:00","
          const result = JSON.parse(data);
          token = data.match(/token":"(.*?)"/)[1]
-         ts = data.match(/ts":\d+/)[1]
+         ts = data.match(/ts":(.*?)}/)[1]
          //kssj = data.match(/startTime":"(.*?)","/)[1]
          //jssj = data.match(/endTime":"(.*?)","/)[1]
           //$.log(result)
           //$.log(result.score)
           //await notify.sendNotify(`${$.name} - 柠檬jxgc`, `京东账号${$.index} ${$.nickName}`+"电动车制造："+data)
          if (result.status === 0) {
-             $.log(token);
+             //$.log(token);
           $.log(ts);
              //$.log("\n当前个人积分："+score+"\n当前个人排名："+pm)
             // $.log("\n开始时间："+kssj+"\n结束时间："+jssj)
