@@ -3,7 +3,7 @@
 
  [task_local]
  #柠檬东东泡泡大战
- 1 0 * * * http://nm66.top/jd_bs.js, tag=柠檬东东泡泡大战, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
+ 1 0 * * * https://raw.githubusercontent.com/panghu999/panghu/master/jd_ppdz.js, tag=柠檬东东泡泡大战, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
 */
 const $ = new Env('柠檬东东泡泡大战');
 const notify = $.isNode() ? require('./sendNotify') : '';
