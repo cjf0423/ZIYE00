@@ -48,10 +48,10 @@ const JD_API_HOST = 'https://api.m.jd.com/client.action';
         continue
       }
       
-     //await star()
-     //await rank()
-      await info()
-      await sf()
+     await star()
+     await rank()
+      //await info()
+      //await sf()
       
 
     }
