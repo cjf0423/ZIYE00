@@ -389,11 +389,11 @@ function info(timeout = 0) {
          //pm = data.match(/rank":"(.*?)","/)[1]
          //kssj = data.match(/startTime":"(.*?)","/)[1]
          //jssj = data.match(/endTime":"(.*?)","/)[1]
-          //$.log(result)
+          $.log(result)
           //$.log(result.score)
           //await notify.sendNotify(`${$.name} - 柠檬jxgc`, `京东账号${$.index} ${$.nickName}`+"电动车制造："+data)
          if (result.status === 0) {
-             $.log(result.token+result..ts)
+             $.log(result.token);
              //$.log("\n当前个人积分："+score+"\n当前个人排名："+pm)
             // $.log("\n开始时间："+kssj+"\n结束时间："+jssj)
           //await notify.sendNotify(`${$.name} - 柠檬东东泡泡大战`, `京东账号${$.index} ${$.nickName}`+`\n柠檬东东泡泡大战,今日任务已完成\n`+`\n当前个人积分：`+score+`\n当前个人排名：`+pm+`\n开始时间：`+kssj+`\n结束时间：`+jssj)
