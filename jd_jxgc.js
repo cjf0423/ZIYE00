@@ -48,8 +48,8 @@ const JD_API_HOST = 'https://api.m.jd.com/client.action';
         continue
       }
       
-      await ghc()
-    // await ch()
+      await star()
+     await rank()
      // await xyj()
      // await bs20000()
       
@@ -63,6 +63,19 @@ const JD_API_HOST = 'https://api.m.jd.com/client.action';
   .finally(() => {
     $.done();
   })
+
+async function star(){
+for(let i = 0; i < 5; i ++){
+no1 = i;
+
+await fx5()
+await shop()
+await shop1()
+await shop2()
+await shop3()
+}
+} 
+
 
 function fx5(timeout = 0) {
 
@@ -103,12 +116,12 @@ function fx5(timeout = 0) {
   })
 }
 
-function ghc(timeout = 0) {
+function shop(timeout = 0) {
 
   return new Promise((resolve) => {
     setTimeout( ()=>{
       let url = {
-        url : `https://api.m.jd.com/api?body=&clientVersion=8.8.8&uuid=86763302131156838bc92874434&client=H5&appid=zuma-web&functionId=activity_taskInfo`,
+        url : `https://api.m.jd.com/api?body={"shopId":"1000000127"}&clientVersion=8.8.8&uuid=86763302131156838bc92874435&client=H5&appid=zuma-web&functionId=activity_followShop`,
       headers: {
         "Host": "api.m.jd.com",
         "Origin": "https://jingqih5.m.jd.com",
@@ -122,8 +135,47 @@ function ghc(timeout = 0) {
         try {
           //console.log(url.url)
           //console.log(data)
-          data  = JSON.parse(data);
-         url = data.taskInfo.allValues.value
+          //data  = JSON.parse(data);
+        // url = data.taskInfo.allValues.value
+          console.log(url)
+          //await notify.sendNotify(`${$.name} - 柠檬jxgc`, `京东账号${$.index} ${$.nickName}`+"电动车制造："+data)
+         if (data.code === 0) {
+            // console.log("柠檬赚京豆步数换京豆:2000步"+data.msg)
+          //await notify.sendNotify(`${$.name} - 柠檬赚京豆步数换京豆`, `京东账号${$.index} ${$.nickName}`+"\n柠檬赚京豆步数换京豆:2000步\n"+data.msg)
+            } else {
+               //console.log("柠檬赚京豆步数换京豆:2000步"+data.msg)
+               //await notify.sendNotify(`${$.name} - 柠檬赚京豆步数换京豆`, `京东账号${$.index} ${$.nickName}`+"\n柠檬赚京豆步数换京豆2000步\n步数不足或今日你已经兑换")
+            }
+        } catch (e) {
+          $.logErr(e, resp);
+        } finally {
+          resolve()
+        }
+      })
+    },timeout)
+  })
+}
+function shop1(timeout = 0) {
+
+  return new Promise((resolve) => {
+    setTimeout( ()=>{
+      let url = {
+        url : `https://api.m.jd.com/api?body={"hallId":"https://pro.m.jd.com/mall/active/Y9FVe619hMoajzqpxky1CQQJAkk/index.html?babelChannel=ttt10"}&clientVersion=8.8.8&uuid=86763302131156838bc92874434&client=H5&appid=zuma-web&functionId=activity_stroll`,
+      headers: {
+        "Host": "api.m.jd.com",
+        "Origin": "https://jingqih5.m.jd.com",
+        "Cookie": cookie,
+        "User-Agent": "jdapp;iPhone;9.5.2;14.3;6898c30638c55142969304c8e2167997fa59eb53;network/4g;ADID/F108E1B6-8E30-477C-BE54-87CF23435488;supportApplePay/0;hasUPPay/0;hasOCPay/0;model/iPhone9,2;addressid/4585826605;supportBestPay/0;appBuild/167650;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1",
+      }
+       
+      }
+
+      $.get(url, async (err, resp, data) => {
+        try {
+          //console.log(url.url)
+          //console.log(data)
+         // data  = JSON.parse(data);
+        // url = data.taskInfo.allValues.value
           console.log(url)
           //await notify.sendNotify(`${$.name} - 柠檬jxgc`, `京东账号${$.index} ${$.nickName}`+"电动车制造："+data)
          if (data.code === 0) {
@@ -143,9 +195,163 @@ function ghc(timeout = 0) {
   })
 }
 
+function shop2(timeout = 0) {
 
+  return new Promise((resolve) => {
+    setTimeout( ()=>{
+      let url = {
+        url : `https://api.m.jd.com/api?body={"goodId":"100009255069"}&clientVersion=8.8.8&uuid=86763302131156838bc92874434&client=H5&appid=zuma-web&functionId=activity_followGood`,
+      headers: {
+        "Host": "api.m.jd.com",
+        "Origin": "https://jingqih5.m.jd.com",
+        "Cookie": cookie,
+        "User-Agent": "jdapp;iPhone;9.5.2;14.3;6898c30638c55142969304c8e2167997fa59eb53;network/4g;ADID/F108E1B6-8E30-477C-BE54-87CF23435488;supportApplePay/0;hasUPPay/0;hasOCPay/0;model/iPhone9,2;addressid/4585826605;supportBestPay/0;appBuild/167650;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1",
+      }
+       
+      }
 
+      $.get(url, async (err, resp, data) => {
+        try {
+          //console.log(url.url)
+          //console.log(data)
+         // data  = JSON.parse(data);
+        // url = data.taskInfo.allValues.value
+          console.log(url)
+          //await notify.sendNotify(`${$.name} - 柠檬jxgc`, `京东账号${$.index} ${$.nickName}`+"电动车制造："+data)
+         if (data.code === 0) {
+            // console.log("柠檬赚京豆步数换京豆:2000步"+data.msg)
+          //await notify.sendNotify(`${$.name} - 柠檬赚京豆步数换京豆`, `京东账号${$.index} ${$.nickName}`+"\n柠檬赚京豆步数换京豆:2000步\n"+data.msg)
+            } else {
+               //console.log("柠檬赚京豆步数换京豆:2000步"+data.msg)
+               //await notify.sendNotify(`${$.name} - 柠檬赚京豆步数换京豆`, `京东账号${$.index} ${$.nickName}`+"\n柠檬赚京豆步数换京豆2000步\n步数不足或今日你已经兑换")
+            }
+        } catch (e) {
+          $.logErr(e, resp);
+        } finally {
+          resolve()
+        }
+      })
+    },timeout)
+  })
+}
+function shop3(timeout = 0) {
 
+  return new Promise((resolve) => {
+    setTimeout( ()=>{
+      let url = {
+        url : `https://api.m.jd.com/api?body={"goodId":"100010338198"}&clientVersion=8.8.8&uuid=86763302131156838bc92874434&client=H5&appid=zuma-web&functionId=activity_followGood`,
+      headers: {
+        "Host": "api.m.jd.com",
+        "Origin": "https://jingqih5.m.jd.com",
+        "Cookie": cookie,
+        "User-Agent": "jdapp;iPhone;9.5.2;14.3;6898c30638c55142969304c8e2167997fa59eb53;network/4g;ADID/F108E1B6-8E30-477C-BE54-87CF23435488;supportApplePay/0;hasUPPay/0;hasOCPay/0;model/iPhone9,2;addressid/4585826605;supportBestPay/0;appBuild/167650;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1",
+      }
+       
+      }
+
+      $.get(url, async (err, resp, data) => {
+        try {
+          //console.log(url.url)
+          //console.log(data)
+         // data  = JSON.parse(data);
+        // url = data.taskInfo.allValues.value
+          console.log(url)
+          //await notify.sendNotify(`${$.name} - 柠檬jxgc`, `京东账号${$.index} ${$.nickName}`+"电动车制造："+data)
+         if (data.code === 0) {
+            // console.log("柠檬赚京豆步数换京豆:2000步"+data.msg)
+          //await notify.sendNotify(`${$.name} - 柠檬赚京豆步数换京豆`, `京东账号${$.index} ${$.nickName}`+"\n柠檬赚京豆步数换京豆:2000步\n"+data.msg)
+            } else {
+               //console.log("柠檬赚京豆步数换京豆:2000步"+data.msg)
+               //await notify.sendNotify(`${$.name} - 柠檬赚京豆步数换京豆`, `京东账号${$.index} ${$.nickName}`+"\n柠檬赚京豆步数换京豆2000步\n步数不足或今日你已经兑换")
+            }
+        } catch (e) {
+          $.logErr(e, resp);
+        } finally {
+          resolve()
+        }
+      })
+    },timeout)
+  })
+}
+function task(timeout = 0) {
+
+  return new Promise((resolve) => {
+    setTimeout( ()=>{
+      let url = {
+        url : `https://api.m.jd.com/api?body=&clientVersion=8.8.8&uuid=86763302131156838bc92874434&client=H5&appid=zuma-web&functionId=activity_taskInfo`,
+      headers: {
+        "Host": "api.m.jd.com",
+        "Origin": "https://jingqih5.m.jd.com",
+        "Cookie": cookie,
+        "User-Agent": "jdapp;iPhone;9.5.2;14.3;6898c30638c55142969304c8e2167997fa59eb53;network/4g;ADID/F108E1B6-8E30-477C-BE54-87CF23435488;supportApplePay/0;hasUPPay/0;hasOCPay/0;model/iPhone9,2;addressid/4585826605;supportBestPay/0;appBuild/167650;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1",
+      }
+       
+      }
+
+      $.get(url, async (err, resp, data) => {
+        try {
+          //console.log(url.url)
+          //console.log(data)
+         // data  = JSON.parse(data);
+        // url = data.taskInfo.allValues.value
+          console.log(url)
+          //await notify.sendNotify(`${$.name} - 柠檬jxgc`, `京东账号${$.index} ${$.nickName}`+"电动车制造："+data)
+         if (data.code === 0) {
+            // console.log("柠檬赚京豆步数换京豆:2000步"+data.msg)
+          //await notify.sendNotify(`${$.name} - 柠檬赚京豆步数换京豆`, `京东账号${$.index} ${$.nickName}`+"\n柠檬赚京豆步数换京豆:2000步\n"+data.msg)
+            } else {
+               //console.log("柠檬赚京豆步数换京豆:2000步"+data.msg)
+               //await notify.sendNotify(`${$.name} - 柠檬赚京豆步数换京豆`, `京东账号${$.index} ${$.nickName}`+"\n柠檬赚京豆步数换京豆2000步\n步数不足或今日你已经兑换")
+            }
+        } catch (e) {
+          $.logErr(e, resp);
+        } finally {
+          resolve()
+        }
+      })
+    },timeout)
+  })
+}
+function rank(timeout = 0) {
+
+  return new Promise((resolve) => {
+    setTimeout( ()=>{
+      let url = {
+        url : `https://api.m.jd.com/api?body=&clientVersion=8.8.8&uuid=86763302131156838bc92874434&client=H5&appid=zuma-web&functionId=activity_info`,
+      headers: {
+        "Host": "api.m.jd.com",
+        "Origin": "https://jingqih5.m.jd.com",
+        "Cookie": cookie,
+        "User-Agent": "jdapp;iPhone;9.5.2;14.3;6898c30638c55142969304c8e2167997fa59eb53;network/4g;ADID/F108E1B6-8E30-477C-BE54-87CF23435488;supportApplePay/0;hasUPPay/0;hasOCPay/0;model/iPhone9,2;addressid/4585826605;supportBestPay/0;appBuild/167650;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1",
+      }
+       
+      }
+
+      $.get(url, async (err, resp, data) => {
+        try {
+          //console.log(url.url)
+          //console.log(data)
+          data  = JSON.parse(data);
+         
+          console.log(data)
+          //await notify.sendNotify(`${$.name} - 柠檬jxgc`, `京东账号${$.index} ${$.nickName}`+"电动车制造："+data)
+         if (data.errorCode === 0) {
+             console.log("\n今日任务已完成\n")
+             console.log("\n当前个人积分："+data.score+"\n当前个人排名："+data.rank)
+          await notify.sendNotify(`${$.name} - 柠檬赚京豆步数换京豆`, `京东账号${$.index} ${$.nickName}`+"\n今日任务已完成\n"+"\n当前个人积分："+data.score+"\n当前个人排名："+data.rank)
+            } else {
+               //console.log("柠檬赚京豆步数换京豆:2000步"+data.msg)
+               //await notify.sendNotify(`${$.name} - 柠檬赚京豆步数换京豆`, `京东账号${$.index} ${$.nickName}`+"\n柠檬赚京豆步数换京豆2000步\n步数不足或今日你已经兑换")
+            }
+        } catch (e) {
+          $.logErr(e, resp);
+        } finally {
+          resolve()
+        }
+      })
+    },timeout)
+  })
+}
 function TotalBean() {
   return new Promise(async resolve => {
     const options = {
