@@ -338,7 +338,7 @@ function rank1(timeout = 0) {
           //console.log(data)
          const result = JSON.parse(data);
          score = data.match(/"score":(.*?),/)[1]
-         pm = data.match(/"rank":"(.*?)",/)[1]
+         pm = data.match(/"rank":"(.*?)",/)
           //$.log(result)
           //$.log(result.score)
           //await notify.sendNotify(`${$.name} - 柠檬jxgc`, `京东账号${$.index} ${$.nickName}`+"电动车制造："+data)
