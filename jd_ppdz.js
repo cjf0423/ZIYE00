@@ -366,7 +366,7 @@ function rank(timeout = 0) {
 
 
 function sf(timeout = 0) {
-shuju = {"ts":${ts},"token":${token},"maxRound":1,"eggRoundCount":0,"roundStars":{"1":4}}
+shuju = `{"ts":+ts,"token":+token,"maxRound":1,"eggRoundCount":0,"roundStars":{"1":4}}`
 
   return new Promise((resolve) => {
     setTimeout( ()=>{
