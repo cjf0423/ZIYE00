@@ -335,7 +335,7 @@ function rank(timeout = 0) {
          
           //console.log(data1)
           //await notify.sendNotify(`${$.name} - 柠檬jxgc`, `京东账号${$.index} ${$.nickName}`+"电动车制造："+data)
-         if (data.errorCode === 0) {
+         if (data1.errorCode === 0) {
              console.log("\n今日任务已完成\n")
              console.log("\n当前个人积分："+data1.score+"\n当前个人排名："+data1.rank)
           //await notify.sendNotify(`${$.name} - 柠檬赚京豆步数换京豆`, `京东账号${$.index} ${$.nickName}`+"\n今日任务已完成\n"+"\n当前个人积分："+data.score+"\n当前个人排名："+data.rank)
