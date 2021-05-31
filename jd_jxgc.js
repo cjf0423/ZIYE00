@@ -336,7 +336,7 @@ function rank1(timeout = 0) {
         try {
           //console.log(url.url)
           //console.log(data)
-         //const result = JSON.parse(data);
+         const result = JSON.parse(data);
          score = data.match(/"score":(.*?),/)[1]
          pm = data.match(/"rank":"(.*?)",/)[1]
           //$.log(result)
