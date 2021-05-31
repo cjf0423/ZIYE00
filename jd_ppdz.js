@@ -2,8 +2,8 @@
 
 
  [task_local]
- #柠檬惊喜工厂
- * 15 * * * http://nm66.top/jd_bs.js, tag=柠檬赚京豆步数换京豆, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
+ #柠檬东东泡泡大战
+ 1 0 * * * http://nm66.top/jd_bs.js, tag=柠檬东东泡泡大战, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
 */
 const $ = new Env('柠檬东东泡泡大战');
 const notify = $.isNode() ? require('./sendNotify') : '';
@@ -48,7 +48,7 @@ const JD_API_HOST = 'https://api.m.jd.com/client.action';
         continue
       }
       
-      //await star()
+     await star()
      await rank1()
      // await xyj()
      // await bs20000()
@@ -345,10 +345,10 @@ function rank1(timeout = 0) {
           //$.log(result.score)
           //await notify.sendNotify(`${$.name} - 柠檬jxgc`, `京东账号${$.index} ${$.nickName}`+"电动车制造："+data)
          if (result.errorCode === 0) {
-             $.log("\n今日任务已完成\n")
+             $.log("\n柠檬东东泡泡大战,今日任务已完成\n")
              $.log("\n当前个人积分："+score+"\n当前个人排名："+pm)
              $.log("\n开始时间："+kssj+"\n结束时间："+jssj)
-          //await notify.sendNotify(`${$.name} - 柠檬赚京豆步数换京豆`, `京东账号${$.index} ${$.nickName}`+"\n今日任务已完成\n"+"\n当前个人积分："+data.score+"\n当前个人排名："+data.rank)
+          await notify.sendNotify(`${$.name} - 柠檬赚京豆步数换京豆`, `京东账号${$.index} ${$.nickName}`+"\n柠檬东东泡泡大战,今日任务已完成\n"+"\n当前个人积分："+score+"\n当前个人排名："+pm+"\n开始时间："+kssj+"\n结束时间："+jssj)
             } else {
                //console.log("柠檬赚京豆步数换京豆:2000步"+data.msg)
                //await notify.sendNotify(`${$.name} - 柠檬赚京豆步数换京豆`, `京东账号${$.index} ${$.nickName}`+"\n柠檬赚京豆步数换京豆2000步\n步数不足或今日你已经兑换")
