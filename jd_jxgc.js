@@ -331,13 +331,13 @@ function rank(timeout = 0) {
         try {
           //console.log(url.url)
           //console.log(data)
-          data  = JSON.parse(data);
+          data1  = JSON.parse(data);
          
-          console.log(data)
+          //console.log(data1)
           //await notify.sendNotify(`${$.name} - 柠檬jxgc`, `京东账号${$.index} ${$.nickName}`+"电动车制造："+data)
          if (data.errorCode === 0) {
              console.log("\n今日任务已完成\n")
-             console.log("\n当前个人积分："+data.score+"\n当前个人排名："+data.rank)
+             console.log("\n当前个人积分："+data1.score+"\n当前个人排名："+data1.rank)
           //await notify.sendNotify(`${$.name} - 柠檬赚京豆步数换京豆`, `京东账号${$.index} ${$.nickName}`+"\n今日任务已完成\n"+"\n当前个人积分："+data.score+"\n当前个人排名："+data.rank)
             } else {
                //console.log("柠檬赚京豆步数换京豆:2000步"+data.msg)
