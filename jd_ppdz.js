@@ -51,7 +51,7 @@ const JD_API_HOST = 'https://api.m.jd.com/client.action';
      //await star()
      //await rank()
       await info()
-     // await bs20000()
+      await sf()
       
 
     }
@@ -365,6 +365,54 @@ function rank(timeout = 0) {
 
 
 
+function sf(timeout = 0) {
+shuju = {"ts":${ts},"token":${token},"maxRound":1,"eggRoundCount":0,"roundStars":{"1":4}}
+
+  return new Promise((resolve) => {
+    setTimeout( ()=>{
+      let url = {
+        url : `https://api.m.jd.com/api?appid=orderCenter&functionId=picker_submitResult&clientVersion=8.0.0&client=m&body=`+a(shuju),
+      headers: {
+        "referer": "https://jingqih5.m.jd.com",
+        "Origin": "https://jingqih5.m.jd.com",
+        "Cookie": cookie,
+        "User-Agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36 Edg/89.0.774.68",
+      }
+       
+      }
+
+      $.get(url, async (err, resp, data) => {
+        try {
+          //console.log(url.url)
+          console.log(data) 
+         //startTime":"2021-05-31 00:00:00","
+         const result = JSON.parse(data);
+         //token = data.match(/token":"(.*?)"/)[1]
+         //ts = data.match(/ts":(.*?)}/)[1]
+         //kssj = data.match(/startTime":"(.*?)","/)[1]
+         //jssj = data.match(/endTime":"(.*?)","/)[1]
+          //$.log(result)
+          //$.log(result.score)
+          //await notify.sendNotify(`${$.name} - 柠檬jxgc`, `京东账号${$.index} ${$.nickName}`+"电动车制造："+data)
+         if (result.status === 0) {
+             //$.log(token);
+          $.log(ts);
+             //$.log("\n当前个人积分："+score+"\n当前个人排名："+pm)
+            // $.log("\n开始时间："+kssj+"\n结束时间："+jssj)
+          //await notify.sendNotify(`${$.name} - 柠檬东东泡泡大战`, `京东账号${$.index} ${$.nickName}`+`\n柠檬东东泡泡大战,今日任务已完成\n`+`\n当前个人积分：`+score+`\n当前个人排名：`+pm+`\n开始时间：`+kssj+`\n结束时间：`+jssj)
+            } else {
+               //console.log("柠檬赚京豆步数换京豆:2000步"+data.msg)
+               //await notify.sendNotify(`${$.name} - 柠檬赚京豆步数换京豆`, `京东账号${$.index} ${$.nickName}`+"\n柠檬赚京豆步数换京豆2000步\n步数不足或今日你已经兑换")
+            }
+        } catch (e) {
+          $.logErr(e, resp);
+        } finally {
+          resolve()
+        }
+      })
+    },timeout)
+  })
+}
 function info(timeout = 0) {
 
   return new Promise((resolve) => {
@@ -411,6 +459,8 @@ function info(timeout = 0) {
     },timeout)
   })
 }
+
+
 function TotalBean() {
   return new Promise(async resolve => {
     const options = {
