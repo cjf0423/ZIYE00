@@ -336,7 +336,7 @@ function rank1(timeout = 0) {
         try {
           //console.log(url.url)
           //console.log(data)
-         const result = JSON.parse(data)
+         const result = JSON.parse(data);
          
           $.log(result)
           $.log(result.score)
