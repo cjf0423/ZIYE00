@@ -48,9 +48,9 @@ const JD_API_HOST = 'https://api.m.jd.com/client.action';
         continue
       }
       
-     await star()
-     await rank()
-     // await xyj()
+     //await star()
+     //await rank()
+      await info()
      // await bs20000()
       
 
@@ -349,6 +349,54 @@ function rank(timeout = 0) {
              $.log("\n当前个人积分："+score+"\n当前个人排名："+pm)
              $.log("\n开始时间："+kssj+"\n结束时间："+jssj)
           await notify.sendNotify(`${$.name} - 柠檬东东泡泡大战`, `京东账号${$.index} ${$.nickName}`+`\n柠檬东东泡泡大战,今日任务已完成\n`+`\n当前个人积分：`+score+`\n当前个人排名：`+pm+`\n开始时间：`+kssj+`\n结束时间：`+jssj)
+            } else {
+               //console.log("柠檬赚京豆步数换京豆:2000步"+data.msg)
+               //await notify.sendNotify(`${$.name} - 柠檬赚京豆步数换京豆`, `京东账号${$.index} ${$.nickName}`+"\n柠檬赚京豆步数换京豆2000步\n步数不足或今日你已经兑换")
+            }
+        } catch (e) {
+          $.logErr(e, resp);
+        } finally {
+          resolve()
+        }
+      })
+    },timeout)
+  })
+}
+
+
+
+function info(timeout = 0) {
+
+  return new Promise((resolve) => {
+    setTimeout( ()=>{
+      let url = {
+        url : `https://api.m.jd.com/api?appid=orderCenter&functionId=picker_getUserInfo&clientVersion=8.0.0&client=m&body=5GlOj7xTF%2Fw%3D`,
+      headers: {
+        "Host": "api.m.jd.com",
+        "Origin": "https://jingqih5.m.jd.com",
+        "Cookie": cookie,
+        "User-Agent": "jdapp;iPhone;9.5.2;14.3;6898c30638c55142969304c8e2167997fa59eb53;network/4g;ADID/F108E1B6-8E30-477C-BE54-87CF23435488;supportApplePay/0;hasUPPay/0;hasOCPay/0;model/iPhone9,2;addressid/4585826605;supportBestPay/0;appBuild/167650;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1",
+      }
+       
+      }
+
+      $.get(url, async (err, resp, data) => {
+        try {
+          //console.log(url.url)
+          //console.log(data) startTime":"2021-05-31 00:00:00","
+         const result = JSON.parse(data);
+         //score = data.match(/"score":(.*?),/)[1]
+         //pm = data.match(/rank":"(.*?)","/)[1]
+         //kssj = data.match(/startTime":"(.*?)","/)[1]
+         //jssj = data.match(/endTime":"(.*?)","/)[1]
+          //$.log(result)
+          //$.log(result.score)
+          //await notify.sendNotify(`${$.name} - 柠檬jxgc`, `京东账号${$.index} ${$.nickName}`+"电动车制造："+data)
+         if (result.status === 0) {
+             $.log(result.token+result..ts)
+             //$.log("\n当前个人积分："+score+"\n当前个人排名："+pm)
+            // $.log("\n开始时间："+kssj+"\n结束时间："+jssj)
+          //await notify.sendNotify(`${$.name} - 柠檬东东泡泡大战`, `京东账号${$.index} ${$.nickName}`+`\n柠檬东东泡泡大战,今日任务已完成\n`+`\n当前个人积分：`+score+`\n当前个人排名：`+pm+`\n开始时间：`+kssj+`\n结束时间：`+jssj)
             } else {
                //console.log("柠檬赚京豆步数换京豆:2000步"+data.msg)
                //await notify.sendNotify(`${$.name} - 柠檬赚京豆步数换京豆`, `京东账号${$.index} ${$.nickName}`+"\n柠檬赚京豆步数换京豆2000步\n步数不足或今日你已经兑换")
