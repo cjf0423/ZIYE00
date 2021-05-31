@@ -372,10 +372,10 @@ function info(timeout = 0) {
       let url = {
         url : `https://api.m.jd.com/api?appid=orderCenter&functionId=picker_getUserInfo&clientVersion=8.0.0&client=m&body=5GlOj7xTF%2Fw%3D`,
       headers: {
-        "Host": "api.m.jd.com",
+        "referer": "https://jingqih5.m.jd.com",
         "Origin": "https://jingqih5.m.jd.com",
         "Cookie": cookie,
-        "User-Agent": "jdapp;iPhone;9.5.2;14.3;6898c30638c55142969304c8e2167997fa59eb53;network/4g;ADID/F108E1B6-8E30-477C-BE54-87CF23435488;supportApplePay/0;hasUPPay/0;hasOCPay/0;model/iPhone9,2;addressid/4585826605;supportBestPay/0;appBuild/167650;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1",
+        "User-Agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36 Edg/89.0.774.68",
       }
        
       }
