@@ -49,7 +49,7 @@ const JD_API_HOST = 'https://api.m.jd.com/client.action';
       }
       
      await star()
-     await rank1()
+     await rank()
      // await xyj()
      // await bs20000()
       
