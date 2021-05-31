@@ -335,7 +335,7 @@ function rank1(timeout = 0) {
       $.get(url, async (err, resp, data) => {
         try {
           //console.log(url.url)
-          //console.log(data)
+          console.log(data)
          const result = JSON.parse(data);
          
           $.log(result)
