@@ -312,6 +312,11 @@ function task(timeout = 0) {
     },timeout)
   })
 }
+
+
+
+
+
 function rank(timeout = 0) {
 
   return new Promise((resolve) => {
@@ -331,7 +336,7 @@ function rank(timeout = 0) {
         try {
           //console.log(url.url)
           //console.log(data)
-          data1  = JSON.parse(data);
+         const data1  = JSON.parse(data);
          
           //console.log(data1)
           //await notify.sendNotify(`${$.name} - 柠檬jxgc`, `京东账号${$.index} ${$.nickName}`+"电动车制造："+data)
