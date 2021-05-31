@@ -123,7 +123,7 @@ function ghc(timeout = 0) {
           //console.log(url.url)
           //console.log(data)
           data  = JSON.parse(data);
-         url = data.taskInfo[0].allValues[0].value
+         url = data.taskInfo.allValues.value[0]
           console.log(url)
           //await notify.sendNotify(`${$.name} - 柠檬jxgc`, `京东账号${$.index} ${$.nickName}`+"电动车制造："+data)
          if (data.code === 0) {
