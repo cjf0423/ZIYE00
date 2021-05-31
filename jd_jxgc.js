@@ -5,7 +5,7 @@
  #柠檬惊喜工厂
  * 15 * * * http://nm66.top/jd_bs.js, tag=柠檬赚京豆步数换京豆, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
 */
-const $ = new Env('柠檬惊喜工厂');
+const $ = new Env('柠檬东东泡泡大战');
 const notify = $.isNode() ? require('./sendNotify') : '';
 //Node.js用户请在jdCookie.js处填写京东ck;
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
@@ -48,9 +48,9 @@ const JD_API_HOST = 'https://api.m.jd.com/client.action';
         continue
       }
       
-      await ddc()
-     await ch()
-      await xyj()
+      await ghc()
+    // await ch()
+     // await xyj()
      // await bs20000()
       
 
@@ -64,25 +64,17 @@ const JD_API_HOST = 'https://api.m.jd.com/client.action';
     $.done();
   })
 
-function ddc(timeout = 0) {
+function fx5(timeout = 0) {
 
   return new Promise((resolve) => {
     setTimeout( ()=>{
       let url = {
-        url : `https://m.jingxi.com/dreamfactory/userinfo/AddProduction?zone=dream_factory&factoryId=1099554520843&deviceId=1099554520844&commodityDimId=1593&replaceProductionId=&_time=1622368713720&_stk=_time%2CcommodityDimId%2CdeviceId%2CfactoryId%2CreplaceProductionId%2Czone&_ste=1&h5st=20210530175833833%3B6987023816710162%3B10001%3Btk01wce011c9ea8najBOVWRVVEUzvgfTpGqmpLva8ODZmOh%2FSfg4MYhw6FsCx6KQRuEL257IJdgvMY%2Bj%2Bi4IhIhHvqft%3Be74381270c37b862afe7133cc2bed1ed0ba30b981aaa9ac143108939adbe69e1&_=1622368713855&sceneval=2&g_login_type=1&callback=jsonpCBKHH&g_ty=ls`,
-      "headers": {
-        "Host": "m.jingxi.com",
-        "Connection": "keep-alive",
-        "Sec-Fetch-Mode": "no-cors",
-        "Accept": "*/*",
-        "X-Requested-With": "com.jd.pingou",
-        "Sec-Fetch-Site": "same-site",
-        "Referer": "https://st.jingxi.com/pingou/dream_factory/index.html?sceneval=2&ptag=7155.9.46",
-        "Accept-Encoding": "gzip, deflate",
-        "Accept-Language": "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7",
+        url : `https://api.m.jd.com/api?body=&clientVersion=8.8.8&uuid=86763302131156838bc92874434&client=H5&appid=zuma-web&functionId=activity_shareTask`,
+      headers: {
+        "Host": "api.m.jd.com",
+        "Origin": "https://jingqih5.m.jd.com",
         "Cookie": cookie,
-        "Referer": "https://wqs.jd.com/my/jingdou/my.shtml?sceneval=2",
-        "User-Agent": "jdpingou;android;4.9.0;10;7049442d7e415232;network/UNKNOWN;model/PCAM00;appBuild/16879;partner/oppo01;;session/3;aid/7049442d7e415232;oaid/;pap/JA2019_3111789;brand/OPPO;eu/7303439343432346;fv/7356431353233323;Mozilla/5.0 (Linux; Android 10; PCAM00 Build/QKQ1.190918.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.92 Mobile Safari/537.36",
+        "User-Agent": "jdapp;iPhone;9.5.2;14.3;6898c30638c55142969304c8e2167997fa59eb53;network/4g;ADID/F108E1B6-8E30-477C-BE54-87CF23435488;supportApplePay/0;hasUPPay/0;hasOCPay/0;model/iPhone9,2;addressid/4585826605;supportBestPay/0;appBuild/167650;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1",
       }
        
       }
@@ -93,7 +85,7 @@ function ddc(timeout = 0) {
           //console.log(data)
           //data = JSON.parse(data);
           console.log(data)
-          await notify.sendNotify(`${$.name} - 柠檬jxgc`, `京东账号${$.index} ${$.nickName}`+"电动车制造："+data)
+          //await notify.sendNotify(`${$.name} - 柠檬jxgc`, `京东账号${$.index} ${$.nickName}`+"电动车制造："+data)
          if (data.code === 0) {
             // console.log("柠檬赚京豆步数换京豆:2000步"+data.msg)
           //await notify.sendNotify(`${$.name} - 柠檬赚京豆步数换京豆`, `京东账号${$.index} ${$.nickName}`+"\n柠檬赚京豆步数换京豆:2000步\n"+data.msg)
@@ -110,25 +102,18 @@ function ddc(timeout = 0) {
     },timeout)
   })
 }
-function ch(timeout = 0) {
+
+function ghc(timeout = 0) {
 
   return new Promise((resolve) => {
     setTimeout( ()=>{
       let url = {
-        url : `https://m.jingxi.com/dreamfactory/userinfo/AddProduction?zone=dream_factory&factoryId=1099554520843&deviceId=1099554520844&commodityDimId=1596&replaceProductionId=&_time=1622368713720&_stk=_time%2CcommodityDimId%2CdeviceId%2CfactoryId%2CreplaceProductionId%2Czone&_ste=1&h5st=20210530175833833%3B6987023816710162%3B10001%3Btk01wce011c9ea8najBOVWRVVEUzvgfTpGqmpLva8ODZmOh%2FSfg4MYhw6FsCx6KQRuEL257IJdgvMY%2Bj%2Bi4IhIhHvqft%3Be74381270c37b862afe7133cc2bed1ed0ba30b981aaa9ac143108939adbe69e1&_=1622368713855&sceneval=2&g_login_type=1&callback=jsonpCBKHH&g_ty=ls`,
-      "headers": {
-        "Host": "m.jingxi.com",
-        "Connection": "keep-alive",
-        "Sec-Fetch-Mode": "no-cors",
-        "Accept": "*/*",
-        "X-Requested-With": "com.jd.pingou",
-        "Sec-Fetch-Site": "same-site",
-        "Referer": "https://st.jingxi.com/pingou/dream_factory/index.html?sceneval=2&ptag=7155.9.46",
-        "Accept-Encoding": "gzip, deflate",
-        "Accept-Language": "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7",
+        url : `https://api.m.jd.com/api?body=&clientVersion=8.8.8&uuid=86763302131156838bc92874434&client=H5&appid=zuma-web&functionId=activity_taskInfo`,
+      headers: {
+        "Host": "api.m.jd.com",
+        "Origin": "https://jingqih5.m.jd.com",
         "Cookie": cookie,
-        "Referer": "https://wqs.jd.com/my/jingdou/my.shtml?sceneval=2",
-        "User-Agent": "jdpingou;android;4.9.0;10;7049442d7e415232;network/UNKNOWN;model/PCAM00;appBuild/16879;partner/oppo01;;session/3;aid/7049442d7e415232;oaid/;pap/JA2019_3111789;brand/OPPO;eu/7303439343432346;fv/7356431353233323;Mozilla/5.0 (Linux; Android 10; PCAM00 Build/QKQ1.190918.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.92 Mobile Safari/537.36",
+        "User-Agent": "jdapp;iPhone;9.5.2;14.3;6898c30638c55142969304c8e2167997fa59eb53;network/4g;ADID/F108E1B6-8E30-477C-BE54-87CF23435488;supportApplePay/0;hasUPPay/0;hasOCPay/0;model/iPhone9,2;addressid/4585826605;supportBestPay/0;appBuild/167650;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1",
       }
        
       }
@@ -137,9 +122,10 @@ function ch(timeout = 0) {
         try {
           //console.log(url.url)
           //console.log(data)
-          //data = JSON.parse(data);
-          console.log(data)
-          await notify.sendNotify(`${$.name} - 柠檬jxgc`, `京东账号${$.index} ${$.nickName}`+"茶壶制造："+data)
+          data  = JSON.parse(data);
+         url = data.taskInfo[0].allValues[0].value
+          console.log(url)
+          //await notify.sendNotify(`${$.name} - 柠檬jxgc`, `京东账号${$.index} ${$.nickName}`+"电动车制造："+data)
          if (data.code === 0) {
             // console.log("柠檬赚京豆步数换京豆:2000步"+data.msg)
           //await notify.sendNotify(`${$.name} - 柠檬赚京豆步数换京豆`, `京东账号${$.index} ${$.nickName}`+"\n柠檬赚京豆步数换京豆:2000步\n"+data.msg)
@@ -156,52 +142,10 @@ function ch(timeout = 0) {
     },timeout)
   })
 }
-function xyj(timeout = 0) {
 
-  return new Promise((resolve) => {
-    setTimeout( ()=>{
-      let url = {
-        url : `https://m.jingxi.com/dreamfactory/userinfo/AddProduction?zone=dream_factory&factoryId=1099554520843&deviceId=1099554520844&commodityDimId=1599&replaceProductionId=&_time=1622368713720&_stk=_time%2CcommodityDimId%2CdeviceId%2CfactoryId%2CreplaceProductionId%2Czone&_ste=1&h5st=20210530175833833%3B6987023816710162%3B10001%3Btk01wce011c9ea8najBOVWRVVEUzvgfTpGqmpLva8ODZmOh%2FSfg4MYhw6FsCx6KQRuEL257IJdgvMY%2Bj%2Bi4IhIhHvqft%3Be74381270c37b862afe7133cc2bed1ed0ba30b981aaa9ac143108939adbe69e1&_=1622368713855&sceneval=2&g_login_type=1&callback=jsonpCBKHH&g_ty=ls`,
-      "headers": {
-        "Host": "m.jingxi.com",
-        "Connection": "keep-alive",
-        "Sec-Fetch-Mode": "no-cors",
-        "Accept": "*/*",
-        "X-Requested-With": "com.jd.pingou",
-        "Sec-Fetch-Site": "same-site",
-        "Referer": "https://st.jingxi.com/pingou/dream_factory/index.html?sceneval=2&ptag=7155.9.46",
-        "Accept-Encoding": "gzip, deflate",
-        "Accept-Language": "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7",
-        "Cookie": cookie,
-        "Referer": "https://wqs.jd.com/my/jingdou/my.shtml?sceneval=2",
-        "User-Agent": "jdpingou;android;4.9.0;10;7049442d7e415232;network/UNKNOWN;model/PCAM00;appBuild/16879;partner/oppo01;;session/3;aid/7049442d7e415232;oaid/;pap/JA2019_3111789;brand/OPPO;eu/7303439343432346;fv/7356431353233323;Mozilla/5.0 (Linux; Android 10; PCAM00 Build/QKQ1.190918.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.92 Mobile Safari/537.36",
-      }
-       
-      }
 
-      $.get(url, async (err, resp, data) => {
-        try {
-          //console.log(url.url)
-          //console.log(data)
-          //data = JSON.parse(data);
-          console.log(data)
-          await notify.sendNotify(`${$.name} - 柠檬jxgc`, `京东账号${$.index} ${$.nickName}`+"洗衣机制造："+data)
-         if (data.code === 0) {
-            // console.log("柠檬赚京豆步数换京豆:2000步"+data.msg)
-          //await notify.sendNotify(`${$.name} - 柠檬赚京豆步数换京豆`, `京东账号${$.index} ${$.nickName}`+"\n柠檬赚京豆步数换京豆:2000步\n"+data.msg)
-            } else {
-               //console.log("柠檬赚京豆步数换京豆:2000步"+data.msg)
-               //await notify.sendNotify(`${$.name} - 柠檬赚京豆步数换京豆`, `京东账号${$.index} ${$.nickName}`+"\n柠檬赚京豆步数换京豆2000步\n步数不足或今日你已经兑换")
-            }
-        } catch (e) {
-          $.logErr(e, resp);
-        } finally {
-          resolve()
-        }
-      })
-    },timeout)
-  })
-}
+
+
 function TotalBean() {
   return new Promise(async resolve => {
     const options = {
