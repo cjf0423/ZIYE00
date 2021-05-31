@@ -49,7 +49,7 @@ const JD_API_HOST = 'https://api.m.jd.com/client.action';
       }
       
       //await star()
-     await rank()
+     await rank1()
      // await xyj()
      // await bs20000()
       
@@ -312,7 +312,39 @@ function task(timeout = 0) {
     },timeout)
   })
 }
+async function rank1(){
+ return new Promise((resolve) => {
+    
 
+    let url = {
+   		url: `https://api.m.jd.com/api?body=&clientVersion=8.8.8&uuid=86763302131156838bc92874434&client=H5&appid=zuma-web&functionId=activity_info`,
+      headers: {
+        "Host": "api.m.jd.com",
+        "Origin": "https://jingqih5.m.jd.com",
+        "Cookie": cookie,
+        "User-Agent": "jdapp;iPhone;9.5.2;14.3;6898c30638c55142969304c8e2167997fa59eb53;network/4g;ADID/F108E1B6-8E30-477C-BE54-87CF23435488;supportApplePay/0;hasUPPay/0;hasOCPay/0;model/iPhone9,2;addressid/4585826605;supportBestPay/0;appBuild/167650;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1",
+      }
+        
+   	}
+   $.get(url,async(error, response, data) =>{
+    try{
+        const result = JSON.parse(data)
+        if(logs)$.log(data)
+        if(result.errorCode == 0)
+            $.log("\n今日任务已完成\n")
+             $.log("\n当前个人积分："+result.score+"\n当前个人排名："+result.rank)
+         
+        //if(result.code != 0)
+          //$.log("领个毛啊 你已经领了")
+          
+        }catch(e) {
+          $.logErr(e, response);
+      } finally {
+        resolve();
+      } 
+    })
+   })
+  }
 
 
 
