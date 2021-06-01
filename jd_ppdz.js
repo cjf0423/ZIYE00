@@ -52,7 +52,7 @@ const JD_API_HOST = 'https://api.m.jd.com/client.action';
       
      await star()
      await rank()
-      //await info()
+      await showMsg()
       //await sf()
       
 
@@ -350,7 +350,7 @@ function rank(timeout = 0) {
              $.log("\n柠檬东东泡泡大战,今日任务已完成\n")
              $.log("\n当前个人积分："+score+"\n当前个人排名："+pm)
              $.log("\n开始时间："+kssj+"\n结束时间："+jssj)
-          message += `\n柠檬东东泡泡大战,今日任务已完成\n`+`\n当前个人积分：`+score+`\n当前个人排名：`+pm+`\n开始时间：`+kssj+`\n结束时间：`+jssj;
+          //xinxi = `\n柠檬东东泡泡大战,今日任务已完成\n`+`\n当前个人积分：`+score+`\n当前个人排名：`+pm+`\n开始时间：`+kssj+`\n结束时间：`+jssj
             } else {
                //console.log("柠檬赚京豆步数换京豆:2000步"+data.msg)
                //await notify.sendNotify(`${$.name} - 柠檬赚京豆步数换京豆`, `京东账号${$.index} ${$.nickName}`+"\n柠檬赚京豆步数换京豆2000步\n步数不足或今日你已经兑换")
@@ -365,7 +365,17 @@ function rank(timeout = 0) {
   })
 }
 
-
+function showMsg() {
+  return new Promise(resolve => {
+    message += `\n柠檬东东泡泡大战,今日任务已完成\n`+`\n当前个人积分：`+${$.score}+`\n当前个人排名：`+${$.pm}+`\n开始时间：`+${$.kssj}+`\n结束时间：`+${$.jssj}
+    if (!jdNotify) {
+      $.msg($.name, '', `${message}`);
+    } else {
+      $.log(`京东账号${$.index}${$.nickName}\n${message}`);
+    }
+    resolve()
+  })
+}
 
 function sf(timeout = 0) {
 shuju = `{"ts":+ts,"token":+token,"maxRound":1,"eggRoundCount":0,"roundStars":{"1":4}}`
