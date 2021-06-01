@@ -2,7 +2,7 @@
  
 const $ = new Env('柠檬荣耀618');
 let cookiesArr = [], cookie = '';
-const JD_API_HOST = 'https://ms.jr.jd.com/gw/generic/uc/h5/m';
+const JD_API_HOST = 'https://api.m.jd.com/client.action';
 const notify = $.isNode() ? require('./sendNotify') : '';
 //Node.js用户请在jdCookie.js处填写京东ck;
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
@@ -61,7 +61,7 @@ async function ry618() {
 function dotask() {
   return new Promise(async resolve => {
     const body = {"appId":"1EFVRxw","taskToken":"P225KkcRkpNpFGFKRKik_YMIgCjRWm4aR5jIOCGH81XRDkhw","taskId":1,"actionType":"0"}
-    $.post(taskPostUrl('harmony_collectScore', JSON.parse(body)), (err, resp, data) => {
+    $.post(taskPostUrl('harmony_collectScore', body), (err, resp, data) => {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
