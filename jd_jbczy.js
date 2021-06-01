@@ -53,9 +53,9 @@ if ($.isNode()) {
       $.done();
     })
 async function jdDailyEgg() {
-  await toDailyHome()
-  await toWithdraw()
-  await toGoldExchange();
+  await tp()
+ // await toWithdraw()
+ // await toGoldExchange();
 }
 
 function tp() {
