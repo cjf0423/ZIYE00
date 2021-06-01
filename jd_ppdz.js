@@ -5,6 +5,7 @@
  #柠檬东东泡泡大战
  1 0 * * * https://raw.githubusercontent.com/panghu999/panghu/master/jd_ppdz.js, tag=柠檬东东泡泡大战, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
 */
+let message = '',
 const $ = new Env('柠檬东东泡泡大战');
 const notify = $.isNode() ? require('./sendNotify') : '';
 //Node.js用户请在jdCookie.js处填写京东ck;
@@ -41,9 +42,10 @@ const JD_API_HOST = 'https://api.m.jd.com/client.action';
       console.log(`\n******开始【京东账号${$.index}】${$.nickName || $.UserName}*********\n`);
       if (!$.isLogin) {
         $.msg($.name, `【提示】cookie已失效`, `京东账号${$.index} ${$.nickName || $.UserName}\n请重新登录获取\nhttps://bean.m.jd.com/bean/signIndex.action`, {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
-
+        message = '';
         if ($.isNode()) {
           //await notify.sendNotify(`${$.name}cookie已失效 - ${$.UserName}`, `京东账号${$.index} ${$.UserName}\n请重新登录获取cookie`);
+         
         }
         continue
       }
@@ -78,7 +80,7 @@ await shop3()
 
 
 function fx5(timeout = 0) {
-
+message = `【京东账号${$.index}】${$.nickName}\n`;
   return new Promise((resolve) => {
     setTimeout( ()=>{
       let url = {
@@ -348,7 +350,7 @@ function rank(timeout = 0) {
              $.log("\n柠檬东东泡泡大战,今日任务已完成\n")
              $.log("\n当前个人积分："+score+"\n当前个人排名："+pm)
              $.log("\n开始时间："+kssj+"\n结束时间："+jssj)
-          await notify.sendNotify(`${$.name} - 柠檬东东泡泡大战`, `京东账号${$.index} ${$.nickName}`+`\n柠檬东东泡泡大战,今日任务已完成\n`+`\n当前个人积分：`+score+`\n当前个人排名：`+pm+`\n开始时间：`+kssj+`\n结束时间：`+jssj)
+          message += `\n柠檬东东泡泡大战,今日任务已完成\n`+`\n当前个人积分：`+score+`\n当前个人排名：`+pm+`\n开始时间：`+kssj+`\n结束时间：`+jssj);
             } else {
                //console.log("柠檬赚京豆步数换京豆:2000步"+data.msg)
                //await notify.sendNotify(`${$.name} - 柠檬赚京豆步数换京豆`, `京东账号${$.index} ${$.nickName}`+"\n柠檬赚京豆步数换京豆2000步\n步数不足或今日你已经兑换")
