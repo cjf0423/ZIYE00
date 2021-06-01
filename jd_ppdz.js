@@ -292,7 +292,7 @@ function task(timeout = 0) {
         try {
           //console.log(url.url)
           //console.log(data)
-         // data  = JSON.parse(data);
+          data  = JSON.parse(data);
         // url = data.taskInfo.allValues.value
           console.log(url)
           //await notify.sendNotify(`${$.name} - 柠檬jxgc`, `京东账号${$.index} ${$.nickName}`+"电动车制造："+data)
