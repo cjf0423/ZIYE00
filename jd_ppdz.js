@@ -368,7 +368,7 @@ function rank(timeout = 0) {
 function showMsg() {
   return new Promise(resolve => {
     message +=  `\n柠檬东东泡泡大战,今日任务已完成\n`+`\n当前个人积分：`+score+`\n当前个人排名：`+pm+`\n开始时间：`+kssj+`\n结束时间：`+jssj
-    if (!jdNotify) {
+    if (!notify.sendNotify) {
       $.msg($.name, '', `${message}`);
     } else {
       $.log(`京东账号${$.index}${$.nickName}\n${message}`);
