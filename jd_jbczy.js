@@ -61,7 +61,7 @@ async function jdDailyEgg() {
 function tp() {
   return new Promise(async resolve => {
     const body = {"stageId":"14856020","subTitleId":"3701488908","skuId":"100010792287","taskId":11,"itemId":"1","rankId":"24199","type":1,"batchId":"1"}
-    $.post(taskPostUrl('goldCreatorDoTask', body), (err, resp, data) => {
+    $.get(taskPostUrl('goldCreatorDoTask', body), (err, resp, data) => {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
