@@ -75,6 +75,7 @@ function dotask(type, id) {
                     console.log(`${JSON.stringify(err)}`);
                     console.log(`${$.name} API请求失败，请检查网路重试`);
                 } else {
+                    console.log(data);
                     data = JSON.parse(data);
                     console.log(data);
                     if (data && data.code === 0) {
