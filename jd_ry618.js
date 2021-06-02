@@ -67,7 +67,7 @@ const JD_API_HOST = 'https://api.m.jd.com/client.action';
 
 
 
-function list() {
+async function list() {
   let body = {}
   return new Promise((resolve) => {
     $.post(taskPostUrl("superbrand_getHomePageData",body), async (err, resp, data) => {
@@ -79,10 +79,11 @@ function list() {
           if (safeGet(data)) {
             //console.log(`${data}`);
           
-            data = JSON.parse(data);
+            //data = JSON.parse(data);
            
             if (data.msg== "调用成功") {
-             sjlist = data.match(/.+/)
+             sjlist = JSON.parse(data);
+              
             }
           }
         }
@@ -100,7 +101,7 @@ function list() {
 
 function task() {
  
-const result = JSON.parse(sjlist);
+const result = sjlist
 console.log(result); 
 var arrayList = result.data.result.taskPresidentVoList[1].taskVoList; 
 console.log("ID:"+arrayList); 
