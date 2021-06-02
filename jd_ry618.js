@@ -82,7 +82,7 @@ async function list() {
             //data = JSON.parse(data);
            
             if (data.msg== "调用成功") {
-             sjlist = JSON.parse(data);
+             let sjlist = JSON.parse(data);
               
             }
           }
