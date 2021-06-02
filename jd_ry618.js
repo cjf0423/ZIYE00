@@ -79,10 +79,10 @@ async function list() {
           if (safeGet(data)) {
             //console.log(`${data}`);
           
-            //data = JSON.parse(data);
+            data = JSON.parse(data);
            
             if (data.msg== "调用成功") {
-             let sjlist = JSON.parse(data);
+             const sjlist = data
               
             }
           }
