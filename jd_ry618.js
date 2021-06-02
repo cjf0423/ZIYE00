@@ -76,10 +76,10 @@ function geTaskList() {
                     console.log(`${JSON.stringify(err)}`);
                     console.log(`${$.name} API请求失败，请检查网路重试`);
                 } else {
-                    data = JSON.parse(data);
+                    result = JSON.parse(data);
                     if (data && data.code === 0) {
-                        //let taskList = data.data.result.taskVos
-                     console.log(data);
+                    let taskList = result.data.result.taskVos
+                     console.log(taskList);
                     }
                     console.log(`获取任务列表成功\n`);
                 }
