@@ -52,7 +52,7 @@ const JD_API_HOST = `https://api.m.jd.com/client.action`;
                 if ($.isNode()) {
                     await notify.sendNotify(`${$.name}cookie已失效 - ${$.UserName}`, `京东账号${$.index} ${$.UserName}\n请重新登录获取cookie`);
                 }
-                continue
+                //continue
             }
 
             await qiandao()
