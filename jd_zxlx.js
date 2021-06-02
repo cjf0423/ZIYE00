@@ -78,8 +78,10 @@ function qiandao() {
                 } else {
                     data = JSON.parse(data);
                     if (data && data.code === 0) {
-                        await notify.sendNotify(`${$.name}cookie已失效 - ${$.UserName}`, `京东账号${$.index} ${$.UserName}+data.bizMsg+`\n`+"积分："+data.result.restScore);
-                    }
+                        //await notify.sendNotify(`${$.name}cookie已失效 - ${$.UserName}`, `京东账号${$.index} ${$.UserName}+data.bizMsg+`\n`+"积分："+data.result.restScore);
+                  await notify.sendNotify(`${$.name}cookie已失效 - ${$.UserName}`, `京东账号${$.index} ${$.UserName}\ndata.bizMsg+`\n`+"签到积分："+data.result.restScore`);  
+
+}
                     
                     console.log(data.bizMsg);
                 }
