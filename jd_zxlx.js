@@ -88,7 +88,7 @@ async function qiandao(){
    $.post(plant6_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-        console.log(result)
+        //console.log(result)
         if(logs)$.log(data)
 
           if(result.code == 0){
@@ -123,7 +123,7 @@ async function guanzhu (){
    $.post(plant6_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-        console.log(result)
+        //console.log(result)
         if(logs)$.log(data)
 
           if(result.code == 0){
@@ -157,7 +157,7 @@ async function kaika (){
    $.post(plant6_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-        console.log(result)
+        //console.log(result)
         if(logs)$.log(data)
 
           if(result.code == 0){
@@ -192,7 +192,7 @@ async function help(){
    $.post(plant6_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-        console.log(result)
+        //console.log(result)
         if(logs)$.log(data)
 
           if(result.code == 0){
