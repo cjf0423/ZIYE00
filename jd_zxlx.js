@@ -53,7 +53,8 @@ const JD_API_HOST = `https://api.m.jd.com/client.action`;
 
 
             await guanzhu()
-
+            await kaika()
+            await help()
         }
     }
 
