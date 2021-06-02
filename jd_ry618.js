@@ -72,7 +72,7 @@ const JD_API_HOST = 'https://api.m.jd.com/client.action';
 async function task() {
  
 const result = JSON.parse(str)
-console.log(result); 
+//console.log(result); 
 
 const arrayList = result.data.result.taskPresidentVoList[1].taskVoList; 
 console.log(arrayList); 
