@@ -71,7 +71,7 @@ function qiandao() {
     return new Promise(async (resolve) => {
         
     const options = {
-      "url": `https://api.m.jd.com/api?functionId=superBrandDoTask&appid=ProductZ4Brand&client=wh5&t=1622606562059&body={"source":"sign","activityId":1000021,"encryptProjectId":"uK2fYitTgioETuevoY88bGEts3U","encryptAssignmentId":"47E6skJcyZx7GSUFXyomLgF1FLCA","assignmentType":5,"itemId":"1","actionType":0}`,
+      "url": `https://api.m.jd.com/api?functionId=superBrandDoTask&appid=ProductZ4Brand&client=wh5&t=1622606562059&body=%7B%22source%22:%22sign%22,%22activityId%22:1000021,%22encryptProjectId%22:%22uK2fYitTgioETuevoY88bGEts3U%22,%22encryptAssignmentId%22:%2247E6skJcyZx7GSUFXyomLgF1FLCA%22,%22assignmentType%22:5,%22itemId%22:%221%22,%22actionType%22:0%7D`,
       "headers": {
 
         "Cookie": cookie,
