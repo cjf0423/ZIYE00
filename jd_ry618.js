@@ -106,9 +106,10 @@ const JD_API_HOST = 'https://api.m.jd.com/client.action';
 
 
 function dotask(type, id) {
- let body = {"taskType":${type},"taskId":${id}}
+ //let body = {"taskType":${type},"taskId":${id}}
+ let body1 = {"taskType":${type},"taskId":${id}}
     return new Promise(async (resolve) => {
-        const options = taskPostUrl("superbrand_doTask",body)
+        const options = taskPostUrl("superbrand_doTask",body1)
         $.post(options, (err, resp, data) => {
             try {
                 if (err) {
