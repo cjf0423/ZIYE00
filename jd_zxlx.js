@@ -91,7 +91,7 @@ async function qiandao(){
 
           if(result.code == 0){
 
-             Score = result.match(/restScore:(.*?),/)[1]
+             Score = result.match(/restScore:(.*?),/)
               console.log(Score)
               //await notify.sendNotify(`${$.name} - ${$.UserName}`, `京东账号${$.index} ${$.UserName}`+'\n签到完成，签到积分：'+Score);
 } else {
