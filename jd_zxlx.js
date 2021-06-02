@@ -90,7 +90,7 @@ async function qiandao(){
         if(logs)$.log(data)
 
           if(result.code == 0){
-    await notify.sendNotify(`${$.name}cookie已失效 - ${$.UserName}`, `京东账号${$.index} ${$.UserName}\nresult.bizMsg+\n签到积分+result.result.restScore`); 
+    await notify.sendNotify(`${$.name} - ${$.UserName}`, `京东账号${$.index} ${$.UserName}`+result.bizMsg+"\n签到积分"+result.result.restScore); 
 
 } else {
        console.log(result.bizMsg)
