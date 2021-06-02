@@ -75,11 +75,11 @@ const result = JSON.parse(str)
 //console.log(result); 
 
 const arrayList = result.data.result.taskPresidentVoList[1].taskVoList; 
-console.log(arrayList); 
+//console.log(arrayList); 
 
 for(var i = 0; i < arrayList.length;i++){ 
 
-
+console.log(arrayList[i].taskId); 
  
   let body = {"taskType":"2","taskId":`"`+arrayList[i].taskId+`"`}
   return new Promise((resolve) => {
