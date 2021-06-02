@@ -208,74 +208,7 @@ async function help(){
    })
   }
 
-async function help2(){
- return new Promise((resolve) => {
-     
- let plant6_url = {
-   		url: 'https://api.m.jd.com/api?functionId=superBrandDoTask&appid=ProductZ4Brand&client=wh5&t=1622610530872&body={"source":"secondfloor","activityId":1000007,"encryptProjectId":"cUNnf3E6aMLQcEQbTVxn8AyhjXb","encryptAssignmentId":"2jpJFvC9MBNC7Qsqrt8WzEEcVoiT","assignmentType":2,"itemId":"S5KkcRkpNpFGFKRKik_YMI1","actionType":0}',
-        //headers: JSON.parse(kjjhd),
-      headers: {
 
-        "Cookie": cookie,
-         "Origin": "https://prodev.m.jd.com",
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36",
-      }
-        
-   	}
-   $.post(plant6_url,async(error, response, data) =>{
-    try{
-        const result = JSON.parse(data)
-        console.log(result)
-        if(logs)$.log(data)
-
-          if(result.code == 0){
-//await notify.sendNotify(`${$.name} - ${$.UserName}`, `京东账号${$.index} ${$.UserName}`+'\n签到完成');
-} else {
-       console.log(result.bizMsg)
-}
-          
-        }catch(e) {
-          $.logErr(e, response);
-      } finally {
-        resolve();
-      } 
-    })
-   })
-  }
-async function help3(){
- return new Promise((resolve) => {
-     
- let plant6_url = {
-   		url: 'https://api.m.jd.com/api?functionId=superBrandDoTask&appid=ProductZ4Brand&client=wh5&t=1622610530872&body={"source":"secondfloor","activityId":1000007,"encryptProjectId":"cUNnf3E6aMLQcEQbTVxn8AyhjXb","encryptAssignmentId":"2jpJFvC9MBNC7Qsqrt8WzEEcVoiT","assignmentType":2,"itemId":"15KkcRkpNpFGFKRKik_YMIg","actionType":0}',
-        //headers: JSON.parse(kjjhd),
-      headers: {
-
-        "Cookie": cookie,
-         "Origin": "https://prodev.m.jd.com",
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36",
-      }
-        
-   	}
-   $.post(plant6_url,async(error, response, data) =>{
-    try{
-        const result = JSON.parse(data)
-        console.log(result)
-        if(logs)$.log(data)
-
-          if(result.code == 0){
-//await notify.sendNotify(`${$.name} - ${$.UserName}`, `京东账号${$.index} ${$.UserName}`+'\n签到完成');
-} else {
-       console.log(result.bizMsg)
-}
-          
-        }catch(e) {
-          $.logErr(e, response);
-      } finally {
-        resolve();
-      } 
-    })
-   })
-  }
 function taskPostUrl(body) {
     let o = '',
         r = '';
