@@ -88,15 +88,15 @@ async function hby(){
    	}
    $.post(plant6_url,async(error, response, data) =>{
     try{
-        const result = JSON.parse(data)
-        console.log(result)
+       // const result = JSON.parse(data)
+        //console.log(result)
         if(logs)$.log(data)
 
-          if(result.code == 0){
+          if(data != 0){
 //await notify.sendNotify(`${$.name} - ${$.UserName}`, `京东账号${$.index} ${$.UserName}`+'\n签到完成');
-allMessage += `京东账号${$.index}-${$.nickName || $.UserName}\n领取成功，获得这是一条测试消息红包${$.index !== cookiesArr.length ? '\n\n' : '\n\n'}`;
+allMessage += `京东账号${$.index}-${$.nickName || $.UserName}\n红包雨:${$.data}${$.index !== cookiesArr.length ? '\n\n' : '\n\n'}`;
 } else {
-       console.log(result)
+       //console.log(result)
 }
           
         }catch(e) {
