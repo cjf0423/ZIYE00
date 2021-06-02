@@ -90,8 +90,11 @@ async function hby(){
         //const result = JSON.parse(data)
        // console.log(result)
         if(logs)$.log(data)
-         result = data.match(/prizeName":"(.*?)"/)[1]
+        
           if(result != 0){
+
+result = data.match(/prizeName":"(.*?)"/)
+
 await notify.sendNotify(`${$.name} - ${$.UserName}`, `京东账号${$.index} ${$.UserName}`+'\n红包雨'+result);
 } else {
        //console.log(result)
