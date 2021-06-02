@@ -51,10 +51,11 @@ const JD_API_HOST = `https://api.m.jd.com/client.action`;
                 continue
             }
 
-
+            await qiandao()
             await guanzhu()
             await kaika()
             await help()
+            await cj()
         }
     }
 
@@ -91,7 +92,7 @@ async function qiandao(){
         if(logs)$.log(data)
 
           if(result.code == 0){
-await notify.sendNotify(`${$.name} - ${$.UserName}`, `京东账号${$.index} ${$.UserName}`+'\n签到完成');
+//await notify.sendNotify(`${$.name} - ${$.UserName}`, `京东账号${$.index} ${$.UserName}`+'\n签到完成');
 } else {
        console.log(result.bizMsg)
 }
@@ -208,7 +209,40 @@ async function help(){
     })
    })
   }
+async function cj(){
+ return new Promise((resolve) => {
+     
+ let plant6_url = {
+   		url: 'https://api.m.jd.com/api?functionId=superBrandTaskLottery&appid=ProductZ4Brand&client=wh5&t=1622611676492&body={"source":"secondfloor","activityId":1000007}',
+        //headers: JSON.parse(kjjhd),
+      headers: {
 
+        "Cookie": cookie,
+         "Origin": "https://prodev.m.jd.com",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36",
+      }
+        
+   	}
+   $.post(plant6_url,async(error, response, data) =>{
+    try{
+        const result = JSON.parse(data)
+        console.log(result)
+        if(logs)$.log(data)
+
+          if(result.data.result.userAwardInfo.beanNum != 0){
+await notify.sendNotify(`${$.name} - ${$.UserName}`, `京东账号${$.index} ${$.UserName}`+'\n抽奖京豆：'+result.data.result.userAwardInfo.beanNum);
+} else {
+       console.log(result.bizMsg)
+}
+          
+        }catch(e) {
+          $.logErr(e, response);
+      } finally {
+        resolve();
+      } 
+    })
+   })
+  }
 
 function taskPostUrl(body) {
     let o = '',
