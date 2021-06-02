@@ -11,6 +11,7 @@ const notify = $.isNode() ? require('./sendNotify') : '';
 let merge = {}
 let codeList = []
 const logs =0;
+let allMessage = '';
 //IOS等用户直接用NobyDa的jd cookie
 let cookiesArr = [],
     cookie = '';
@@ -42,7 +43,7 @@ const JD_API_HOST = `https://api.m.jd.com/client.action`;
             $.beans = 0
             message = ''
 
-            //   await shareCodesFormat();
+           await TotalBean();
             console.log(`\n******开始【京东账号${$.index}】${$.nickName || $.UserName}*********\n`);
             if (!$.isLogin) {
                 $.msg($.name, `【提示】cookie已失效`, `京东账号${$.index} ${$.nickName || $.UserName}\n请重新登录获取\nhttps://bean.m.jd.com/bean/signIndex.action`, {
@@ -52,23 +53,23 @@ const JD_API_HOST = `https://api.m.jd.com/client.action`;
                 if ($.isNode()) {
                     await notify.sendNotify(`${$.name}cookie已失效 - ${$.UserName}`, `京东账号${$.index} ${$.UserName}\n请重新登录获取cookie`);
                 }
-                //continue
+                continue
             }
 
             await hby()
         }
     }
 
+if ($.isNode() && allMessage) {
+        await notify.sendNotify(`${$.name}`, `${allMessage}` )
+    }
 })()
-.catch((e) => $.logErr(e))
-    .finally(() => $.done())
-
-function shareCodesFormat() {
-    return new Promise(async resolve => {
-
-        //     resolve();
+    .catch((e) => {
+        $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
     })
-}
+    .finally(() => {
+        $.done();
+  })
 
 
 async function hby(){
@@ -87,17 +88,15 @@ async function hby(){
    	}
    $.post(plant6_url,async(error, response, data) =>{
     try{
-        //const result = JSON.parse(data)
-        console.log(data)
+        const result = JSON.parse(data)
+        console.log(result)
         if(logs)$.log(data)
-        //result = data.match(/prizeName":"(.*?)"/)[1]
-          if(data.indexOf("ext") > -1){
 
-result = data.match(/ext":"(.*?)"/)[1]
-console.log(result)
-//await notify.sendNotify(`${$.name} - ${$.UserName}`, `京东账号${$.index} ${$.UserName}`+'\n红包雨'+result);
+          if(result.code == 0){
+//await notify.sendNotify(`${$.name} - ${$.UserName}`, `京东账号${$.index} ${$.UserName}`+'\n签到完成');
+allMessage += `京东账号${$.index}-${$.nickName || $.UserName}\n领取成功，获得这是一条测试消息红包${$.index !== cookiesArr.length ? '\n\n' : '\n\n'}`;
 } else {
-       //console.log(result)
+       console.log(result)
 }
           
         }catch(e) {
