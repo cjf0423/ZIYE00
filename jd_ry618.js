@@ -48,7 +48,7 @@ const JD_API_HOST = 'https://api.m.jd.com/client.action';
         continue
       }
       //await zhuli()
-      await list()
+     // await list()
       await task()
      
       
