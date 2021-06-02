@@ -49,7 +49,7 @@ const JD_API_HOST = 'https://api.m.jd.com/client.action';
       }
       //await zhuli()
      // await list()
-      await task()
+      await geTaskList()
      
       
 
@@ -62,9 +62,73 @@ const JD_API_HOST = 'https://api.m.jd.com/client.action';
   .finally(() => {
     $.done();
   })
- 
+ function geTaskList() {
+  let body = {}
+    return new Promise(async (resolve) => {
+        const options = taskPostUrl("superbrand_doTask",body)
+        $.post(options, async (err, resp, data) => {
+            try {
+                if (err) {
+                    console.log(`${JSON.stringify(err)}`);
+                    console.log(`${$.name} API请求失败，请检查网路重试`);
+                } else {
+                    data = JSON.parse(data);
+                    if (data && data.code === 0) {
+                        let taskList = data.data.result.taskPresidentVoList
+                              console.log("开始执行品牌会场任务")
+                               for (task of  taskList[1].taskVoList ){
+                               type = taskList[1].taskType
+                               await dotask(type,task.taskId) 
+                                 await $.wait(500);       
+                               }
+                            console.log("开始执行超级会场任务")   
+                           for (task of  taskList[2].taskVoList ){
+                               type = taskList[2].taskType
+                               await dotask(type,task.taskId)   
+                                  await $.wait(500);    
+                               }   
+                        console.log("开始翻牌")
+                        for (card of data.data.result.giftCardVoList) {
+                            await filpCard(card.cardId)
+                            await $.wait(500);
+                        }
+                    }
+                    console.log(`获取任务列表成功\n`);
+                }
+            } catch (e) {
+                $.logErr(e, resp);
+            } finally {
+                resolve();
+            }
+        });
+    });
+}
 
 
+function dotask(type, id) {
+ let body = {"taskType":${type},"taskId":${id}}
+    return new Promise(async (resolve) => {
+        const options = taskPostUrl("superbrand_doTask",body)
+        $.post(options, (err, resp, data) => {
+            try {
+                if (err) {
+                    console.log(`${JSON.stringify(err)}`);
+                    console.log(`${$.name} API请求失败，请检查网路重试`);
+                } else {
+                    data = JSON.parse(data);
+                    if (data && data.code === 0) {
+                        console.log(`任务完成`);
+                    }
+
+                }
+            } catch (e) {
+                $.logErr(e, resp);
+            } finally {
+                resolve();
+            }
+        });
+    });
+}
 
 
 
