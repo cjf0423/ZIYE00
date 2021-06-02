@@ -77,10 +77,11 @@ function list() {
           console.log(`${$.name} API请求失败，请检查网路重试`)
         } else {
           if (safeGet(data)) {
-            console.log(`${data}`);
+            //console.log(`${data}`);
             data = JSON.parse(data);
+           sjlist = data
             if (data.msg== "调用成功") {
-            sjlist = data
+            //sjlist = data
             }
           }
         }
