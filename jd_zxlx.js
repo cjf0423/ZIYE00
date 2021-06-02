@@ -52,7 +52,7 @@ const JD_API_HOST = `https://api.m.jd.com/client.action`;
             }
 
 
-            await qiandao()
+            await guanzhu()
 
         }
     }
@@ -104,7 +104,74 @@ await notify.sendNotify(`${$.name} - ${$.UserName}`, `京东账号${$.index} ${$
    })
   }
 
+async function guanzhu (){
+ return new Promise((resolve) => {
+     
+ let plant6_url = {
+   		url: 'https://api.m.jd.com/api?functionId=superBrandDoTask&appid=ProductZ4Brand&client=wh5&t=1622610196221&body={"source":"secondfloor","activityId":1000007,"encryptProjectId":"cUNnf3E6aMLQcEQbTVxn8AyhjXb","encryptAssignmentId":"44spR7W6XFhQXzMvPva99WYLTscr","assignmentType":3,"itemId":"1000000157","actionType":0}',
+        //headers: JSON.parse(kjjhd),
+      headers: {
 
+        "Cookie": cookie,
+         "Origin": "https://prodev.m.jd.com",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36",
+      }
+        
+   	}
+   $.post(plant6_url,async(error, response, data) =>{
+    try{
+        const result = JSON.parse(data)
+        console.log(result)
+        if(logs)$.log(data)
+
+          if(result.code == 0){
+//await notify.sendNotify(`${$.name} - ${$.UserName}`, `京东账号${$.index} ${$.UserName}`+'\n签到完成');
+} else {
+       console.log(result.bizMsg)
+}
+          
+        }catch(e) {
+          $.logErr(e, response);
+      } finally {
+        resolve();
+      } 
+    })
+   })
+  }
+async function kaika (){
+ return new Promise((resolve) => {
+     
+ let plant6_url = {
+   		url: 'https://api.m.jd.com/api?functionId=superBrandDoTask&appid=ProductZ4Brand&client=wh5&t=1622610530872&body={"source":"secondfloor","activityId":1000007,"encryptProjectId":"cUNnf3E6aMLQcEQbTVxn8AyhjXb","encryptAssignmentId":"E3bqD3QVwhg8TLhvDHZY5pd3RfU","assignmentType":7,"itemId":"7701516208","actionType":0}',
+        //headers: JSON.parse(kjjhd),
+      headers: {
+
+        "Cookie": cookie,
+         "Origin": "https://prodev.m.jd.com",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36",
+      }
+        
+   	}
+   $.post(plant6_url,async(error, response, data) =>{
+    try{
+        const result = JSON.parse(data)
+        console.log(result)
+        if(logs)$.log(data)
+
+          if(result.code == 0){
+//await notify.sendNotify(`${$.name} - ${$.UserName}`, `京东账号${$.index} ${$.UserName}`+'\n签到完成');
+} else {
+       console.log(result.bizMsg)
+}
+          
+        }catch(e) {
+          $.logErr(e, response);
+      } finally {
+        resolve();
+      } 
+    })
+   })
+  }
 
 function help(pin) {
     return new Promise(async (resolve) => {
@@ -134,56 +201,7 @@ function help(pin) {
     });
 }
 
-function filpCard(id) {
-    return new Promise(async (resolve) => {
-        const options = taskPostUrl(`functionId=superbrand_filpCard&body={"cardId":${id}}&client=wh5&clientVersion=1.0.0&appid=content_ecology&uuid=2393039353533623-7383235613364343&t=1622584839698`)
-        $.post(options, async (err, resp, data) => {
-            try {
-                if (err) {
-                    console.log(`${JSON.stringify(err)}`);
-                    console.log(`${$.name} API请求失败，请检查网路重试`);
-                } else {
-                    data = JSON.parse(data);
-                    if (data && data.code === 0) {
-                        if (data.data.bizCode === 0) {
-                            console.log(`获得${data.data.result.jpeasList[0].prizeName}`)
-                        } else {
-                            console.log(data.data.bizMsg)
-                        }
-                    }
-                }
-            } catch (e) {
-                $.logErr(e, resp);
-            } finally {
-                resolve();
-            }
-        });
-    });
-}
 
-function dotask(type, id) {
-    return new Promise(async (resolve) => {
-        const options = taskPostUrl(`functionId=superbrand_doTask&body={"taskType":${type},"taskId":${id}}&client=wh5&clientVersion=1.0.0&appid=content_ecology&uuid=2393039353533623-7383235613364343&t=1622583266816`)
-        $.post(options, (err, resp, data) => {
-            try {
-                if (err) {
-                    console.log(`${JSON.stringify(err)}`);
-                    console.log(`${$.name} API请求失败，请检查网路重试`);
-                } else {
-                    data = JSON.parse(data);
-                    if (data && data.code === 0) {
-                        console.log(`任务完成`);
-                    }
-
-                }
-            } catch (e) {
-                $.logErr(e, resp);
-            } finally {
-                resolve();
-            }
-        });
-    });
-}
 
 function taskPostUrl(body) {
     let o = '',
