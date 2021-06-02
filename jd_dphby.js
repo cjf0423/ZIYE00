@@ -89,12 +89,12 @@ async function hby(){
    $.post(plant6_url,async(error, response, data) =>{
     try{
        // const result = JSON.parse(data)
-        //console.log(result)
+        console.log(data)
         if(logs)$.log(data)
 
           if(data != 0){
 //await notify.sendNotify(`${$.name} - ${$.UserName}`, `京东账号${$.index} ${$.UserName}`+'\n签到完成');
-allMessage += `京东账号${$.index}-${$.nickName || $.UserName}\n红包雨:${$.data}${$.index !== cookiesArr.length ? '\n\n' : '\n\n'}`;
+//allMessage += `京东账号${$.index}-${$.nickName || $.UserName}\n红包雨:data,${$.index !== cookiesArr.length ? '\n\n' : '\n\n'}`;
 } else {
        //console.log(result)
 }
