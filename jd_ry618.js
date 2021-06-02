@@ -78,11 +78,11 @@ function list() {
         } else {
           if (safeGet(data)) {
             //console.log(`${data}`);
-           sjlist = data.match(/.+/)
+          
             data = JSON.parse(data);
            
             if (data.msg== "调用成功") {
-            //sjlist = data
+             sjlist = data.match(/.+/)
             }
           }
         }
