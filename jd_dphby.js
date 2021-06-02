@@ -90,8 +90,8 @@ async function hby(){
         //const result = JSON.parse(data)
         console.log(data)
         if(logs)$.log(data)
-        result = data.match(/prizeName":"(.*?)"/)[1]
-          if(result != 0){
+        //result = data.match(/prizeName":"(.*?)"/)[1]
+          if( data.indexOf("豆")>-1){
 
 result = data.match(/prizeName":"(.*?)"/)[1]
 
