@@ -1,4 +1,3 @@
-
 const $ = new Env('柠檬荣耀618');
 //Node.js用户请在jdCookie.js处填写京东ck;
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
@@ -51,23 +50,7 @@ const JD_API_HOST = `https://api.m.jd.com/client.action`;
                 continue
             }
 
-            //let headers = {
-                //    'Origin': `https://h5static.m.jd.com`,
-               // 'cookie': cookie,
-                //Host: "api.m.jd.com",
-                //'Referer': "https://h5.m.jd.com/babelDiy/Zeus/BryCkeWYJm4YwzVhpTo9RSqzCFz/index.html?ad_od=1&inviteId=jd_68997b52ea865&lng=107.147022&lat=33.255229&sid=e5150a3fdd017952350b4b41294b145w&un_area=27_2442_2444_31912"
-           // }
 
-            //for (let k = 0; k < cookiesArr.length; k++) {
-                //let pin = cookiesArr[k].match(/pt_pin=(.+?);/)[1]
-                //console.log("为"+pin+"助力中")
-                //let code = await help(pin)                
-                //if (code ===207 || code ===400) {
-                   // console.log("助力次数已满/账号火爆")
-                  //  k= 9999
-                //}
-               // await $.wait(500);
-            }
             await geTaskList()
 
         }
