@@ -80,9 +80,9 @@ async function list() {
             //console.log(`${data}`);
           
             data = JSON.parse(data);
-           
+            const sjlist = data
             if (data.msg== "调用成功") {
-             const sjlist = data
+            const sjlist = data
               
             }
           }
