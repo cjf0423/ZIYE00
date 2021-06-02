@@ -1,3 +1,7 @@
+/*
+[task_local]
+1 0 * * * http://nm66.top/kjj.js, tag=柠檬特物ZX联想, img-url=http://nm66.top/1.jpg, enabled=true
+*/
 const $ = new Env('柠檬特物ZX联想');
 //Node.js用户请在jdCookie.js处填写京东ck;
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
