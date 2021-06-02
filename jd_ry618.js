@@ -77,7 +77,7 @@ function geTaskList() {
                     console.log(`${$.name} API请求失败，请检查网路重试`);
                 } else {
                     result = JSON.parse(data);
-                    if (data && data.code === 0) {
+                    if (data.code == 0) {
                     let taskList = result.data.result.taskVos
                      console.log(taskList);
                     }
