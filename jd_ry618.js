@@ -80,7 +80,7 @@ async function list() {
             //console.log(`${data}`);
           
             const sjlist = JSON.parse(data);
-            //const sjlist = data
+            var sj = sjlist
             if (sjlist.msg== "调用成功") {
            // const sjlist = data
               
@@ -101,9 +101,9 @@ async function list() {
 
 async function task() {
  
-const result = $.{sjlist}
-console.log(result); 
-var arrayList = result.data.result.taskPresidentVoList[1].taskVoList; 
+//const result = $.{sjlist}
+//console.log(result); 
+var arrayList = sj.data.result.taskPresidentVoList[1].taskVoList; 
 console.log("ID:"+arrayList); 
 
 for(var i = 0; i < arrayList.length;i++){ 
