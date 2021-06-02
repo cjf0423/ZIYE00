@@ -86,10 +86,11 @@ async function qiandao(){
    $.post(plant6_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
+        console.log(result)
         if(logs)$.log(data)
 
           if(result.code == 0){
-          await notify.sendNotify(`${$.name}cookie已失效 - ${$.UserName}`, `京东账号${$.index} ${$.UserName}+data.bizMsg+"\n签到积分："+data.result.restScore`); 
+    await notify.sendNotify(`${$.name}cookie已失效 - ${$.UserName}`, `京东账号${$.index} ${$.UserName}\nresult.bizMsg+\n签到积分+result.result.restScore`); 
 
 } else {
        console.log(result.bizMsg)
