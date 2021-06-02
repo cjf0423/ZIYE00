@@ -78,7 +78,7 @@ function geTaskList() {
                 } else {
                     data = JSON.parse(data);
                     if (data && data.code === 0) {
-                        let taskList = data.result.taskVos
+                        let taskList = data.data.result.taskVos
                      console.log(taskList);
                     }
                     console.log(`获取任务列表成功\n`);
