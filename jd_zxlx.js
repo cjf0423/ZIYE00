@@ -91,7 +91,8 @@ async function qiandao(){
 
           if(result.code == 0){
     //await notify.sendNotify(`${$.name} - ${$.UserName}`, `京东账号${$.index} ${$.UserName}`+result.bizMsg+"\n签到积分"+result.result.restScore); 
-await notify.sendNotify(`${$.name} - 柠檬特物ZX联想`, `京东账号${$.index} ${$.nickName}`+result.bizMsg+"\n签到积分\n"+result.result.restScore)
+//await notify.sendNotify(`${$.name} - 柠檬特物ZX联想`, `京东账号${$.index} ${$.nickName}`+result.bizMsg+"\n签到积分\n"+result.result.restScore)
+              await notify.sendNotify(`${$.name}柠檬特物ZX联想 - ${$.UserName}`, `京东账号${$.index} ${$.UserName}`+result.bizMsg);
 } else {
        console.log(result.bizMsg)
 }
