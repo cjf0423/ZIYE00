@@ -173,36 +173,109 @@ async function kaika (){
    })
   }
 
-function help(pin) {
-    return new Promise(async (resolve) => {
-        const options = taskPostUrl(`functionId=superbrand_doTask&body={"taskType":"4","inviteId":"${pin}"}&client=wh5&clientVersion=1.0.0&appid=content_ecology&uuid=2393039353533623-7383235613364343&t=1622582583791`)
-        $.post(options, async (err, resp, data) => {
-            try {
-                if (err) {
-                    console.log(`${JSON.stringify(err)}`);
-                    console.log(`${$.name} API请求失败，请检查网路重试`);
-                } else {
-                    console.log(data)
-                    data = JSON.parse(data);
-                    if (data && data.code === 0) {
-                        if (data.data.bizCode === 0) {
-                            console.log("助力成功啦~")
-                        }
-                        resolve(data.data.bizCode)
-                    }
+async function help(){
+ return new Promise((resolve) => {
+     
+ let plant6_url = {
+   		url: 'https://api.m.jd.com/api?functionId=superBrandDoTask&appid=ProductZ4Brand&client=wh5&t=1622610530872&body={"source":"secondfloor","activityId":1000007,"encryptProjectId":"cUNnf3E6aMLQcEQbTVxn8AyhjXb","encryptAssignmentId":"2jpJFvC9MBNC7Qsqrt8WzEEcVoiT","assignmentType":2,"itemId":"S5KkcRkpNpFGFKRKik_YMIg","actionType":0}',
+        //headers: JSON.parse(kjjhd),
+      headers: {
 
-                }
-            } catch (e) {
-                $.logErr(e, resp);
-            } finally {
-                resolve();
-            }
-        });
-    });
+        "Cookie": cookie,
+         "Origin": "https://prodev.m.jd.com",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36",
+      }
+        
+   	}
+   $.post(plant6_url,async(error, response, data) =>{
+    try{
+        const result = JSON.parse(data)
+        console.log(result)
+        if(logs)$.log(data)
+
+          if(result.code == 0){
+//await notify.sendNotify(`${$.name} - ${$.UserName}`, `京东账号${$.index} ${$.UserName}`+'\n签到完成');
+} else {
+       console.log(result.bizMsg)
 }
+          
+        }catch(e) {
+          $.logErr(e, response);
+      } finally {
+        resolve();
+      } 
+    })
+   })
+  }
 
+async function help2(){
+ return new Promise((resolve) => {
+     
+ let plant6_url = {
+   		url: 'https://api.m.jd.com/api?functionId=superBrandDoTask&appid=ProductZ4Brand&client=wh5&t=1622610530872&body={"source":"secondfloor","activityId":1000007,"encryptProjectId":"cUNnf3E6aMLQcEQbTVxn8AyhjXb","encryptAssignmentId":"2jpJFvC9MBNC7Qsqrt8WzEEcVoiT","assignmentType":2,"itemId":"S5KkcRkpNpFGFKRKik_YMI1","actionType":0}',
+        //headers: JSON.parse(kjjhd),
+      headers: {
 
+        "Cookie": cookie,
+         "Origin": "https://prodev.m.jd.com",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36",
+      }
+        
+   	}
+   $.post(plant6_url,async(error, response, data) =>{
+    try{
+        const result = JSON.parse(data)
+        console.log(result)
+        if(logs)$.log(data)
 
+          if(result.code == 0){
+//await notify.sendNotify(`${$.name} - ${$.UserName}`, `京东账号${$.index} ${$.UserName}`+'\n签到完成');
+} else {
+       console.log(result.bizMsg)
+}
+          
+        }catch(e) {
+          $.logErr(e, response);
+      } finally {
+        resolve();
+      } 
+    })
+   })
+  }
+async function help3(){
+ return new Promise((resolve) => {
+     
+ let plant6_url = {
+   		url: 'https://api.m.jd.com/api?functionId=superBrandDoTask&appid=ProductZ4Brand&client=wh5&t=1622610530872&body={"source":"secondfloor","activityId":1000007,"encryptProjectId":"cUNnf3E6aMLQcEQbTVxn8AyhjXb","encryptAssignmentId":"2jpJFvC9MBNC7Qsqrt8WzEEcVoiT","assignmentType":2,"itemId":"15KkcRkpNpFGFKRKik_YMIg","actionType":0}',
+        //headers: JSON.parse(kjjhd),
+      headers: {
+
+        "Cookie": cookie,
+         "Origin": "https://prodev.m.jd.com",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36",
+      }
+        
+   	}
+   $.post(plant6_url,async(error, response, data) =>{
+    try{
+        const result = JSON.parse(data)
+        console.log(result)
+        if(logs)$.log(data)
+
+          if(result.code == 0){
+//await notify.sendNotify(`${$.name} - ${$.UserName}`, `京东账号${$.index} ${$.UserName}`+'\n签到完成');
+} else {
+       console.log(result.bizMsg)
+}
+          
+        }catch(e) {
+          $.logErr(e, response);
+      } finally {
+        resolve();
+      } 
+    })
+   })
+  }
 function taskPostUrl(body) {
     let o = '',
         r = '';
