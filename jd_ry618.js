@@ -51,101 +51,19 @@ const JD_API_HOST = `https://api.m.jd.com/client.action`;
             }
 
 
-            await geTaskList()
-
+            await dotask("P225KkcRkpNpFGFKRKik_YMIgCjRWm4aS5jQICGD43XxDlY4","2")
         }
     }
 
 })()
-.catch((e) => $.logErr(e))
-    .finally(() => $.done())
-//获取活动信息
-function shareCodesFormat() {
-    return new Promise(async resolve => {
+  .catch((e) => {
+    $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
+  })
+  .finally(() => {
+    $.done();
+  })
 
-        //     resolve();
-    })
-}
 
-function geTaskList() {
-    return new Promise(async (resolve) => {
-        const options = taskPostUrl(`functionId=healthyDay_getHomeData&body={"appId":"1EFVRxw","taskToken":"","channelId":1}&client=wh5&clientVersion=1.0.0`)
-        $.post(options, async (err, resp, data) => {
-            try {
-                if (err) {
-                    console.log(`${JSON.stringify(err)}`);
-                    console.log(`${$.name} API请求失败，请检查网路重试`);
-                } else {
-                    result = JSON.parse(data);
-                    if (data.code == 0) {
-                    let taskList = result.data.result.taskVos
-                     console.log(taskList);
-                    }
-                    console.log(`获取任务列表成功\n`);
-                }
-            } catch (e) {
-                $.logErr(e, resp);
-            } finally {
-                resolve();
-            }
-        });
-    });
-}
-
-function help(pin) {
-    return new Promise(async (resolve) => {
-        const options = taskPostUrl(`functionId=superbrand_doTask&body={"taskType":"4","inviteId":"${pin}"}&client=wh5&clientVersion=1.0.0&appid=content_ecology&uuid=2393039353533623-7383235613364343&t=1622582583791`)
-        $.post(options, async (err, resp, data) => {
-            try {
-                if (err) {
-                    console.log(`${JSON.stringify(err)}`);
-                    console.log(`${$.name} API请求失败，请检查网路重试`);
-                } else {
-                    console.log(data)
-                    data = JSON.parse(data);
-                    if (data && data.code === 0) {
-                        if (data.data.bizCode === 0) {
-                            console.log("助力成功啦~")
-                        }
-                        resolve(data.data.bizCode)
-                    }
-
-                }
-            } catch (e) {
-                $.logErr(e, resp);
-            } finally {
-                resolve();
-            }
-        });
-    });
-}
-
-function filpCard(id) {
-    return new Promise(async (resolve) => {
-        const options = taskPostUrl(`functionId=superbrand_filpCard&body={"cardId":${id}}&client=wh5&clientVersion=1.0.0&appid=content_ecology&uuid=2393039353533623-7383235613364343&t=1622584839698`)
-        $.post(options, async (err, resp, data) => {
-            try {
-                if (err) {
-                    console.log(`${JSON.stringify(err)}`);
-                    console.log(`${$.name} API请求失败，请检查网路重试`);
-                } else {
-                    data = JSON.parse(data);
-                    if (data && data.code === 0) {
-                        if (data.data.bizCode === 0) {
-                            console.log(`获得${data.data.result.jpeasList[0].prizeName}`)
-                        } else {
-                            console.log(data.data.bizMsg)
-                        }
-                    }
-                }
-            } catch (e) {
-                $.logErr(e, resp);
-            } finally {
-                resolve();
-            }
-        });
-    });
-}
 
 function dotask(type, id) {
     return new Promise(async (resolve) => {
