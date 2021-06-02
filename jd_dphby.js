@@ -91,10 +91,10 @@ async function hby(){
         console.log(data)
         if(logs)$.log(data)
         //result = data.match(/prizeName":"(.*?)"/)[1]
-          if(data.indexOf("ext")>-1){
+          if(data.indexOf("ext") > -1){
 
 result = data.match(/ext":"(.*?)"/)[1]
-
+console.log(result)
 //await notify.sendNotify(`${$.name} - ${$.UserName}`, `京东账号${$.index} ${$.UserName}`+'\n红包雨'+result);
 } else {
        //console.log(result)
