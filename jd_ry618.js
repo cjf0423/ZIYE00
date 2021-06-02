@@ -99,9 +99,9 @@ async function list() {
 
 
 
-function task() {
+async function task() {
  
-const result = sjlist
+const result = $.{sjlist}
 console.log(result); 
 var arrayList = result.data.result.taskPresidentVoList[1].taskVoList; 
 console.log("ID:"+arrayList); 
@@ -138,7 +138,7 @@ for(var i = 0; i < arrayList.length;i++){
 }  
 }
 
-function zhuli() {
+async function zhuli() {
   let body = {"taskType":"4","inviteId":"jd_6dda5b98f716f"}
   return new Promise((resolve) => {
     $.post(taskPostUrl("superbrand_doTask",body), async (err, resp, data) => {
@@ -165,7 +165,7 @@ function zhuli() {
 }
 
 
-function taskPostUrl(functionId,body) {
+async function taskPostUrl(functionId,body) {
   return {
     url: `${JD_API_HOST}`,
     body: `functionId=${functionId}&body=${escape(JSON.stringify(body))}&client=wh5&clientVersion=1.0.0&appid=content_ecology&uuid=6898c30638c55142969304c8e2167997fa59eb54&t=1622588448365`,
@@ -182,7 +182,7 @@ function taskPostUrl(functionId,body) {
 }
 
 
-function TotalBean() {
+async function TotalBean() {
   return new Promise(async resolve => {
     const options = {
       "url": `https://wq.jd.com/user/info/QueryJDUserInfo?sceneval=2`,
@@ -226,7 +226,7 @@ function TotalBean() {
     })
   })
 }
-function safeGet(data) {
+async function safeGet(data) {
   try {
     if (typeof JSON.parse(data) == "object") {
       return true;
