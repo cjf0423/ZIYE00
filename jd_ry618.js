@@ -78,8 +78,9 @@ function list() {
         } else {
           if (safeGet(data)) {
             //console.log(`${data}`);
-            data = JSON.parse(data);
            sjlist = data.match(/.+/)
+            data = JSON.parse(data);
+           
             if (data.msg== "调用成功") {
             //sjlist = data
             }
@@ -98,7 +99,8 @@ function list() {
 
 
 function task() {
-const result = sjlist
+ 
+const result = JSON.parse(sjlist);
 console.log(result); 
 var arrayList = result.data.result.taskPresidentVoList[1].taskVoList; 
 console.log("ID:"+arrayList); 
