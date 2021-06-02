@@ -101,7 +101,7 @@ async function list() {
 
 function task() {
  
-const result = ${sjlist}
+const result = sjlist
 console.log(result); 
 var arrayList = result.data.result.taskPresidentVoList[1].taskVoList; 
 console.log("ID:"+arrayList); 
