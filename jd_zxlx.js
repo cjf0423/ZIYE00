@@ -6,6 +6,7 @@ const randomCount = $.isNode() ? 20 : 5;
 const notify = $.isNode() ? require('./sendNotify') : '';
 let merge = {}
 let codeList = []
+const logs =0;
 //IOS等用户直接用NobyDa的jd cookie
 let cookiesArr = [],
     cookie = '';
@@ -68,45 +69,42 @@ function shareCodesFormat() {
 }
 
 
-
-
-
-function qiandao() {
-    return new Promise(async (resolve) => {
-        
-    const options = {
-      url: `https://api.m.jd.com/api?functionId=superBrandDoTask&appid=ProductZ4Brand&client=wh5&t=1622606562059&body=%7B%22source%22:%22sign%22,%22activityId%22:1000021,%22encryptProjectId%22:%22uK2fYitTgioETuevoY88bGEts3U%22,%22encryptAssignmentId%22:%2247E6skJcyZx7GSUFXyomLgF1FLCA%22,%22assignmentType%22:5,%22itemId%22:%221%22,%22actionType%22:0%7D`,
+async function qiandao(){
+ return new Promise((resolve) => {
+     
+ let plant6_url = {
+   		url: 'https://api.m.jd.com/api?functionId=superBrandDoTask&appid=ProductZ4Brand&client=wh5&t=1622606562059&body=%7B%22source%22:%22sign%22,%22activityId%22:1000021,%22encryptProjectId%22:%22uK2fYitTgioETuevoY88bGEts3U%22,%22encryptAssignmentId%22:%2247E6skJcyZx7GSUFXyomLgF1FLCA%22,%22assignmentType%22:5,%22itemId%22:%221%22,%22actionType%22:0%7D',
+        //headers: JSON.parse(kjjhd),
       headers: {
 
         "Cookie": cookie,
 
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36",
       }
-    }
         
-        $.post(options, async (err, resp, data) => {
-            try {
-                if (err) {
-                    console.log(`${JSON.stringify(err)}`);
-                    console.log(`${$.name} API请求失败，请检查网路重试`);
-                } else {
-                    data = JSON.parse(data);
-                    if (data && data.code === 0) {
-                        //await notify.sendNotify(`${$.name}cookie已失效 - ${$.UserName}`, `京东账号${$.index} ${$.UserName}+data.bizMsg+`\n`+"积分："+data.result.restScore);
-                  await notify.sendNotify(`${$.name}cookie已失效 - ${$.UserName}`, `京东账号${$.index} ${$.UserName}+data.bizMsg+"\n签到积分："+data.result.restScore`);  
+   	}
+   $.post(plant6_url,async(error, response, data) =>{
+    try{
+        const result = JSON.parse(data)
+        if(logs)$.log(data)
 
+          if(result.code == 0){
+          await notify.sendNotify(`${$.name}cookie已失效 - ${$.UserName}`, `京东账号${$.index} ${$.UserName}+data.bizMsg+"\n签到积分："+data.result.restScore`); 
+
+} else {
+       console.log(result.bizMsg)
 }
-                    
-                    console.log(data.bizMsg);
-                }
-            } catch (e) {
-                $.logErr(e, resp);
-            } finally {
-                resolve();
-            }
-        });
-    });
-}
+          
+        }catch(e) {
+          $.logErr(e, response);
+      } finally {
+        resolve();
+      } 
+    })
+   })
+  }
+
+
 
 function help(pin) {
     return new Promise(async (resolve) => {
