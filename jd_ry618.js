@@ -47,9 +47,10 @@ const JD_API_HOST = 'https://api.m.jd.com/client.action';
         }
         continue
       }
-      //await requireConfig()
+      await zhuli()
       await list()
       await task()
+     
       
 
     }
@@ -96,7 +97,7 @@ function list() {
 
 
 function task() {
-const result = JSON.parse(sjlist)
+const result = JSON.parse(${sjlist})
 //console.log(result); 
 var arrayList = result.data.result.taskPresidentVoList[1].taskVoList; 
 //console.log(arrayList); 
