@@ -1,29 +1,5 @@
-/*
-总裁送好礼@wenmoux
-跑两次就行 日志骗人的
-没加判断 凑合用吧 或者等大佬发脚本
-抄自 @yangtingxiao 抽奖机脚本
-活动入口：
-更新地址：https://cdn.jsdelivr.net/gh/Wenmoux/scripts/js/babelDiy.js
-已支持IOS双京东账号, Node.js支持N个京东账号
-脚本兼容: QuantumultX, Surge, Loon, 小火箭，JSBox, Node.js
-============Quantumultx===============
-[task_local]
-#沸腾之夜抽奖
-30 9,10 * * * https://cdn.jsdelivr.net/gh/Wenmoux/scripts/babelDiy.js, tag=总裁送好礼, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
 
-================Loon==============
-[Script]
-cron "30 9,10 * * *" script-path=https://g/jd_scripts/raw/ tag=总裁送好礼
-
-===============Surge=================
-总裁送好礼 = type=cron,cronexp="30 9,10 * * *",wake-system=1,timeout=3600,script-path=https://cdn.jsdelivr.net/gh/Wenmoux/scripts/js/babelDiy.js
-
-============小火箭=========
-总裁送好礼 = type=cron,script-path=https://cdn.jsdelivr.net/gh/Wenmoux/scripts/js/babelDiy.js, cronexpr="30 9,10 * * *", timeout=3600, enable=true
-
- */
-const $ = new Env('总裁送好礼');
+const $ = new Env('柠檬荣耀618');
 //Node.js用户请在jdCookie.js处填写京东ck;
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 
@@ -75,22 +51,22 @@ const JD_API_HOST = `https://api.m.jd.com/client.action`;
                 continue
             }
 
-            let headers = {
+            //let headers = {
                 //    'Origin': `https://h5static.m.jd.com`,
-                'cookie': cookie,
-                Host: "api.m.jd.com",
-                'Referer': "https://h5.m.jd.com/babelDiy/Zeus/BryCkeWYJm4YwzVhpTo9RSqzCFz/index.html?ad_od=1&inviteId=jd_68997b52ea865&lng=107.147022&lat=33.255229&sid=e5150a3fdd017952350b4b41294b145w&un_area=27_2442_2444_31912"
-            }
+               // 'cookie': cookie,
+                //Host: "api.m.jd.com",
+                //'Referer': "https://h5.m.jd.com/babelDiy/Zeus/BryCkeWYJm4YwzVhpTo9RSqzCFz/index.html?ad_od=1&inviteId=jd_68997b52ea865&lng=107.147022&lat=33.255229&sid=e5150a3fdd017952350b4b41294b145w&un_area=27_2442_2444_31912"
+           // }
 
-            for (let k = 0; k < cookiesArr.length; k++) {
-                let pin = cookiesArr[k].match(/pt_pin=(.+?);/)[1]
-                console.log("为"+pin+"助力中")
-                let code = await help(pin)                
-                if (code ===207 || code ===400) {
-                    console.log("助力次数已满/账号火爆")
-                    k= 9999
-                }
-                await $.wait(500);
+            //for (let k = 0; k < cookiesArr.length; k++) {
+                //let pin = cookiesArr[k].match(/pt_pin=(.+?);/)[1]
+                //console.log("为"+pin+"助力中")
+                //let code = await help(pin)                
+                //if (code ===207 || code ===400) {
+                   // console.log("助力次数已满/账号火爆")
+                  //  k= 9999
+                //}
+               // await $.wait(500);
             }
             await geTaskList()
 
@@ -110,7 +86,7 @@ function shareCodesFormat() {
 
 function geTaskList() {
     return new Promise(async (resolve) => {
-        const options = taskPostUrl(`functionId=superbrand_getHomePageData&body={}&client=wh5&clientVersion=1.0.0&appid=content_ecology&uuid=2393039353533623-7383235613364343&t=1622583423563`)
+        const options = taskPostUrl(`functionId=healthyDay_getHomeData&body={"appId":"1EFVRxw","taskToken":"","channelId":1}&client=wh5&clientVersion=1.0.0`)
         $.post(options, async (err, resp, data) => {
             try {
                 if (err) {
@@ -119,24 +95,8 @@ function geTaskList() {
                 } else {
                     data = JSON.parse(data);
                     if (data && data.code === 0) {
-                        let taskList = data.data.result.taskPresidentVoList
-                              console.log("开始执行品牌会场任务")
-                               for (task of  taskList[1].taskVoList ){
-                               type = taskList[1].taskType
-                               await dotask(type,task.taskId) 
-                                 await $.wait(500);       
-                               }
-                            console.log("开始执行超级会场任务")   
-                           for (task of  taskList[2].taskVoList ){
-                               type = taskList[2].taskType
-                               await dotask(type,task.taskId)   
-                                  await $.wait(500);    
-                               }   
-                        console.log("开始翻牌")
-                        for (card of data.data.result.giftCardVoList) {
-                            await filpCard(card.cardId)
-                            await $.wait(500);
-                        }
+                        let taskList = data.result.taskVos
+                     console.log(taskList);
                     }
                     console.log(`获取任务列表成功\n`);
                 }
@@ -206,7 +166,8 @@ function filpCard(id) {
 
 function dotask(type, id) {
     return new Promise(async (resolve) => {
-        const options = taskPostUrl(`functionId=superbrand_doTask&body={"taskType":${type},"taskId":${id}}&client=wh5&clientVersion=1.0.0&appid=content_ecology&uuid=2393039353533623-7383235613364343&t=1622583266816`)
+        //const options = taskPostUrl(`functionId=superbrand_doTask&body={"taskType":${type},"taskId":${id}}&client=wh5&clientVersion=1.0.0&appid=content_ecology&uuid=2393039353533623-7383235613364343&t=1622583266816`)
+       const options = taskPostUrl(`functionId=harmony_collectScore&body={"appId":"1EFVRxw","taskToken":${type},"taskId":${id},"actionType":"0"}&client=wh5&clientVersion=1.0.0`)
         $.post(options, (err, resp, data) => {
             try {
                 if (err) {
