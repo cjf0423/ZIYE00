@@ -60,7 +60,7 @@ const JD_API_HOST = `https://api.m.jd.com/client.action`;
 })()
 .catch((e) => $.logErr(e))
     .finally(() => $.done())
-//获取活动信息
+
 function shareCodesFormat() {
     return new Promise(async resolve => {
 
@@ -86,13 +86,13 @@ async function qiandao(){
    $.post(plant6_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-        console.log(result.bizMsg)
+        console.log(result)
         if(logs)$.log(data)
 
           if(result.code == 0){
-    //await notify.sendNotify(`${$.name} - ${$.UserName}`, `京东账号${$.index} ${$.UserName}`+result.bizMsg+"\n签到积分"+result.result.restScore); 
-//await notify.sendNotify(`${$.name} - 柠檬特物ZX联想`, `京东账号${$.index} ${$.nickName}`+result.bizMsg+"\n签到积分\n"+result.result.restScore)
-              //await notify.sendNotify(`${$.name}柠檬特物ZX联想 - ${$.UserName}`, `京东账号${$.index} ${$.UserName}`+result.bizMsg);
+
+             Score = data.match(/restScore:(.*?),/)[1]
+              await notify.sendNotify(`${$.name} - ${$.UserName}`, `京东账号${$.index} ${$.UserName}`+'\n签到完成，签到积分：'+Score);
 } else {
        console.log(result.bizMsg)
 }
