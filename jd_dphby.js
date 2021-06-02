@@ -87,14 +87,14 @@ async function hby(){
    	}
    $.post(plant6_url,async(error, response, data) =>{
     try{
-        const result = JSON.parse(data)
-        console.log(result)
+        //const result = JSON.parse(data)
+       // console.log(result)
         if(logs)$.log(data)
-
-          if(result.code == 0){
-//await notify.sendNotify(`${$.name} - ${$.UserName}`, `京东账号${$.index} ${$.UserName}`+'\n签到完成');
+         result = data.match(/prizeName":"(.*?)"/)[1]
+          if(result != 0){
+await notify.sendNotify(`${$.name} - ${$.UserName}`, `京东账号${$.index} ${$.UserName}`+'\n红包雨'+result);
 } else {
-       console.log(result)
+       //console.log(result)
 }
           
         }catch(e) {
