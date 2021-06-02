@@ -74,7 +74,7 @@ async function task() {
 const result = JSON.parse(str)
 console.log(result); 
 var arrayList = result.data.result.taskPresidentVoList[1].taskVoList; 
-console.log("ID:"+arrayList); 
+//console.log("ID:"+arrayList); 
 
 for(var i = 0; i < arrayList.length;i++){ 
 
