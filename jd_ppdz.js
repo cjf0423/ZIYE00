@@ -359,8 +359,8 @@ function rank(timeout = 0) {
              $.log("\n柠檬东东泡泡大战,今日任务已完成\n")
              $.log("\n当前个人积分："+score+"\n当前个人排名："+pm)
              $.log("\n开始时间："+kssj+"\n结束时间："+jssj)
-          allMessage += `${$.name} - 柠檬东东泡泡大战`, `京东账号${$.index} ${$.nickName}`+`\n柠檬东东泡泡大战,今日任务已完成\n`+`\n当前个人积分：`+score+`\n当前个人排名：`+pm+`\n开始时间：`+kssj+`\n结束时间：`+jssj
-   //allMessage += `京东账号${$.index}-${$.nickName || $.UserName}\n柠檬东东泡泡大战,今日任务已完成\n当前个人积分:score\n当前个人排名：pm\n开始时间：kssj\n结束时间：jssj${$.index !== cookiesArr.length ? '\n\n' : '\n\n'}`;
+          //allMessage += `${$.name} - 柠檬东东泡泡大战`, `京东账号${$.index} ${$.nickName}`+`\n柠檬东东泡泡大战,今日任务已完成\n`+`\n当前个人积分：`+score+`\n当前个人排名：`+pm+`\n开始时间：`+kssj+`\n结束时间：`+jssj
+   allMessage += `京东账号${$.index}-${$.nickName || $.UserName}\n柠檬东东泡泡大战,今日任务已完成\n当前个人积分:score\n当前个人排名：pm\n开始时间：kssj\n结束时间：jssj${$.index !== cookiesArr.length ? '\n\n' : '\n\n'}`;
 } else {         
           
                //console.log("柠檬赚京豆步数换京豆:2000步"+data.msg)
