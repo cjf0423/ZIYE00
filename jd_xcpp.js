@@ -1,6 +1,10 @@
 
-const $ = new Env('柠檬新潮品牌联欢');
-//Node.js用户请在jdCookie.js处填写京东ck;
+ [task_local]
+ #柠檬东东泡泡大战
+ 1 0 * * * https://raw.githubusercontent.com/panghu999/panghu/master/jd_ppdz.js, tag=柠檬东东泡泡大战, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
+*/
+
+const $ = new Env('柠檬东东泡泡大战');
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 
 const randomCount = $.isNode() ? 20 : 5;
@@ -8,8 +12,8 @@ const notify = $.isNode() ? require('./sendNotify') : '';
 let merge = {}
 let codeList = []
 const logs =0;
-//IOS等用户直接用NobyDa的jd cookie
 let allMessage = '';
+//IOS等用户直接用NobyDa的jd cookie
 let cookiesArr = [],
     cookie = '';
 if ($.isNode()) {
@@ -40,7 +44,7 @@ const JD_API_HOST = `https://api.m.jd.com/client.action`;
             $.beans = 0
             message = ''
 
-            //   await shareCodesFormat();
+           //await TotalBean();
             console.log(`\n******开始【京东账号${$.index}】${$.nickName || $.UserName}*********\n`);
             if (!$.isLogin) {
                 $.msg($.name, `【提示】cookie已失效`, `京东账号${$.index} ${$.nickName || $.UserName}\n请重新登录获取\nhttps://bean.m.jd.com/bean/signIndex.action`, {
@@ -53,27 +57,11 @@ const JD_API_HOST = `https://api.m.jd.com/client.action`;
                 continue
             }
 
-            //let headers = {
-               //     'Origin': `https://h5.m.jd.com`,
-               // 'cookie': cookie,
-               // Host: "api.m.jd.com",
-               // 'Referer': "https://h5.m.jd.com/babelDiy/Zeus/BryCkeWYJm4YwzVhpTo9RSqzCFz/index.html?ad_od=1&inviteId=jd_68997b52ea865&lng=107//.147022&lat=33.255229&sid=e5150a3fdd017952350b4b41294b145w&un_area=27_2442_2444_31912"
-            //}
-
-            //for (let k = 0; k < cookiesArr.length; k++) {
-               // let pin = cookiesArr[k].match(/pt_pin=(.+?);/)[1]
-               // console.log("为"+pin+"助力中")
-               //let code = await help(pin)                
-                //if (code ===207 || code ===400) {
-                //    console.log("助力次数已满/账号火爆")
-                //    k= 9999
-                //}
-               // await $.wait(500);
-           // }
-            await geTaskList()
-            await cj()
+     await getTasklist()
+     await cj()
         }
     }
+
 if ($.isNode() && allMessage) {
         await notify.sendNotify(`${$.name}`, `${allMessage}` )
     }
@@ -84,7 +72,6 @@ if ($.isNode() && allMessage) {
     .finally(() => {
         $.done();
   })
-
 
 
 function geTaskList() {
