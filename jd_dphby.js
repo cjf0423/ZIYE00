@@ -1,6 +1,6 @@
 /*
 [task_local]
-1 0 * * * https://raw.githubusercontent.com/panghu999/panghu/master/jd_gcip.js, tag= 柠檬特物国创IP, img-url=http://nm66.top/1.jpg, enabled=true
+1 0 * * * https://raw.githubusercontent.com/panghu999/panghu/master/jd_dphby.js, tag= 柠檬大牌闪购红包雨, img-url=http://nm66.top/1.jpg, enabled=true
 */
 const $ = new Env('柠檬大牌闪购红包雨');
 //Node.js用户请在jdCookie.js处填写京东ck;
