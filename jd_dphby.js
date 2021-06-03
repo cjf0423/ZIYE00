@@ -91,12 +91,12 @@ async function hby(){
        // const result = JSON.parse(data)
         console.log(data)
         if(logs)$.log(data)
-
+console.log(data)
           if(data != 0){
 //await notify.sendNotify(`${$.name} - ${$.UserName}`, `京东账号${$.index} ${$.UserName}`+'\n签到完成');
 //allMessage += `京东账号${$.index}-${$.nickName || $.UserName}\n红包雨:data,${$.index !== cookiesArr.length ? '\n\n' : '\n\n'}`;
 } else {
-       //console.log(result)
+      console.log(data)
 }
           
         }catch(e) {
