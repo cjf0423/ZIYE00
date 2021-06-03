@@ -78,15 +78,12 @@ if ($.isNode() && allMessage) {
         await notify.sendNotify(`${$.name}`, `${allMessage}` )
     }
 })()
-.catch((e) => $.logErr(e))
-    .finally(() => $.done())
-//获取活动信息
-//function shareCodesFormat() {
-    return new Promise(async resolve => {
-
-        //     resolve();
+    .catch((e) => {
+        $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
     })
-}
+    .finally(() => {
+        $.done();
+  })
 
 
 
