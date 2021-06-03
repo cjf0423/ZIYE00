@@ -81,7 +81,7 @@ if ($.isNode() && allMessage) {
 .catch((e) => $.logErr(e))
     .finally(() => $.done())
 //获取活动信息
-function shareCodesFormat() {
+//function shareCodesFormat() {
     return new Promise(async resolve => {
 
         //     resolve();
