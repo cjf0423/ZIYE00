@@ -3,7 +3,6 @@
 1 0 * * * https://raw.githubusercontent.com/panghu999/panghu/master/jd_gcip.js, tag= 柠檬特物国创IP, img-url=http://nm66.top/1.jpg, enabled=true
 */
 const $ = new Env('柠檬特物国创IP');
-//Node.js用户请在jdCookie.js处填写京东ck;
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 
 const randomCount = $.isNode() ? 20 : 5;
@@ -11,6 +10,7 @@ const notify = $.isNode() ? require('./sendNotify') : '';
 let merge = {}
 let codeList = []
 const logs =0;
+let allMessage = '';
 //IOS等用户直接用NobyDa的jd cookie
 let cookiesArr = [],
     cookie = '';
@@ -42,7 +42,7 @@ const JD_API_HOST = `https://api.m.jd.com/client.action`;
             $.beans = 0
             message = ''
 
-            //   await shareCodesFormat();
+           //await TotalBean();
             console.log(`\n******开始【京东账号${$.index}】${$.nickName || $.UserName}*********\n`);
             if (!$.isLogin) {
                 $.msg($.name, `【提示】cookie已失效`, `京东账号${$.index} ${$.nickName || $.UserName}\n请重新登录获取\nhttps://bean.m.jd.com/bean/signIndex.action`, {
@@ -52,28 +52,27 @@ const JD_API_HOST = `https://api.m.jd.com/client.action`;
                 if ($.isNode()) {
                     await notify.sendNotify(`${$.name}cookie已失效 - ${$.UserName}`, `京东账号${$.index} ${$.UserName}\n请重新登录获取cookie`);
                 }
-                //continue
+                continue
             }
 
             await qiandao()
             await guanzhu()
             await kaika()
-            await help()
             await cj()
             await cj1()
         }
     }
 
+if ($.isNode() && allMessage) {
+        await notify.sendNotify(`${$.name}`, `${allMessage}` )
+    }
 })()
-.catch((e) => $.logErr(e))
-    .finally(() => $.done())
-
-function shareCodesFormat() {
-    return new Promise(async resolve => {
-
-        //     resolve();
+    .catch((e) => {
+        $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
     })
-}
+    .finally(() => {
+        $.done();
+  })
 
 
 async function qiandao(){
