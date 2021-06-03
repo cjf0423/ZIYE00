@@ -1,4 +1,4 @@
-
+/*
  [task_local]
  #柠檬新潮品牌
  1 0 * * * https://raw.githubusercontent.com/panghu999/panghu/master/jd_xcpp.js, tag=柠檬东东泡泡大战, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
@@ -57,7 +57,7 @@ const JD_API_HOST = `https://api.m.jd.com/client.action`;
                 continue
             }
 
-     await getTasklist()
+     await getTaskList()
      await cj()
         }
     }
