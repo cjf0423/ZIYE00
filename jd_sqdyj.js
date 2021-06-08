@@ -1,8 +1,8 @@
 /*
 #柠檬省钱大赢家
 #自定义邀请码环境变量
-export redEnvelopeId = "" //本期活动ID
-export inviter = "" //邀请码
+export redEnvelopeId="" ##本期活动ID
+export inviter="" ##邀请码
 
 [task_local]
 #柠檬省钱大赢家
