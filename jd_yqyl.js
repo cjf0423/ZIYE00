@@ -4,7 +4,7 @@
 
  [task_local]
  #柠檬邀请有礼  
- #自定义邀请码环境变量 不设置默认跑我的
+ #自定义邀请码环境变量
 export yqm="你的邀请码"
 #柠檬邀请有礼
 0 0 * * * http://nm66.top/jd_yqyl.js, tag=柠檬邀请有礼, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
@@ -16,7 +16,7 @@ const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 
 //IOS等用户直接用NobyDa的jd cookie
 let cookiesArr = [], cookie = '', message;
-let yqm = 'dS%2Bp85VyjydPuAOOnFP%2Faw%3D%3D';
+let yqm = '';
 if (process.env.yqm) {
   yqm = process.env.yqm;
 }
