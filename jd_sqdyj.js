@@ -80,7 +80,7 @@ function helpme() {
     return new Promise(async (resolve) => {
 
                 let options = {
-    url: `https://api.m.jd.com/?functionId=openRedEnvelopeInteract&body={"linkId":"DA4SkG7NXupA9sksI00L0g","redEnvelopeId":"${redEnvelopeId}}","inviter":"${inviter}","helpType":"1"}&t=1623064535450&appid=activities_platform&clientVersion=3.3.6`,
+    url: `https://api.m.jd.com/?functionId=openRedEnvelopeInteract&body={"linkId":"DA4SkG7NXupA9sksI00L0g","redEnvelopeId":"${redEnvelopeId}","inviter":"${inviter}","helpType":"1"}&t=1623064535450&appid=activities_platform&clientVersion=3.3.6`,
 
     //body: `{"activeId":"A_112790_R_1_D_20201028","refid":"wojing","lkEPin":"${pink}","token":"AAFguxKvADBobq66W4IJvXqvty5l_OLH9MzDgGudMbfKCqDOfRznQ7agP8JaBeMo06pYCflk8I4","source":"wojing","scene":"3"}`,
 headers: {
