@@ -21,11 +21,11 @@ let redEnvelopeId = '';
 let inviter = '';
 
 if (process.env.redEnvelopeId) {
-  yqm = process.env.redEnvelopeId;
+  redEnvelopeId = process.env.redEnvelopeId;
 }
 
 if (process.env.inviter) {
-  yqm = process.env.inviter;
+  inviter = process.env.inviter;
 }
 if ($.isNode()) {
   Object.keys(jdCookieNode).forEach((item) => {
