@@ -126,7 +126,7 @@ if (process.env.PUSH_PLUS_USER) {
 //==========================云端环境变量的判断与接收=========================
 
 
-async function sendNotify(text, desp, params = {}) {
+async function sendNotify(text, desp, params = {},author = '\n\n仅供用于学习 https://t.me/ningmeng999\n柠檬玩机交流') {
   //提供6种通知
   await Promise.all([
     serverNotify(text, desp),//微信server酱
