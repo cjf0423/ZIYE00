@@ -103,42 +103,7 @@ headers: {
 }
 
 
-function helpme1() {
-    return new Promise(async (resolve) => {
 
-                let options = {
-    url: `https://api.m.jd.com/?t=1623066557140`,
-//dS%2Bp85VyjydPuAOOnFP%2Faw%3D%3D
-    body: `client=megatron&clientVersion=1.0.0&networkType=&eid=&fp=-1&uuid=75aeceef3046d8ce11d354ff89af9517a2e4aa11&osVersion=14.3&d_brand=&d_model=&pageClickKey=-1&screen=414*736&lang=zh_CN&functionId=dismantleRedEnvelope&body={"packetId":"85b295e042e24e5b997c36888001e76a","actId":"7f0009deb92548d4b3efe88d718ed3a8","frontendInitStatus":"s","antiToken":"","platform":3}&t=1623123481201&_t=1623123481202`,
-headers: {
-"Origin": "https://pushgold.jd.com",
-"Host": "api.m.jd.com",
-"User-Agent": "jdltapp;iPhone;3.3.6;14.3;75aeceef3046d8ce11d354ff89af9517a2e4aa18;network/wifi;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPhone9,2;addressid/4585826605;hasOCPay/0;appBuild/1060;supportBestPay/0;pv/53.31;apprpd/;ref/https://invite-reward.jd.com/?lng=106.286950&lat=29.969353&sid=547255867e847394aedfb6d68c3e50fw&un_area=4_48201_54794_0#/invitee?inviterId=dS%2Bp85VyjydPuAOOnFP%2Faw%3D%3D;psq/0;ads/;psn/75aeceef3046d8ce11d354ff89af9517a2e4aa18|89;jdv/0|kong|t_1001003207_1762319_6901310|jingfen|30578707801140d09fcd54e5cd83bbf7|1621510932517|1621511027;adk/;app_device/IOS;pap/JA2020_3112531|3.3.6|IOS 14.3;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1",
-      "Cookie": cookie,
-      }
-                }
-      
-        $.post(options, async (err, resp, data) => {
-            try {
-
-                    data = JSON.parse(data);
-
-                    //console.log(data)
-                    
-                    if(data.code == 0){
-                      console.log(data.msg)
-
-                }else
-                
-                    console.log(data.msg)
-            } catch (e) {
-                $.logErr(e, resp);
-            } finally {
-                resolve();
-            }
-        });
-    });
-}
 
 
 
