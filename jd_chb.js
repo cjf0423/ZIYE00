@@ -53,7 +53,7 @@ const JD_API_HOST = 'https://api.m.jd.com/client.action';
       }
      
       await $.wait(10000)
-      await tythelp()
+      await chb()
      
       
 
@@ -68,7 +68,7 @@ const JD_API_HOST = 'https://api.m.jd.com/client.action';
   })
 
 
-function helpme1() {
+function chb() {
     return new Promise(async (resolve) => {
 
                 let options = {
