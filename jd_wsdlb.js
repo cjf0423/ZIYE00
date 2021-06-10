@@ -2,7 +2,7 @@
 
 [task_local]
 #柠檬我是大老板农场
-5 6-18/6 * * * http://nm66.top/jd_wsdlb.js, tag=柠檬我是大老板农场, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
+ 0,2 0 * * * http://nm66.top/jd_wsdlb.js, tag=柠檬我是大老板农场, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
 */
 
 
@@ -84,8 +84,8 @@ if ($.info.data.firstJoinFlag === true) {
        
         
         allMessage += `京东账号${$.index}-${$.nickName || $.UserName}\n当前种植水果：${$.info.data.plantInfo[0].cropName}\n当前阶段: ${$.info.data.plantInfo[0].nowStep}\n当前下一阶段还需要浇水：${$.info.data.plantInfo[0].upgradeWateringNum}次${$.index !== cookiesArr.length ? '\n\n' : '\n\n'}`;
-if ($.info.data.ownWater * 0.1 > 1 ){
-    for (let i = 0 ; i < info.data.ownWater * 0.1; i++){
+//if ($.info.data.ownWater * 0.1 > 1 ){
+    for (let i = 0 ; i < 5; i++){
         await $.wait(5000)
      await jiaoshui($.info.data.earthInfo[0].nowPlantId)
     if (watering.code === 20004 ){
@@ -98,7 +98,9 @@ if ($.info.data.ownWater * 0.1 > 1 ){
         
         }
 
-}}           
+}
+    
+//}           
 
 
         if (getwat.code === 0 ){
