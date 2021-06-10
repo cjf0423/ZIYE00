@@ -84,6 +84,22 @@ if ($.info.data.firstJoinFlag === true) {
        
         
         allMessage += `京东账号${$.index}-${$.nickName || $.UserName}\n当前种植水果：${$.info.data.plantInfo[0].cropName}\n当前阶段: ${$.info.data.plantInfo[0].nowStep}\n当前下一阶段还需要浇水：${$.info.data.plantInfo[0].upgradeWateringNum}次${$.index !== cookiesArr.length ? '\n\n' : '\n\n'}`;
+        if ($.do.code === 0){       
+ let taskList = $.do.data
+       for (let i = 0 ; i < taskList.length; i++){
+       taskType = taskList[i].taskType
+       id = taskList[i].id
+       taskSourceUrl = taskList[i].taskSourceUrl
+                        
+        await dotask(taskType,id,taskSourceUrl)
+        await dotask(taskType,id,"70511671722")
+             
+        if ($.qd.code === 2005 ){
+             $.log(`\n${$.qd.errMsg}`)
+             
+     }
+     }
+ }
 //if ($.info.data.ownWater * 0.1 > 1 ){
     for (let i = 0 ; i < 5; i++){
         await $.wait(5000)
@@ -110,22 +126,7 @@ if ($.info.data.firstJoinFlag === true) {
      
 }
 
-if ($.do.code === 0){       
- let taskList = $.do.data
-       for (let i = 0 ; i < taskList.length; i++){
-       taskType = taskList[i].taskType
-       id = taskList[i].id
-       taskSourceUrl = taskList[i].taskSourceUrl
-                        
-        await dotask(taskType,id,taskSourceUrl)
-        await dotask(taskType,id,"70511671722")
-             
-        if ($.qd.code === 2005 ){
-             $.log(`\n${$.qd.errMsg}`)
-             
-     }
-     }
- }
+
  
 }
 
