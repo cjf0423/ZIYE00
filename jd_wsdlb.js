@@ -81,9 +81,10 @@ if ($.info.data.firstJoinFlag === true) {
 }else if ($.info.data.firstJoinFlag === false) {
     
         console.log(`\n当前种植水果：${$.info.data.plantInfo[0].cropName}\n当前阶段: ${$.info.data.plantInfo[0].nowStep}\n当前下一阶段还需要浇水：${$.info.data.plantInfo[0].upgradeWateringNum}次`)
-       
+       await help($.info.data.encPin)
         
         allMessage += `京东账号${$.index}-${$.nickName || $.UserName}\n当前种植水果：${$.info.data.plantInfo[0].cropName}\n当前阶段: ${$.info.data.plantInfo[0].nowStep}\n当前下一阶段还需要浇水：${$.info.data.plantInfo[0].upgradeWateringNum}次${$.index !== cookiesArr.length ? '\n\n' : '\n\n'}`;
+        
         if ($.do.code === 0){       
  let taskList = $.do.data
        for (let i = 0 ; i < taskList.length; i++){
@@ -278,7 +279,34 @@ headers: {
     });
 }
 
+function help(userpin) {
+    return new Promise(async (resolve) => {
 
+                let options = {
+    url: `https://thebigboss.jd.com/?id=fzf6tK4xMfE2ICK4-T_iUw&enter=share&userpin=${userpin}&task=92&ad_od=share&utm_source=androidapp&utm_medium=appshare&utm_campaign=t_335139774&utm_term=Wxfriends`,
+
+headers: {
+"Origin": "https://thebigboss.jd.com",
+"Host": "thebigboss.jd.com",
+      "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.5(0x18000528) NetType/WIFI Language/zh_CN",
+      "Cookie": cookie,
+      }
+                }
+      
+        $.get(options, async (err, resp, data) => {
+            try {
+
+                  //$.helpinfo = JSON.parse(data);
+
+                  
+            } catch (e) {
+                $.logErr(e, resp);
+            } finally {
+                resolve();
+            }
+        });
+    });
+}
 
 
 
