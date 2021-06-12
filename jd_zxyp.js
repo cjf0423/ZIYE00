@@ -230,14 +230,13 @@ async function cj(){
         //console.log(result)
         if(logs)$.log(data)
 
-          if(result.data.bizCode == "TK1703"){
+          if(result.data.result.userAwardInfo.beanNum != 0){
 //await notify.sendNotify(`${$.name} - ${$.UserName}`, `京东账号${$.index} ${$.UserName}`+
-console.log(result.bizMsg)
-} else 
-       
-                     console.log('\n抽奖京豆：'+result.data.result.userAwardInfo.beanNum);
+              console.log('\n抽奖京豆：'+result.data.result.userAwardInfo.beanNum);
               allMessage += `京东账号${$.index}-${$.nickName || $.UserName}\n抽奖京豆: ${result.data.result.userAwardInfo.beanNum}${$.index !== cookiesArr.length ? '\n\n' : '\n\n'}`;
-
+} else {
+       console.log(result.bizMsg)
+}
           
         }catch(e) {
           $.logErr(e, response);
@@ -267,15 +266,14 @@ console.log(result.bizMsg)
         //console.log(result)
         if(logs)$.log(data)
 
-          if(result.data.bizCode == "TK1703"){
-//await notify.sendNotify(`${$.name} - ${$.UserName}`, `京东账号${$.index} ${$.UserName}`+
-console.log(result.bizMsg)
-} else 
-       
-                     console.log('\n抽奖京豆：'+result.data.result.userAwardInfo.beanNum);
+          if(result.data.result.userAwardInfo.beanNum != 0){
+              console.log('\n抽奖京豆：'+result.data.result.userAwardInfo.beanNum);
+//await notify.sendNotify(`${$.name} - ${$.UserName}`, `京东账号${$.index} ${$.UserName}`+'\n抽奖京豆：'+result.data.result.userAwardInfo.beanNum);
               allMessage += `京东账号${$.index}-${$.nickName || $.UserName}\n抽奖京豆: ${result.data.result.userAwardInfo.beanNum}${$.index !== cookiesArr.length ? '\n\n' : '\n\n'}`;
-
-                
+} else {
+       console.log(result.bizMsg)
+}
+          
         }catch(e) {
           $.logErr(e, response);
       } finally {
