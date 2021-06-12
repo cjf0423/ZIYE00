@@ -254,7 +254,8 @@ headers: {
 
         allMessage += `京东账号${$.index}-${$.nickName || $.UserName}\n抽取京豆：${$.Lottery.data.result.userAwardsCacheDto.jBeanAwardVo.prizeName}${$.index !== cookiesArr.length ? '\n\n' : '\n\n'}`;
 }else
-$.log("兄弟你号黑了")
+if($.Lottery.data.result.userAwardsCacheDto.type == 0){
+$.log("兄弟你号黑了")}
                     }
                 
 
