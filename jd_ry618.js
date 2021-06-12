@@ -130,7 +130,7 @@ headers: {
                               
                                await dotask(taskToken,'3','1') 
                               await dotask(taskToken,'3','0') 
-                                 //await $.wait(500);
+                                 await $.wait(500);
                                    } 
                               let taskList5 = data.data.result.taskVos[6].productInfoVos 
                               console.log("开始执行浏览荣耀指定商品")
