@@ -227,7 +227,7 @@ async function cj(){
    $.post(plant6_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-        console.log(result)
+        //console.log(result)
         if(logs)$.log(data)
 
           if(result.data.result.userAwardInfo.beanNum != 0){
@@ -250,7 +250,7 @@ async function cj(){
  return new Promise((resolve) => {
      
  let plant6_url = {
-   		url: 'https://api.m.jd.com/api?functionId=superBrandTaskLottery&appid=ProductZ4Brand&client=wh5&t=1622650376384&body={"source":"sign","activityId":1000021,"encryptProjectId":"uK2fYitTgioETuevoY88bGEts3U","encryptAssignmentId":"zFayjeUTzZWJGwv2rVNWY4DNAQw"}',
+   		url: 'https://api.m.jd.com/api?functionId=superBrandTaskLottery&appid=ProductZ4Brand&client=wh5&t=1622650376384&body={"source":"sign","activityId":1000017,"encryptProjectId":"uK2fYitTgioETuevoY88bGEts3U","encryptAssignmentId":"zFayjeUTzZWJGwv2rVNWY4DNAQw"}',
         //headers: JSON.parse(kjjhd),
       headers: {
 
@@ -263,13 +263,13 @@ async function cj(){
    $.post(plant6_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-        console.log(result)
+        //console.log(result)
         if(logs)$.log(data)
 
           if(result.data.result.userAwardInfo.beanNum != 0){
               console.log('\n抽奖京豆：'+result.data.result.userAwardInfo.beanNum);
 //await notify.sendNotify(`${$.name} - ${$.UserName}`, `京东账号${$.index} ${$.UserName}`+'\n抽奖京豆：'+result.data.result.userAwardInfo.beanNum);
-              //allMessage += `京东账号${$.index}-${$.nickName || $.UserName}+'\n抽奖京豆：'+result.data.result.userAwardInfo.beanNum${$.index !== cookiesArr.length ? '\n\n' : '\n\n'}`;
+              allMessage += `京东账号${$.index}-${$.nickName || $.UserName}\n抽奖京豆: ${result.data.result.userAwardInfo.beanNum}${$.index !== cookiesArr.length ? '\n\n' : '\n\n'}`;
 } else {
        console.log(result.bizMsg)
 }
