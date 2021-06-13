@@ -94,7 +94,7 @@ async function qiandao(){
 
           if(result.code == 0){
 //await notify.sendNotify(`${$.name} - ${$.UserName}`, `京东账号${$.index} ${$.UserName}`+'\n签到完成');
-console.log(result.bizMsg)
+//console.log(result.bizMsg)
 } else {
        console.log(result.bizMsg)
 }
@@ -130,7 +130,7 @@ async function guanzhu (){
 
           if(result.code == 0){
 //await notify.sendNotify(`${$.name} - ${$.UserName}`, `京东账号${$.index} ${$.UserName}`+'\n签到完成');
-console.log(result.bizMsg)
+//console.log(result.bizMsg)
 } else {
        console.log(result.bizMsg)
 }
@@ -165,7 +165,7 @@ async function kaika (){
 
           if(result.code == 0){
 //await notify.sendNotify(`${$.name} - ${$.UserName}`, `京东账号${$.index} ${$.UserName}`+'\n签到完成');
-console.log(result.bizMsg)
+//console.log(result.bizMsg)
 } else {
        console.log(result.bizMsg)
 }
@@ -201,7 +201,7 @@ async function help(){
 
           if(result.code == 0){
 //await notify.sendNotify(`${$.name} - ${$.UserName}`, `京东账号${$.index} ${$.UserName}`+'\n签到完成');
-console.log(result.bizMsg)
+//console.log(result.bizMsg)
 } else {
        console.log(result.bizMsg)
 }
@@ -270,7 +270,7 @@ async function cj(){
         //console.log(result)
         if(logs)$.log(data)
 
-          if(result.data.result.userAwardInfo.beanNum != 0){
+          if(result.data.bizCode == "TK000"){
               console.log('\n抽奖京豆：'+result.data.result.userAwardInfo.beanNum);
 //await notify.sendNotify(`${$.name} - ${$.UserName}`, `京东账号${$.index} ${$.UserName}`+'\n抽奖京豆：'+result.data.result.userAwardInfo.beanNum);
               allMessage += `京东账号${$.index}-${$.nickName || $.UserName}\n抽奖京豆: ${result.data.result.userAwardInfo.beanNum}${$.index !== cookiesArr.length ? '\n\n' : '\n\n'}`;
@@ -309,7 +309,7 @@ async function cj(){
         //console.log(result)
         if(logs)$.log(data)
 
-          if(result.result.giftCode == 200){
+          if(result.code == 0){
               console.log('\n京豆10');
 //await notify.sendNotify(`${$.name} - ${$.UserName}`, `京东账号${$.index} ${$.UserName}`+'\n抽奖京豆：'+result.data.result.userAwardInfo.beanNum);
               allMessage += `京东账号${$.index}-${$.nickName || $.UserName}\n10京豆${$.index !== cookiesArr.length ? '\n\n' : '\n\n'}`;
