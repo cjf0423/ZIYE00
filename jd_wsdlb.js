@@ -107,6 +107,8 @@ if ($.info.data.firstJoinFlag === true) {
  }
 
      await jiaoshui($.info.data.earthInfo[0].nowPlantId)
+     $.log(parseInt(watering.data.property * 0.1))
+     if (watering.success === true ){
      if (parseInt(watering.data.property * 0.1) > 1 ){
     for (let i = 0 ; i < parseInt(watering.data.property * 0.1); i++){
         await $.wait(3000)
@@ -117,13 +119,14 @@ if ($.info.data.firstJoinFlag === true) {
         }
 
         if (watering.code === 0 ){
-        $.log(`\n${watering.data.speedFarmPlantInfo.cropName}:\n还需水滴：${watering.data.speedFarmPlantInfo.nowStepNeedWater}`)
+        $.log(`\n${watering.data.speedFarmPlantInfo.cropName}:\n还需水滴：${watering.data.speedFarmPlantInfo.nowStepNeedWater}\n还需浇水：${watering.data.speedFarmPlantInfo.upgradeWateringNum}`)
         
         }
 
 }
     
-}           
+}  
+}
 
 
 
