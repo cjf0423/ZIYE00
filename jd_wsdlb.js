@@ -105,8 +105,8 @@ if ($.info.data.firstJoinFlag === true) {
      }
      }
  }
-if (parseInt($.info.data.property * 0.1) > 1 ){
-    for (let i = 0 ; i < parseInt($.info.data.property * 0.1); i++){
+if (parseInt(watering.data.property * 0.1) > 1 ){
+    for (let i = 0 ; i < parseInt(watering.data.property * 0.1); i++){
         await $.wait(3000)
      await jiaoshui($.info.data.earthInfo[0].nowPlantId)
     if (watering.code === 20004 ){
