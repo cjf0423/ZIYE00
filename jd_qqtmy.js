@@ -1,8 +1,8 @@
 /*
 
 [task_local]
-#柠檬618惊奇探秘夜
-0 0 * * * http://nm66.top/jd_qqtmy.js, tag=柠檬618惊奇探秘夜, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
+#柠檬618惊奇探秘夜 一次性任务活动 请悉知
+0 6 * * * http://nm66.top/jd_qqtmy.js, tag=柠檬618惊奇探秘夜, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
 */
 
 
