@@ -80,14 +80,7 @@ if ($.info.data.firstJoinFlag === true) {
  allMessage += `京东账号${$.index}-${$.nickName || $.UserName}\n您忘了种植新的水果,内侧入口为：\nhttp://a8pck.cn/VbjDm${$.index !== cookiesArr.length ? '\n\n' : '\n\n'}`;
 }else if ($.info.data.firstJoinFlag === false) {
     
-        console.log(`\n当前种植水果：${$.info.data.plantInfo[0].cropName}\n当前阶段: ${$.info.data.plantInfo[0].nowStep}\n当前下一阶段还需要浇水：${$.info.data.plantInfo[0].upgradeWateringNum}次\n当前进度：${$.info.data.speedFarmPlantInfo.cropRate}%`)
-       await help($.info.data.encPin)
-        
-        allMessage += `京东账号${$.index}-${$.nickName || $.UserName}\n当前种植水果：${$.info.data.plantInfo[0].cropName}\n当前阶段: ${$.info.data.plantInfo[0].nowStep}\n当前下一阶段还需要浇水：${$.info.data.plantInfo[0].upgradeWateringNum}次\n当前进度：${$.info.data.speedFarmPlantInfo.cropRate}%${$.index !== cookiesArr.length ? '\n\n' : '\n\n'}`;
-                if (getwat.code === 0 ){
-        $.log(`\n领取定时水滴：${getwat.data.collectWaterNumber}`)
-        
-        }
+
         
         if ($.do.code === 0){       
  let taskList = $.do.data
@@ -122,7 +115,14 @@ if (parseInt($.info.data.property * 0.1) > 1 ){
 }
     
 }           
-
+        console.log(`\n当前种植水果：${$.info.data.plantInfo[0].cropName}\n当前阶段: ${$.info.data.plantInfo[0].nowStep}\n当前下一阶段还需要浇水：${$.info.data.plantInfo[0].upgradeWateringNum}次\n当前进度：${$.watering.data.speedFarmPlantInfo.cropRate}%`)
+       await help($.info.data.encPin)
+        
+        allMessage += `京东账号${$.index}-${$.nickName || $.UserName}\n当前种植水果：${$.info.data.plantInfo[0].cropName}\n当前阶段: ${$.info.data.plantInfo[0].nowStep}\n当前下一阶段还需要浇水：${$.info.data.plantInfo[0].upgradeWateringNum}次\n当前进度：${$.watering.data.speedFarmPlantInfo.cropRate}%${$.index !== cookiesArr.length ? '\n\n' : '\n\n'}`;
+                if (getwat.code === 0 ){
+        $.log(`\n领取定时水滴：${getwat.data.collectWaterNumber}`)
+        
+        }
 
 
      
