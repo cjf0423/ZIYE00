@@ -1,8 +1,9 @@
 /*
-变量填写 你要参加砍价的商品ID
-运行即可查看商品ID
-比如export skuId="10025687524091" //只需要填写商品ID变量
-比如export activity="854366883120689152" //日志查看你的activity
+第一步 运行脚本一次日志查看商品ID
+获取你要砍价的ID后变量填写
+export skuId="这里填获取的商品ID"
+第二部 再运行一次日志查看商品activityId变量填写
+export activity="这里填获取的商品activityId" 
 入口 京东 我的 0元砍价
 */
 // [task_local]
