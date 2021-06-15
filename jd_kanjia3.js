@@ -102,7 +102,7 @@ headers: {
                    
                    
                     if(data.msg == "success"){
-                     let taskList = data.bargainGoods  
+                     let taskList = data.canBargain  
                      for (let i = 0 ; i < taskList.length; i++){
                                
                                skuName = taskList[i].skuName
