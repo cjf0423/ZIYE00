@@ -1,8 +1,9 @@
 /*
 变量填写 你要参加砍价的商品ID
 运行即可查看商品ID
-入口 京东 我的 0元砍价
 比如export skuId="10025687524091" //只需要填写商品ID变量
+比如export activity="854366883120689152" //日志查看你的activity
+入口 京东 我的 0元砍价
 */
 // [task_local]
 // 30 */1 * * *
@@ -16,11 +17,13 @@ const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 //IOS等用户直接用NobyDa的jd cookie
 let cookiesArr = [], cookie = '', message;
 let skuId = ''; //你要参加砍价的商品ID
-
+let activity = ''; //看日志查看你的activity 比如export activity="854366883120689152"
 if (process.env.skuId) {
   skuId = process.env.skuId;
 }
-
+if (process.env.activity) {
+  activity = process.env.activity;
+}
 if ($.isNode()) {
   Object.keys(jdCookieNode).forEach((item) => {
     cookiesArr.push(jdCookieNode[item])
@@ -203,7 +206,7 @@ function help() {
                 let options = {
     url: `https://api.m.jd.com`,
 
-    body: `functionId=cutPriceByUser&body={"activityId":"${activityId}","userName":"","followShop":0,"shopId":662265,"userPic":""}&client=wh5&clientVersion=1.0.0`,
+    body: `functionId=cutPriceByUser&body={"activityId":"${activity}","userName":"","followShop":0,"shopId":662265,"userPic":""}&client=wh5&clientVersion=1.0.0`,
 headers: {
 "Origin": "https://h5.m.jd.com",
 "Host": "api.m.jd.com",
