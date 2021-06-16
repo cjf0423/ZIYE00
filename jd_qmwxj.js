@@ -3,7 +3,7 @@
 运行一次查看邀请码 变量你的邀请码 
 export shareCode="FCD4A7E5CB4AF69377D77E9B4553CF6CAD1DAAB9A3E3F6CBAFDE81EEB7393333"
 [task_local]
-10 0 * * *
+0 10 * * *
 */
 
 const $ = new Env('柠檬全民挖现金');
@@ -90,14 +90,14 @@ headers: {
 
                     data = JSON.parse(data);
                      if(data.data.bizCode == 0){
-                     let taskList = data.data.result.taskVos.shoppingActivityVos[0] 
+                     let taskList = data.data.result.taskVos[0]
                      for (let i = 0 ; i < taskList.length; i++){
-                     taskToken = taskList[i].taskToken
+                     taskToken = taskList[i].shoppingActivityVos.taskToken
                      await dotask(taskToken)
                      await task(1)
                      //await task(2)
                      }
-                     let taskList1 = data.data.result.taskVos.shoppingActivityVos[1] 
+                     let taskList1 = data.data.result.taskVos[1] 
                      for (let i = 0 ; i < taskList1.length; i++){
                      taskToken = taskList1[i].taskToken
                      await dotask(taskToken)
