@@ -97,7 +97,7 @@ headers: {
                      await task(1)
                      //await task(2)
                      }
-                     let taskList1 = data.result.taskVos[1].shoppingActivityVos
+                     let taskList1 = data.data.result.taskVos[1].shoppingActivityVos
                      for (let i = 0 ; i < taskList1.length; i++){
                      taskToken = taskList1[i].taskToken
                      await dotask(taskToken)
@@ -213,12 +213,13 @@ headers: {
         $.post(options, async (err, resp, data) => {
             try {
 
-                    //data = JSON.parse(data);
-                 
-                   
-                   
-                    
- $.log(data)
+                    data = JSON.parse(data);
+                 if(data.ret == 4){
+                    $.log(data.msg)
+                 }else if(data.ret == 5){
+                      $.log(data.msg)
+                 } 
+
 
             } catch (e) {
                 $.logErr(e, resp);
@@ -248,15 +249,15 @@ headers: {
         $.post(options, async (err, resp, data) => {
             try {
 
-                    //data = JSON.parse(data);
+                    data = JSON.parse(data);
                  
                    $.log(data)
                    
-                    //if(data.code == 0){
- //$.log(`\n下一次领取时间：${data.data.nextTime}`+"\n领取定时奖励："+data.data.reward*0.01)
- //}else if(data.code == 1){
- //   $.log(`\n查询失败 请检查是否正确填写商品变量`)
-//}
+                    if(data.ret == 0){
+ $.log(`\n下一次领取时间：${data.data.nextTime}`+"\n领取定时奖励："+data.data.reward*0.01)
+ }else if(data.ret == 4){
+    $.log(data.msg)
+}
             } catch (e) {
                 $.logErr(e, resp);
             } finally {
