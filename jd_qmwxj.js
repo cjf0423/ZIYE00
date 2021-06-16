@@ -115,7 +115,7 @@ headers: {
         $.post(options, async (err, resp, data) => {
             try {
 
-                    data = JSON.parse(data);
+                    //data = JSON.parse(data);
                  
                    
                    
