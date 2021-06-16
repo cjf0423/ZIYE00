@@ -121,21 +121,18 @@ headers: {
         $.post(options, async (err, resp, data) => {
             try {
 
-                    //data = JSON.parse(data);
+                    data = JSON.parse(data);
                  
                    
                    
-                    //if(data.retCode == 200){
-                     
-                               
+                    if(data.ret == 0){
+$.log("\n助力："+data.helpAmount*0.01)
                         
-
-                               $.log(data)
-  
-
-                //}else if(data.retCode == 900){
-    //$.log(`\n${data.retMessage}`)
-//}
+                    }else if(data.ret == 2){
+$.log(`\n${data.msg}`)
+}else if(data.ret == 7){
+$.log(`\n${data.msg}`)
+}
             } catch (e) {
                 $.logErr(e, resp);
             } finally {
