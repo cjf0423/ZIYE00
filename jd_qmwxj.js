@@ -46,7 +46,10 @@ const JD_API_HOST = 'https://api.m.jd.com/client.action';
         continue
       }
 await list1()
+await info()
 await helpme()
+await dslq()
+
     }
   }
   if ($.isNode() && allMessage) {
@@ -83,6 +86,8 @@ headers: {
                      for (let i = 0 ; i < taskList.length; i++){
                      taskToken = taskList[i].shoppingActivityVos[i].taskToken
                      await dotask(taskToken)
+                     await task(1)
+                     await task(2)
                      }
 
 
@@ -178,13 +183,13 @@ headers: {
 
 
 
-function help() {
+function task(taskId) {
     return new Promise(async (resolve) => {
 
                 let options = {
     url: `https://api.m.jd.com`,
 
-    body: `functionId=cutPriceByUser&body={"activityId":"${activity}","userName":"","followShop":0,"shopId":662265,"userPic":""}&client=wh5&clientVersion=1.0.0`,
+    body: `functionId=cash_task_getReward&body={"taskId":${taskId}}&client=wh5&clientVersion=1.0.0&osVersion=14.3&uuid=6898c30638c55142969304c8e2167997fa59eb51`,
 headers: {
 "Origin": "https://h5.m.jd.com",
 "Host": "api.m.jd.com",
@@ -200,10 +205,10 @@ headers: {
                  
                    
                    
-                    if(data.status == 0){
- $.log(`\n这位兄弟帮你砍了：${data.cutPrice}`)
- }else if(data.status == 1){
-    $.log(`\n这位兄弟已经帮你砍过了`)
+                    if(data.code == 0){
+ $.log("任务领取："+data.data.reward*0.1)
+ }else if(data.code == 1){
+    $.log(`\n任务领取已经领过了`)
 }
             } catch (e) {
                 $.logErr(e, resp);
@@ -215,13 +220,13 @@ headers: {
 }
 
 
-function info() {
+function dslq() {
     return new Promise(async (resolve) => {
 
                 let options = {
     url: `https://api.m.jd.com`,
 
-    body: `functionId=bargainDetail&body={"activityId":"${activityId}","sku":"${skuId}"}&client=wh5&clientVersion=1.0.0`,
+    body: `functionId=meal_checkIn_getReward&body={}&client=wh5&clientVersion=1.0.0&osVersion=14.3&uuid=6898c30638c55142969304c8e2167997fa59eb51`,
 headers: {
 "Origin": "https://h5.m.jd.com",
 "Host": "api.m.jd.com",
@@ -237,9 +242,9 @@ headers: {
                  
                    
                    
-                    if(data.bargainDetailInfoVo.status == 0){
- $.log(`\n还差：${data.bargainDetailInfoVo.bargainInfoVo.remainPrice}就砍到了`)
- }else if(data.status == 1){
+                    if(data.code == 0){
+ $.log(`\n下一次领取时间：${data.data.nextTime}`+"\n领取定时奖励："+data.data.reward*0.01)
+ }else if(data.code == 1){
     $.log(`\n查询失败 请检查是否正确填写商品变量`)
 }
             } catch (e) {
@@ -251,7 +256,41 @@ headers: {
     });
 }
 
+function info() {
+    return new Promise(async (resolve) => {
 
+                let options = {
+    url: `https://api.m.jd.com`,
+
+    body: `functionId=fission_index&body={"activityKey":"2021"}&client=wh5&clientVersion=1.0.0&osVersion=14.3&uuid=6898c30638c55142969304c8e2167997fa59eb51`,
+headers: {
+"Origin": "https://h5.m.jd.com",
+"Host": "api.m.jd.com",
+      "User-Agent": "jdltapp;iPhone;3.3.6;14.3;75aeceef3046d8ce11d354ff89af9517a2e4aa18;network/wifi;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPhone9,2;addressid/;hasOCPay/0;appBuild/1060;supportBestPay/0;pv/56.42;apprpd/;ref/JDLTSubMainPageViewController;psq/38;ads/;psn/75aeceef3046d8ce11d354ff89af9517a2e4aa18|99;jdv/0|kong|t_1001003207_1762319_6901310|jingfen|30578707801140d09fcd54e5cd83bbf7|1621510932517|1621511027;adk/;app_device/IOS;pap/JA2020_3112531|3.3.6|IOS 14.3;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1",
+      "Cookie": cookie,
+      }
+                }
+      
+        $.post(options, async (err, resp, data) => {
+            try {
+
+                    data = JSON.parse(data);
+                 
+                   
+                   
+                    if(data.msg == "success"){
+ $.log(`\n你的邀请码：${data.activity.shareCode}`)
+ }else if(data.code == 1){
+    $.log(`\n查询失败`)
+}
+            } catch (e) {
+                $.logErr(e, resp);
+            } finally {
+                resolve();
+            }
+        });
+    });
+}
 
 
 
