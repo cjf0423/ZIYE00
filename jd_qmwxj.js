@@ -202,15 +202,13 @@ headers: {
         $.post(options, async (err, resp, data) => {
             try {
 
-                    data = JSON.parse(data);
+                    //data = JSON.parse(data);
                  
                    
                    
-                    if(data.code == 0){
+                    
  $.log(data)
- }else if(data.code == 1){
-    $.log(`\n任务领取已经领过了`)
-}
+
             } catch (e) {
                 $.logErr(e, resp);
             } finally {
@@ -239,15 +237,15 @@ headers: {
         $.post(options, async (err, resp, data) => {
             try {
 
-                    data = JSON.parse(data);
+                    //data = JSON.parse(data);
                  
+                   $.log(data)
                    
-                   
-                    if(data.code == 0){
- $.log(`\n下一次领取时间：${data.data.nextTime}`+"\n领取定时奖励："+data.data.reward*0.01)
- }else if(data.code == 1){
-    $.log(`\n查询失败 请检查是否正确填写商品变量`)
-}
+                    //if(data.code == 0){
+ //$.log(`\n下一次领取时间：${data.data.nextTime}`+"\n领取定时奖励："+data.data.reward*0.01)
+ //}else if(data.code == 1){
+ //   $.log(`\n查询失败 请检查是否正确填写商品变量`)
+//}
             } catch (e) {
                 $.logErr(e, resp);
             } finally {
@@ -312,13 +310,13 @@ headers: {
         $.post(options, async (err, resp, data) => {
             try {
 
-                    data = JSON.parse(data);
+                    //data = JSON.parse(data);
                  
                    
                    
-                    if(data.msg == "success"){
+                    //if(data.msg == "success"){
  $.log(data)
- }
+ //}
             } catch (e) {
                 $.logErr(e, resp);
             } finally {
