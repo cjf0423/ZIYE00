@@ -90,14 +90,14 @@ headers: {
 
                     data = JSON.parse(data);
                      if(data.data.bizCode == 0){
-                     let taskList = data.data.result.taskVos[0]
+                     let taskList = data.data.result.taskVos[0].shoppingActivityVos
                      for (let i = 0 ; i < taskList.length; i++){
-                     taskToken = taskList[i].shoppingActivityVos.taskToken
+                     taskToken = taskList[i].taskToken
                      await dotask(taskToken)
                      await task(1)
                      //await task(2)
                      }
-                     let taskList1 = data.data.result.taskVos[1] 
+                     let taskList1 = data.result.taskVos[1].shoppingActivityVos
                      for (let i = 0 ; i < taskList1.length; i++){
                      taskToken = taskList1[i].taskToken
                      await dotask(taskToken)
