@@ -82,7 +82,7 @@ headers: {
                      let taskList = data.data.result.taskVos 
                      for (let i = 0 ; i < taskList.length; i++){
                      taskToken = taskList[i].shoppingActivityVos[i].taskToken
-                     await dotask(itemToken)
+                     await dotask(taskToken)
                      }
 
 
