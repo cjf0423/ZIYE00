@@ -45,11 +45,11 @@ const JD_API_HOST = 'https://api.m.jd.com/client.action';
         }
         continue
       }
-await list1()
+//await list1()
 await info()
 await helpme()
-await helpme1()
-await dslq()
+//await helpme1()
+//await dslq()
 
     }
   }
@@ -114,7 +114,7 @@ headers: {
 "Origin": "https://h5.m.jd.com",
 "Host": "api.m.jd.com",
         "User-Agent": $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"),
-      "Cookie": cookie,
+      "Cookie": "cuid=eidIe2798122d1s4GEix%252FuspRjy92JqJ273YghhIs3JZdi%252F4JjftGCWZOLgY3glC5gGXsTY1vGLRKckMeHq2opKqTBNLiayOHJtx2EhExIqlbarZpTFa;"+cookie,
       }
                 }
       
