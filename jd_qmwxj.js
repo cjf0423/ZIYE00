@@ -1,6 +1,9 @@
 /*
+入口 京东 我的 全民挖现金
+运行一次查看邀请码 变量你的邀请码 
+export shareCode="FCD4A7E5CB4AF69377D77E9B4553CF6CAD1DAAB9A3E3F6CBAFDE81EEB7393333"
 [task_local]
-0 10 * * *
+10 0 * * *
 */
 
 const $ = new Env('柠檬全民挖现金');
@@ -11,6 +14,10 @@ const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 //IOS等用户直接用NobyDa的jd cookie
 let cookiesArr = [], cookie = '', message;
 let allMessage = '';
+let shareCode = '';
+if (process.env.shareCode) {
+  shareCode = process.env.shareCode;
+}
 if ($.isNode()) {
   Object.keys(jdCookieNode).forEach((item) => {
     cookiesArr.push(jdCookieNode[item])
@@ -45,11 +52,11 @@ const JD_API_HOST = 'https://api.m.jd.com/client.action';
         }
         continue
       }
-//await list1()
+await list1()
 await info()
 await helpme()
 //await helpme1()
-//await dslq()
+await dslq()
 
     }
   }
@@ -83,11 +90,18 @@ headers: {
 
                     data = JSON.parse(data);
                      if(data.data.bizCode == 0){
-                     let taskList = data.data.result.taskVos 
+                     let taskList = data.data.result.taskVos.shoppingActivityVos[0] 
                      for (let i = 0 ; i < taskList.length; i++){
-                     taskToken = taskList[i].shoppingActivityVos[i].taskToken
+                     taskToken = taskList[i].taskToken
                      await dotask(taskToken)
                      await task(1)
+                     //await task(2)
+                     }
+                     let taskList1 = data.data.result.taskVos.shoppingActivityVos[1] 
+                     for (let i = 0 ; i < taskList1.length; i++){
+                     taskToken = taskList1[i].taskToken
+                     await dotask(taskToken)
+                     //await task(1)
                      await task(2)
                      }
 
@@ -109,7 +123,7 @@ function helpme() {
                 let options = {
     url: `https://api.m.jd.com/client.action`,
 
-    body: `functionId=help_activity&body={"shareCode":"FCD4A7E5CB4AF69377D77E9B4553CF6CAD1DAAB9A3E3F6CBAFDE81EEB7393333","name":"","imageUrl":""}&client=wh5&clientVersion=1.0.0&osVersion=10&uuid=7049442d7e415232`,
+    body: `functionId=help_activity&body={"shareCode":"${shareCode}","name":"","imageUrl":""}&client=wh5&clientVersion=1.0.0&osVersion=10&uuid=7049442d7e415232`,
 headers: {
 "Origin": "https://h5.m.jd.com",
 "Host": "api.m.jd.com",
