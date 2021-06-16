@@ -251,7 +251,7 @@ headers: {
 
                     data = JSON.parse(data);
                  
-                   $.log(data)
+                   //$.log(data)
                    
                     if(data.ret == 0){
  $.log(`\n下一次领取时间：${data.data.nextTime}`+"\n领取定时奖励："+data.data.reward*0.01)
