@@ -48,6 +48,7 @@ const JD_API_HOST = 'https://api.m.jd.com/client.action';
 await list1()
 await info()
 await helpme()
+await helpme1()
 await dslq()
 
     }
@@ -206,7 +207,7 @@ headers: {
                    
                    
                     if(data.code == 0){
- $.log("任务领取："+data.data.reward*0.1)
+ $.log(data)
  }else if(data.code == 1){
     $.log(`\n任务领取已经领过了`)
 }
@@ -293,7 +294,39 @@ headers: {
 }
 
 
+function helpme1() {
+    return new Promise(async (resolve) => {
 
+                let options = {
+    url: `https://api.m.jd.com`,
+
+    body: `functionId=current_activity&body={"shareCode":"FCD4A7E5CB4AF69377D77E9B4553CF6CAD1DAAB9A3E3F6CBAFDE81EEB7393333"}&client=wh5&clientVersion=1.0.0&osVersion=10&uuid=7049442d7e415232`,
+headers: {
+"Origin": "https://h5.m.jd.com",
+"Host": "api.m.jd.com",
+      "User-Agent": "jdltapp;iPhone;3.3.6;14.3;75aeceef3046d8ce11d354ff89af9517a2e4aa18;network/wifi;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPhone9,2;addressid/;hasOCPay/0;appBuild/1060;supportBestPay/0;pv/56.42;apprpd/;ref/JDLTSubMainPageViewController;psq/38;ads/;psn/75aeceef3046d8ce11d354ff89af9517a2e4aa18|99;jdv/0|kong|t_1001003207_1762319_6901310|jingfen|30578707801140d09fcd54e5cd83bbf7|1621510932517|1621511027;adk/;app_device/IOS;pap/JA2020_3112531|3.3.6|IOS 14.3;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1",
+      "Cookie": cookie,
+      }
+                }
+      
+        $.post(options, async (err, resp, data) => {
+            try {
+
+                    data = JSON.parse(data);
+                 
+                   
+                   
+                    if(data.msg == "success"){
+ $.log(data)
+ }
+            } catch (e) {
+                $.logErr(e, resp);
+            } finally {
+                resolve();
+            }
+        });
+    });
+}
 
 
 
