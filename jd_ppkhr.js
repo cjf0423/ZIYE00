@@ -97,7 +97,7 @@ headers: {
                      await dotask(itemToken)  }  
                          
                      $.cs = data.result.userScore    
-                     if($.cs > 1){
+                     if($.cs > 0){
                      for (let i = 0 ; i < $.cs; i++){    
                      await game()
                          
