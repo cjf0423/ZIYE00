@@ -110,8 +110,9 @@ if ($.info.data.firstJoinFlag === true) {
     
      if (watering.success === true ){
           $.log(parseInt(watering.data.property * 0.1))
-     if (parseInt(watering.data.property * 0.1) > 0 ){
-    for (let i = 0 ; i < parseInt(watering.data.property * 0.1); i++){
+       cs = parseInt(watering.data.property * 0.1)
+     if (cs > 0 ){
+    for (let i = 0 ; i < cs; i++){
         await $.wait(3000)
         await jiaoshui($.info.data.earthInfo[0].nowPlantId)
     if (watering.code === 20004 ){
