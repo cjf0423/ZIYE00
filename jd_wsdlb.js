@@ -100,7 +100,7 @@ if ($.info.data.firstJoinFlag === true) {
          $.log(`除草成功`)
          }else 
          if(cc.success == false){
-             $.log(`除草成功 无需再除`)
+             $.log(cc.errMsg)
              //break
              
          }
