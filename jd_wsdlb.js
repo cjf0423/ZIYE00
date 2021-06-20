@@ -36,6 +36,7 @@ const JD_API_HOST = 'https://api.m.jd.com/client.action';
   for (let i = 0; i < cookiesArr.length; i++) {
     if (cookiesArr[i]) {
       cookie = cookiesArr[i];
+      ck2 = cookiesArr[Math.round(Math.random()*10)];
       $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
       $.index = i + 1;
       $.isLogin = true;
@@ -96,7 +97,7 @@ if ($.info.data.firstJoinFlag === true) {
        if($.info.data.plantInfo[0].status == 1){
          $.log(`需要除草`)
          await chucao($.info.data.earthInfo[0].nowPlantId,$.info.data.encPin)
-         if(cc.success == true){
+         if(cc.errMsg == "success"){
          $.log(`除草成功`)
          }else 
          if(cc.success == false){
@@ -316,7 +317,7 @@ headers: {
 "Origin": "https://thebigboss.jd.com",
 "Host": "api.m.jd.com",
       "User-Agent": "jdltapp;android;3.5.0;10;7303439343432346-7356431353233323;network/4g;model/PCAM00;addressid/4228801336;aid/7049442d7e415232;oaid/;osVer/29;appBuild/1587;psn/J7DoQdnbd16144pyXDtYAH6c3B9Rkr60|87;psq/7;adk/;ads/;pap/JA2020_3112531|3.5.0|ANDROID 10;osv/10;pv/16.58;jdv/;ref/com.jd.jdlite.lib.mission.allowance.AllowanceFragment;partner/oppo;apprpd/Allowance_Registered;eufv/1;Mozilla/5.0 (Linux; Android 10; PCAM00 Build/QKQ1.190918.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/66.0.3359.126 MQQBrowser/6.2 TBS/045140 Mobile Safari/537.36",
-      "Cookie": cookie,
+      "Cookie": ck2,
       }
                 }
       
