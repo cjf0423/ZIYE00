@@ -105,6 +105,7 @@ async function TotalBean() {
               $.log("cookie正常")
             } else {
               $.nickName = $.UserName;
+              $.log("cookie正常")
             }
           } else {
             console.log(`京东服务器返回空数据`)
