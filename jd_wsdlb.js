@@ -89,7 +89,7 @@ if ($.info.data.firstJoinFlag === true) {
         $.log(`\n领取定时水滴：${getwat.data.collectWaterNumber}`)
        if($.info.data.plantInfo[0].status == 0){
          $.log(`无需除草`)
-       }else ifif($.info.data.plantInfo[0].status == 1){
+       }else if($.info.data.plantInfo[0].status == 1){
          $.log(`需要除草`)
        }
         }
