@@ -98,8 +98,8 @@ headers: {
                    
                    
                     if(data.code == 0){
-                      console.log(`{"ningmengsq": {"redEnvelopeId":"${data.data.redEnvelopeId}","inviter":"${data.data.markedPin}"}}`)
-                       //console.log('你的活动ID：'+data.data.redEnvelopeId+'\n你的邀请码:'+data.data.markedPin)
+                      //console.log(`{"ningmengsq": {"redEnvelopeId":"${data.data.redEnvelopeId}","inviter":"${data.data.markedPin}"}}`)
+                       console.log(`export redEnvelopeId="${data.data.redEnvelopeId}"\nexport inviter="${data.data.markedPin}"`)
 
                 }
             } catch (e) {
