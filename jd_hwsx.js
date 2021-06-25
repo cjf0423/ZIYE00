@@ -3,7 +3,7 @@
 抽奖红包在我的钱包查看
 具体多少看运气
 [task_local]
-20 12 * * *
+20 12,14 * * *
 */
 const $ = new Env('柠檬众筹好物上新');
 const notify = $.isNode() ? require('./sendNotify') : '';
@@ -83,10 +83,11 @@ $.get(options, async (err, resp, data) => {
             if( data.errcode == 0 ){
               console.log(`剩余游戏抽奖次数${data.data.currdaydrawnum}`)
               cs = data.data.currdaydrawnum}
-              console.log(`即将抽奖${data.data.currdaydrawnum}次`)
+              console.log(`即将抽奖25次,14点再继续25次 分开中奖几率可能大些`)
 if(cs > 0){
     
-    for (let i = 0 ; i < cs; i++){
+    for (let i = 0 ; i < 25; i++){
+        await $.wait(1000)
       await gettoken()
       await draw()    
 }
