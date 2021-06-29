@@ -239,7 +239,8 @@ async function cj(){
 //await notify.sendNotify(`${$.name} - ${$.UserName}`, `京东账号${$.index} ${$.UserName}`+
               console.log('\n抽奖京豆：'+result.data.result.userAwardInfo.beanNum);
               allMessage += `京东账号${$.index}-${$.nickName || $.UserName}\n抽奖京豆: ${result.data.result.userAwardInfo.beanNum}${$.index !== cookiesArr.length ? '\n\n' : '\n\n'}`;
-} else {
+} else if(result.data.bizCode == "TK1703"){
+    
        console.log(result.bizMsg)
 }
           
