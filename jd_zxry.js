@@ -233,8 +233,9 @@ async function cj(){
         const result = JSON.parse(data)
         //console.log(result)
         if(logs)$.log(data)
- 
+ $.log(data)
           if(result.data.bizCode == "TK000"){
+              
 //await notify.sendNotify(`${$.name} - ${$.UserName}`, `京东账号${$.index} ${$.UserName}`+
               console.log('\n抽奖京豆：'+result.data.result.userAwardInfo.beanNum);
               allMessage += `京东账号${$.index}-${$.nickName || $.UserName}\n抽奖京豆: ${result.data.result.userAwardInfo.beanNum}${$.index !== cookiesArr.length ? '\n\n' : '\n\n'}`;
