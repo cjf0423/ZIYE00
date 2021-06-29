@@ -55,12 +55,23 @@ const JD_API_HOST = `https://api.m.jd.com/client.action`;
             await qiandao()
             await guanzhu()
             await kaika()
-            
-            for (let i = 0; i < 3; i++) {
             await cj()
-                
+
+            if(cjresult.data.bizCode == "TK000"){
+                          for (let i = 0; i < cjresult.data.result.usedScore; i++) {
+            await cj()
+                           console.log('\n抽奖京豆：'+cjresult.data.result.userAwardInfo.beanNum);
+              allMessage += `京东账号${$.index}-${$.nickName || $.UserName}\n抽奖京豆: ${cjresult.data.result.userAwardInfo.beanNum}${$.index !== cookiesArr.length ? '\n\n' : '\n\n'}`;   
             }
-            
+
+} else if(cjresult.data.bizCode == "TK1703"){
+    
+       console.log(cjresult.data.bizMsg)
+       
+}else if(cjresult.data.bizCode == 2001){
+    
+       console.log(cjresult.data.bizMsg)
+}
         }
     }
 
@@ -230,19 +241,11 @@ async function cj(){
    	}
    $.post(plant6_url,async(error, response, data) =>{
     try{
-        const result = JSON.parse(data)
+        cjresult = JSON.parse(data)
         //console.log(result)
         if(logs)$.log(data)
  $.log(data)
-          if(result.data.bizCode == "TK000"){
-              
-//await notify.sendNotify(`${$.name} - ${$.UserName}`, `京东账号${$.index} ${$.UserName}`+
-              console.log('\n抽奖京豆：'+result.data.result.userAwardInfo.beanNum);
-              allMessage += `京东账号${$.index}-${$.nickName || $.UserName}\n抽奖京豆: ${result.data.result.userAwardInfo.beanNum}${$.index !== cookiesArr.length ? '\n\n' : '\n\n'}`;
-} else if(result.data.bizCode == "TK1703"){
-    
-       console.log(result.bizMsg)
-}
+
           
         }catch(e) {
           $.logErr(e, response);
