@@ -55,7 +55,11 @@ const JD_API_HOST = `https://api.m.jd.com/client.action`;
             await qiandao()
             await guanzhu()
             await kaika()
+            
+            for (let i = 0; i < 3; i++) {
             await cj()
+                
+            }
             
         }
     }
