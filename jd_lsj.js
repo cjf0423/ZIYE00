@@ -201,6 +201,40 @@ function getnick() {
     });
   });
 }
+function doshop(goodsNumId) {
+    return new Promise(async (resolve) => {
+let options = {
+    url: `https://jinggengjcq-isv.isvjcloud.com/dm/front/foodRunning/complete/mission?open_id=&mix_nick=&bizExtString=&user_id=10299171`,
+
+    body: `{"jsonRpc":"2.0","params":{"commonParameter":{"appkey":"51B59BB805903DA4CE513D29EC448375","m":"POST","sign":"c80a9253cc1558cbf7f54639198ee751","timestamp":1625029740517,"userId":10299171},"admJson":{"goodsNumId":${goodsNumId},"missionType":"viewShop","method":"/foodRunning/complete/mission","actId":"jd_food_running","buyerNick":"${nick}","pushWay":1,"userId":10299171}}}`,
+headers: {
+"Origin": "https://jinggengjcq-isv.isvjcloud.com",
+"Content-Type": "application/json; charset=UTF-8",
+"X-Requested-With": "XMLHttpRequest",
+"Host": "jinggengjcq-isv.isvjcloud.com",
+"Referer": "https://jinggengjcq-isv.isvjcloud.com/paoku/index.html?sid=75b413510cb227103e928769818a74ew&un_area=4_48201_54794_0",
+"User-Agent": "jdapp;iPhone;9.5.2;14.3;6898c30638c55142969304c8e2167997fa59eb53;network/4g;ADID/F108E1B6-8E30-477C-BE54-87CF23435488;supportApplePay/0;hasUPPay/0;hasOCPay/0;model/iPhone9,2;addressid/390536540;supportBestPay/0;appBuild/167650;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1",
+}}
+ $.post(options, async (err, resp, data) => {
+            try {
+
+                    const reust = JSON.parse(data)
+                 
+                    if(reust.errorCode == 200){
+                   
+                    $.log(`${reust.data.data.remark}\n获得${reust.data.data.sendNum}`)
+                    }else if(reust.errorCode == 500) {
+                    
+                        $.log("今日已领取完毕,请明日再来！"+reust.errorMessage)
+                    }
+            } catch (e) {
+                $.logErr(e, resp);
+            } finally {
+                resolve();
+            }
+        });
+    });
+}
 function doliulan(goodsNumId) {
   return new Promise(async (resolve) => {
     let options = {
