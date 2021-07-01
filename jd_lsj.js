@@ -544,7 +544,7 @@ function duihuan() {
     let options = {
       url: `https://jinggengjcq-isv.isvjcloud.com/dm/front/foodRunning/exchangeGoods?open_id=&mix_nick=&bizExtString=&user_id=10299171`,
 
-      body: `{"jsonRpc":"2.0","params":{"commonParameter":{"appkey":"51B59BB805903DA4CE513D29EC448375","m":"POST","sign":"c80a9253cc1558cbf7f54639198ee751","timestamp":1625029740517,"userId":10299171},"admJson":{"goodsNumId":${goodsNumId},"missionType":"viewGoods","method":"/foodRunning/exchangeGoods","actId":"${lsjdh}","buyerNick":"${nick}","pushWay":1,"userId":10299171}}}`,
+      body: `{"jsonRpc":"2.0","params":{"commonParameter":{"appkey":"51B59BB805903DA4CE513D29EC448375","m":"POST","sign":"c80a9253cc1558cbf7f54639198ee751","timestamp":1625029740517,"userId":10299171},"admJson":{"awardId":${goodsNumId},"missionType":"viewGoods","method":"/foodRunning/exchangeGoods","actId":"${lsjdh}","buyerNick":"${nick}","pushWay":1,"userId":10299171}}}`,
       headers: {
         "Origin": "https://jinggengjcq-isv.isvjcloud.com",
         "Content-Type": "application/json; charset=UTF-8",
