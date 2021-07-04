@@ -113,6 +113,8 @@ await doliulan(3)
 //await gettask()  
 
 $.log("开始浏览会场")
+await doshop(1000014803)
+await $.wait(3000)
 await doshop(10299171)
 await $.wait(3000)
 await doshop(1000077335)
