@@ -92,15 +92,19 @@ async function share(){
    	}
    $.post(plant6_url,async(error, response, data) =>{
     try{
-        const result = JSON.parse(data)
+        const data = JSON.parse(data)
         //console.log(result)
         if(logs)$.log(data)
-
-          if(result.data.bizCode == "0"){
-//await notify.sendNotify(`${$.name} - ${$.UserName}`, `京东账号${$.index} ${$.UserName}`+'\n签到完成');
-} else if(result.data.bizCode !== "TK000"){
-       console.log(result.bizMsg)
-}
+                   if (data && data.code === "0") {
+                        if (data.data.bizCode === "0") {
+                            console.log("任务成功啦~")
+                        } else {
+                            console.log(data.data.bizMsg)
+                        }
+                        resolve(data.data.bizCode)
+                    } else {
+                        console.log(data)
+                    }
           
         }catch(e) {
           $.logErr(e, response);
@@ -127,15 +131,19 @@ async function guanzhu (){
    	}
    $.post(plant6_url,async(error, response, data) =>{
     try{
-        const result = JSON.parse(data)
+        const data = JSON.parse(data)
         //console.log(result)
         if(logs)$.log(data)
-
-          if(result.data.bizCode == "0"){
-//await notify.sendNotify(`${$.name} - ${$.UserName}`, `京东账号${$.index} ${$.UserName}`+'\n签到完成');
-} else if(result.data.bizCode !== "0"){
-       console.log(result.bizMsg)
-}
+                   if (data && data.code === "0") {
+                        if (data.data.bizCode === "0") {
+                            console.log("任务成功啦~")
+                        } else {
+                            console.log(data.data.bizMsg)
+                        }
+                        resolve(data.data.bizCode)
+                    } else {
+                        console.log(data)
+                    }
           
         }catch(e) {
           $.logErr(e, response);
@@ -161,15 +169,20 @@ async function kaika (){
    	}
    $.post(plant6_url,async(error, response, data) =>{
     try{
-        const result = JSON.parse(data)
+        const data = JSON.parse(data)
         //console.log(result)
         if(logs)$.log(data)
 
-          if(result.data.bizCode == "0"){
-//await notify.sendNotify(`${$.name} - ${$.UserName}`, `京东账号${$.index} ${$.UserName}`+'\n签到完成');
-} else if(result.data.bizCode !== "0"){
-       console.log(result.bizMsg)
-}
+                   if (data && data.code === "0") {
+                        if (data.data.bizCode === "0") {
+                            console.log("任务成功啦~")
+                        } else {
+                            console.log(data.data.bizMsg)
+                        }
+                        resolve(data.data.bizCode)
+                    } else {
+                        console.log(data)
+                    }
           
         }catch(e) {
           $.logErr(e, response);
@@ -197,17 +210,32 @@ async function cj(){
    	}
    $.post(plant6_url,async(error, response, data) =>{
     try{
-        const result = JSON.parse(data)
+        const data = JSON.parse(data)
         //console.log(result)
         if(logs)$.log(data)
 
-          if(result.data.bizCode == "TK000"){
-//await notify.sendNotify(`${$.name} - ${$.UserName}`, `京东账号${$.index} ${$.UserName}`+
-              console.log('\n抽奖京豆：'+result.data.result.userAwardInfo.beanNum);
-              allMessage += `京东账号${$.index}-${$.nickName || $.UserName}\n抽奖京豆: ${result.data.result.userAwardInfo.beanNum}${$.index !== cookiesArr.length ? '\n\n' : '\n\n'}`;
-} else if(result.data.bizCode !== "TK000"){
-       console.log(result.bizMsg)
-}
+
+
+
+                 if (data && data.code === "0") {
+                        if (data.data.bizCode === "TK000") {                            
+                            let reward = data.data.result.userAwardInfo
+                            if(reward&&reward.beanNum){
+                            console.log(`恭喜你 获得 ${reward.beanNum}京🐶`)  
+                                          allMessage += `京东账号${$.index}-${$.nickName || $.UserName}\n抽奖京豆: ${reward.beanNum}${$.index !== cookiesArr.length ? '\n\n' : '\n\n'}`;
+                            }else{
+                            console.log(`获得 你猜获得了啥🐶`)
+                            }
+                        } else {
+                            console.log(data.data.bizMsg)
+                        }
+                    } else {
+                        console.log(data)
+                    }
+
+
+
+
           
         }catch(e) {
           $.logErr(e, response);
