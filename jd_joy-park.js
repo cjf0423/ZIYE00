@@ -395,8 +395,8 @@ headers: {
                        $.log(`\n===============开地邀请===============`)
                       
                        await openinvite()
-                       $.log(`\n===============升级奖励===============`)
-                       await levelDrawAward()
+                       //$.log(`\n===============升级奖励===============`)
+                       //await levelDrawAward()
                 
                     console.log("操作失败")
                 
