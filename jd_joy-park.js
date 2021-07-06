@@ -565,10 +565,7 @@ headers: {
                     
                     
                     if(data.success == true){
-                      DrawAward = data.data
-                      
-                      DrawAward = DrawAward[0].awardGivenNumber
-                        $.log("获得旺财币："+DrawAward)
+                      data.errMsg
                       
        
                 }else  if(data.success == false){
