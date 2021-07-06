@@ -3,7 +3,7 @@
 分享到QQ查看邀请码 inviter就是
 或者运行脚本查看邀请码
 #自定义邀请码变量 
-export inviterPin="" //IANWqUmbgQVF9ePHGsGFA2m-zSTLKmHFbE-IW-Waarw
+export joyinviterPin="" //IANWqUmbgQVF9ePHGsGFA2m-zSTLKmHFbE-IW-Waarw
 
 ====================
 新手上路勿黑勿喷
@@ -21,13 +21,13 @@ const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 
 //IOS等用户直接用NobyDa的jd cookie
 let cookiesArr = [], cookie = '', message;
-let tytpacketId = '';
+
 let codeList = []
 let codeList1 = []
 
-let inviterPin = '';
-if (process.env.inviterPin) {
-  inviterPin = process.env.inviterPin;
+let joyinviterPin = '';
+if (process.env.joyinviterPin) {
+  joyinviterPin = process.env.joyinviterPin;
 }
 
 
@@ -415,7 +415,7 @@ function openinvite() {
                 let options = {
     url: `https://api.m.jd.com/`,
 
-    body: `functionId=joyBaseInfo&body={"taskId":"","inviteType":"2","inviterPin":"${inviterPin}","linkId":"LsQNxL7iWDlXUs6cFl-AAg"}&_t=1625540360946&appid=activities_platform`,
+    body: `functionId=joyBaseInfo&body={"taskId":"","inviteType":"2","inviterPin":"${joyinviterPin}","linkId":"LsQNxL7iWDlXUs6cFl-AAg"}&_t=1625540360946&appid=activities_platform`,
 headers: {
 "Origin": "https://joypark.jd.com",
 "Host": "api.m.jd.com",
@@ -458,7 +458,7 @@ function inviteType() {
                 let options = {
     url: `https://api.m.jd.com/`,
 
-    body: `functionId=joyBaseInfo&body={"taskId":"167","inviteType":"1","inviterPin":"${inviterPin}","linkId":"LsQNxL7iWDlXUs6cFl-AAg"}&_t=1625540360946&appid=activities_platform`,
+    body: `functionId=joyBaseInfo&body={"taskId":"167","inviteType":"1","inviterPin":"${joyinviterPin}","linkId":"LsQNxL7iWDlXUs6cFl-AAg"}&_t=1625540360946&appid=activities_platform`,
 headers: {
 "Origin": "https://joypark.jd.com",
 "Host": "api.m.jd.com",
