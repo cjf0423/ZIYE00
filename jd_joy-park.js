@@ -4,8 +4,7 @@
 或者运行脚本查看邀请码
 #自定义邀请码变量 
 export inviterPin="" //IANWqUmbgQVF9ePHGsGFA2m-zSTLKmHFbE-IW-Waarw
-开地随机取15个 
-每日邀请任务随机取5个
+
 ====================
 新手上路勿黑勿喷
 TG通知群 https://t.me/ningmeng999
