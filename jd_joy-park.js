@@ -24,9 +24,7 @@ let cookiesArr = [], cookie = '', message;
 let tytpacketId = '';
 let codeList = []
 let codeList1 = []
-if (process.env.tytpacketId) {
-  tytpacketId = process.env.tytpacketId;
-}
+
 let inviterPin = '';
 if (process.env.inviterPin) {
   inviterPin = process.env.inviterPin;
@@ -392,6 +390,7 @@ headers: {
                        $.log(`\n===============取随机CK邀请===========`)
                        for (let i = 0; i < 5; i++) {
                        await inviteType()
+                       await apTaskinviter()
                        }
                        $.log(`\n===============开地邀请===============`)
                        $.log(`\n===============取随机CK邀请===========`)
@@ -542,6 +541,50 @@ headers: {
         });
     });
 }
+//functionId=joyBaseInfo&body={"taskId":"167","inviteType":"1","inviterPin":"IANWqUmbgQVF9ePHGsGFA2m-zSTLKmHFbE-IW-Waarw","linkId":"LsQNxL7iWDlXUs6cFl-AAg"}&_t=1625543629130&appid=activities_platform
+function apTaskinviter() {
+    return new Promise(async (resolve) => {
+
+                let options = {
+    url: `https://api.m.jd.com/`,
+
+    body: `functionId=joyBaseInfo&body={"taskId":"167","inviteType":"1","inviterPin":"${yqm}","linkId":"LsQNxL7iWDlXUs6cFl-AAg"}&_t=1625543629130&appid=activities_platform`,
+headers: {
+"Origin": "https://joypark.jd.com",
+"Host": "api.m.jd.com",
+"User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.116 UBrowser/5.6.12150.8 Safari/537.36",
+      "Cookie": cookie,
+      }
+                }
+      
+        $.post(options, async (err, resp, data) => {
+            try {
+
+                    data = JSON.parse(data);
+
+                    
+                    
+                    if(data.success == true){
+                      DrawAward = data.data
+                      
+                      DrawAward = DrawAward[0].awardGivenNumber
+                        $.log("获得旺财币："+DrawAward)
+                      
+       
+                }else  if(data.success == false){
+                
+                    console.log(data.errMsg)
+                
+                }
+            } catch (e) {
+                $.logErr(e, resp);
+            } finally {
+                resolve();
+            }
+        });
+    });
+}
+
 function apTaskDrawAward(taskType,taskid) {
     return new Promise(async (resolve) => {
 
