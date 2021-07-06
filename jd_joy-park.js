@@ -1,7 +1,7 @@
 /*
 入口 极速版 旺财乐园 
-分享到QQ查看邀请码 inviter就是
-或者运行脚本查看邀请码
+新用户第一次想设置主号拉邀请就先分享到QQ查看邀请码 inviter就是
+运行脚本查看邀请码
 #自定义邀请码变量 
 export joyinviterPin="" //IANWqUmbgQVF9ePHGsGFA2m-zSTLKmHFbE-IW-Waarw
 
