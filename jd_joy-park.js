@@ -4,7 +4,8 @@
 或者运行脚本查看邀请码
 #自定义邀请码变量 
 export inviterPin="" //IANWqUmbgQVF9ePHGsGFA2m-zSTLKmHFbE-IW-Waarw
-
+开地随机取15个 
+每日邀请任务随机取5个
 ====================
 新手上路勿黑勿喷
 TG通知群 https://t.me/ningmeng999
@@ -419,7 +420,7 @@ headers: {
 "Origin": "https://joypark.jd.com",
 "Host": "api.m.jd.com",
 "User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.116 UBrowser/5.6.12150.8 Safari/537.36",
-      "Cookie": ck2,
+      "Cookie": cookie,
       }
                 }
       
@@ -462,7 +463,7 @@ headers: {
 "Origin": "https://joypark.jd.com",
 "Host": "api.m.jd.com",
 "User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.116 UBrowser/5.6.12150.8 Safari/537.36",
-      "Cookie": ck2,
+      "Cookie": cookie,
       }
                 }
       
