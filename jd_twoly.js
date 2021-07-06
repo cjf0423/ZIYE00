@@ -92,7 +92,7 @@ async function share(){
    	}
    $.post(plant6_url,async(error, response, data) =>{
     try{
-        const data = JSON.parse(data)
+        data = JSON.parse(data);
         //console.log(result)
         if(logs)$.log(data)
                    if (data && data.code === "0") {
@@ -131,7 +131,7 @@ async function guanzhu (){
    	}
    $.post(plant6_url,async(error, response, data) =>{
     try{
-        const data = JSON.parse(data)
+        data = JSON.parse(data);
         //console.log(result)
         if(logs)$.log(data)
                    if (data && data.code === "0") {
@@ -169,7 +169,7 @@ async function kaika (){
    	}
    $.post(plant6_url,async(error, response, data) =>{
     try{
-        const data = JSON.parse(data)
+        data = JSON.parse(data);
         //console.log(result)
         if(logs)$.log(data)
 
@@ -210,7 +210,7 @@ async function cj(){
    	}
    $.post(plant6_url,async(error, response, data) =>{
     try{
-        const data = JSON.parse(data)
+        data = JSON.parse(data);
         //console.log(result)
         if(logs)$.log(data)
 
