@@ -395,7 +395,8 @@ headers: {
                        $.log(`\n===============开地邀请===============`)
                       
                        await openinvite()
-                      
+                       $.log(`\n===============升级奖励===============`)
+                       await levelDrawAward()
                 
                     console.log("操作失败")
                 
@@ -484,6 +485,49 @@ headers: {
                 }else  if(data.success == false){
                 
                     console.log(data.errMsg+"或者你的CK不足")
+                
+                }
+            } catch (e) {
+                $.logErr(e, resp);
+            } finally {
+                resolve();
+            }
+        });
+    });
+}
+function levelDrawAward() {
+    return new Promise(async (resolve) => {
+
+                let options = {
+    url: `https://api.m.jd.com/`,
+
+    body: `functionId=joyBaseInfo&body={"taskId":"167","inviteType":"1","inviterPin":"${yqm}","linkId":"LsQNxL7iWDlXUs6cFl-AAg"}&_t=1625545015696&appid=activities_platform`,
+headers: {
+"Origin": "https://joypark.jd.com",
+"Host": "api.m.jd.com",
+"User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.116 UBrowser/5.6.12150.8 Safari/537.36",
+      "Cookie": cookie,
+      }
+                }
+      
+        $.post(options, async (err, resp, data) => {
+             //$.log(data) 
+            try {
+
+                    data = JSON.parse(data);
+
+                    
+                    
+                    if(data.success == true){
+                      
+                    
+                    $.log(data.errMsg)
+                        
+                    
+       
+                }else  if(data.success == false){
+                
+                    console.log(data.errMsg)
                 
                 }
             } catch (e) {
