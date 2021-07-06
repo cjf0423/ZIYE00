@@ -96,9 +96,9 @@ async function share(){
         //console.log(result)
         if(logs)$.log(data)
 
-          if(result.bizCode == "TK000"){
+          if(result.data.bizCode == "0"){
 //await notify.sendNotify(`${$.name} - ${$.UserName}`, `京东账号${$.index} ${$.UserName}`+'\n签到完成');
-} else if(result.bizCode !== "TK000"){
+} else if(result.data.bizCode !== "TK000"){
        console.log(result.bizMsg)
 }
           
@@ -131,9 +131,9 @@ async function guanzhu (){
         //console.log(result)
         if(logs)$.log(data)
 
-          if(result.bizCode == "TK000"){
+          if(result.data.bizCode == "0"){
 //await notify.sendNotify(`${$.name} - ${$.UserName}`, `京东账号${$.index} ${$.UserName}`+'\n签到完成');
-} else if(result.bizCode !== "TK000"){
+} else if(result.data.bizCode !== "0"){
        console.log(result.bizMsg)
 }
           
@@ -165,9 +165,9 @@ async function kaika (){
         //console.log(result)
         if(logs)$.log(data)
 
-          if(result.bizCode == "TK000"){
+          if(result.data.bizCode == "0"){
 //await notify.sendNotify(`${$.name} - ${$.UserName}`, `京东账号${$.index} ${$.UserName}`+'\n签到完成');
-} else if(result.bizCode !== "TK000"){
+} else if(result.data.bizCode !== "0"){
        console.log(result.bizMsg)
 }
           
@@ -201,11 +201,11 @@ async function cj(){
         //console.log(result)
         if(logs)$.log(data)
 
-          if(result.bizCode == "TK000"){
+          if(result.data.bizCode == "TK000"){
 //await notify.sendNotify(`${$.name} - ${$.UserName}`, `京东账号${$.index} ${$.UserName}`+
               console.log('\n抽奖京豆：'+result.data.result.userAwardInfo.beanNum);
               allMessage += `京东账号${$.index}-${$.nickName || $.UserName}\n抽奖京豆: ${result.data.result.userAwardInfo.beanNum}${$.index !== cookiesArr.length ? '\n\n' : '\n\n'}`;
-} else if(result.bizCode !== "TK000"){
+} else if(result.data.bizCode !== "TK000"){
        console.log(result.bizMsg)
 }
           
