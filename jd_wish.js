@@ -6,7 +6,7 @@ TG通知群 https://t.me/ningmeng999
 微信公众号:柠檬玩机交流
 
 [task_local]
-#柠檬旺财乐园
+#柠檬许愿池 
 0 8,12 * * * 
 */
 const $ = new Env('柠檬众筹许愿池');
