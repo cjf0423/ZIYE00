@@ -3,6 +3,7 @@
 分享到QQ查看邀请码 inviter就是
 或者运行脚本查看邀请码
 #自定义邀请码变量 
+export inviterPin="" //IANWqUmbgQVF9ePHGsGFA2m-zSTLKmHFbE-IW-Waarw
 开地随机取15个 
 每日邀请任务随机取5个
 ====================
@@ -387,17 +388,15 @@ headers: {
                        await dotask(ll1taskType,ll1signtaskid,"https://pro.m.jd.com/jdlite/active/4AMo3SQzbqAzJgowhXqvt8Dpo8iA/index.html") 
                        await apTaskDrawAward(ll1taskType,ll1signtaskid,"https://pro.m.jd.com/jdlite/active/4AMo3SQzbqAzJgowhXqvt8Dpo8iA/index.html")
                        $.log(`\n===============邀请任务===============`)
-                       $.log(`\n===============取随机CK邀请===========`)
-                       for (let i = 0; i < 5; i++) {
+                       
+                      
                        await inviteType()
                        await apTaskinviter()
-                       }
+                       
                        $.log(`\n===============开地邀请===============`)
-                       $.log(`\n===============取随机CK邀请===========`)
-                       for (let i = 0; i < 15; i++) {
+                      
                        await openinvite()
-                       }
-                       }else  if(data.errMsg == "操作失败"){
+                      
                 
                     console.log("操作失败")
                 
@@ -416,7 +415,7 @@ function openinvite() {
                 let options = {
     url: `https://api.m.jd.com/`,
 
-    body: `functionId=joyBaseInfo&body={"taskId":"","inviteType":"2","inviterPin":"${yqm}","linkId":"LsQNxL7iWDlXUs6cFl-AAg"}&_t=1625540360946&appid=activities_platform`,
+    body: `functionId=joyBaseInfo&body={"taskId":"","inviteType":"2","inviterPin":"${inviterPin}","linkId":"LsQNxL7iWDlXUs6cFl-AAg"}&_t=1625540360946&appid=activities_platform`,
 headers: {
 "Origin": "https://joypark.jd.com",
 "Host": "api.m.jd.com",
@@ -459,7 +458,7 @@ function inviteType() {
                 let options = {
     url: `https://api.m.jd.com/`,
 
-    body: `functionId=joyBaseInfo&body={"taskId":"167","inviteType":"1","inviterPin":"${yqm}","linkId":"LsQNxL7iWDlXUs6cFl-AAg"}&_t=1625540360946&appid=activities_platform`,
+    body: `functionId=joyBaseInfo&body={"taskId":"167","inviteType":"1","inviterPin":"${inviterPin}","linkId":"LsQNxL7iWDlXUs6cFl-AAg"}&_t=1625540360946&appid=activities_platform`,
 headers: {
 "Origin": "https://joypark.jd.com",
 "Host": "api.m.jd.com",
