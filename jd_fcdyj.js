@@ -92,9 +92,9 @@ headers: {
       
         $.get(options, async (err, resp, data) => {
             try {
-
+console.log(data)
                     data = JSON.parse(data);
-
+                    
                    if(data.data.checkResult){
                     console.log(data.data.checkResult.errMsg)
                     if(data.data.checkResult.code == 16005){
