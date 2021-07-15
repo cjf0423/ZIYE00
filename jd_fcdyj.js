@@ -95,12 +95,12 @@ headers: {
 
                     data = JSON.parse(data);
 
-                   
+                   if(data.data.checkResult){
                     console.log(data.data.checkResult.errMsg)
                     if(data.data.checkResult.code == 16005){
                       await helpme1()
 
-                }
+                }}
             } catch (e) {
                 $.logErr(e, resp);
             } finally {
