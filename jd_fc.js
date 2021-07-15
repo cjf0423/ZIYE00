@@ -92,7 +92,7 @@ headers: {
       
         $.get(options, async (err, resp, data) => {
             try {
-$.log(data)
+
                     data = JSON.parse(data);
 
                    
