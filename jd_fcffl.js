@@ -1,4 +1,8 @@
-
+/*
+[task_local]
+#翻翻乐
+1 0-23/1 * 6 * 
+*/
 const $ = new Env('发财翻翻乐');
 //Node.js用户请在jdCookie.js处填写京东ck;
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
