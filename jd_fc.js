@@ -99,7 +99,7 @@ headers: {
                    
                     if(data.code == 0){
                       
-                       console.log(`export redEnvelopeId="${data.data.redEnvelopeId}\nexport inviter="${data.data.markedPin}"`)
+                       console.log(`export redEnvelopeId="${data.data.redEnvelopeId}"\nexport inviter="${data.data.markedPin}"`)
 
                 }
             } catch (e) {
