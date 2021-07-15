@@ -95,7 +95,7 @@ headers: {
 
                     data = JSON.parse(data);
 
-                   data.checkResult.success
+                   
                     console.log(data.data.checkResult.errMsg)
                     if(data.data.checkResult.code == 16005){
                       await helpme1()
