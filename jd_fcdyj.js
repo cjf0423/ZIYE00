@@ -92,7 +92,7 @@ headers: {
       
         $.get(options, async (err, resp, data) => {
             try {
-console.log(data)
+//console.log(data)
                     data = JSON.parse(data);
                     
                    if(data.data.checkResult !== null){
@@ -100,7 +100,7 @@ console.log(data)
                     if(data.data.checkResult.code == 16005){
                       await helpme1()
 
-                }}else if(data.data.checkResult !== null){
+                }}else if(data.data.checkResult == null){
                 console.log("黑号")
                     
                 }
