@@ -85,7 +85,7 @@ function helpme() {
 headers: {
 "Origin": "https://618redpacket.jd.com",
 "Host": "api.m.jd.com",
-      "User-Agent": "jdapp;iPhone;9.5.2;14.3;6818c30638c55142969304c8e2167997fa59eb53;network/wifi;ADID/F108E1B6-8E30-477C-BE54-87C123435488;supportApplePay/0;hasUPPay/0;hasOCPay/0;model/iPhone9,2;addressid/4585826605;supportBestPay/0;appBuild/167650;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1",
+      "User-Agent": "User-Agent: Mozilla/5.0 (Linux; U; Android 8.0.0; zh-cn; Mi Note 2 Build/OPR1.170623.032) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/61.0.3163.128 Mobile Safari/537.36 XiaoMi/MiuiBrowser/10.1.1",
       "Cookie": cookie,
       }
                 }
@@ -95,12 +95,15 @@ headers: {
 console.log(data)
                     data = JSON.parse(data);
                     
-                   if(data.data.checkResult){
+                   if(data.data.checkResult !== null){
                     console.log(data.data.checkResult.errMsg)
                     if(data.data.checkResult.code == 16005){
                       await helpme1()
 
-                }}
+                }}else if(data.data.checkResult !== null){
+                console.log("黑号")
+                    
+                }
             } catch (e) {
                 $.logErr(e, resp);
             } finally {
@@ -122,7 +125,7 @@ console.log(data)
 headers: {
 "Origin": "https://618redpacket.jd.com",
 "Host": "api.m.jd.com",
-      "User-Agent": "jdapp;iPhone;9.5.2;14.3;6818c30638c55142969304c8e2167997fa59eb53;network/wifi;ADID/F108E1B6-8E30-477C-BE54-87C123435488;supportApplePay/0;hasUPPay/0;hasOCPay/0;model/iPhone9,2;addressid/4585826605;supportBestPay/0;appBuild/167650;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1",
+      "User-Agent": "User-Agent: Mozilla/5.0 (Linux; U; Android 8.0.0; zh-cn; Mi Note 2 Build/OPR1.170623.032) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/61.0.3163.128 Mobile Safari/537.36 XiaoMi/MiuiBrowser/10.1.1",
       "Cookie": cookie,
       }
                 }
