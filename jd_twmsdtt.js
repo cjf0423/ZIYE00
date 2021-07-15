@@ -53,7 +53,7 @@ const JD_API_HOST = `https://api.m.jd.com/client.action`;
             }
 
 await dotask("29yKWi6sAPG511Jj3TxnjwxibpK7",1000010481)
-await dotsk("47JV1WyxCcVbwzXrqWW6BEwuiYhc",1000100813)
+await dotask("47JV1WyxCcVbwzXrqWW6BEwuiYhc",1000100813)
 await dotask("352qLFqHdgS6k1K2miiiyUaHnUge",10397406)
 await dotask("3oaCLGRrD1DjNZD9tLkzkequj1zE",1000310642)
 await dotask("29yKWi6sAPG511Jj3TxnjwxibpK7",1000010481)
