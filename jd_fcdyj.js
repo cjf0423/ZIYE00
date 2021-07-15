@@ -79,9 +79,8 @@ function helpme() {
     return new Promise(async (resolve) => {
 
                 let options = {
-    url: `https://api.m.jd.com/?functionId=redEnvelopeInteractHome&body={"linkId":"yMVR-_QKRd2Mq27xguJG-w","redEnvelopeId":"${redEnvelopeId}","inviter":"${inviter}","helpType":"1"}&t=1626359159357&appid=activities_platform&clientVersion=3.5.6`,
+    url: `https://api.m.jd.com/?functionId=openRedEnvelopeInteract&body={"linkId":"yMVR-_QKRd2Mq27xguJG-w","redEnvelopeId":"${redEnvelopeId}","inviter":"${inviter}","helpType":"1"}&t=1626363029817&appid=activities_platform&clientVersion=3.5.0`,
 
-    //https://api.m.jd.com/?functionId=redEnvelopeInteractHome&body={"linkId":"yMVR-_QKRd2Mq27xguJG-w","redEnvelopeId":"${redEnvelopeId}","inviter":"${inviter}","helpType":"1"}&t=1626359159357&appid=activities_platform&clientVersion=3.5.6
 headers: {
 "Origin": "https://618redpacket.jd.com",
 "Host": "api.m.jd.com",
@@ -92,16 +91,22 @@ headers: {
       
         $.get(options, async (err, resp, data) => {
             try {
-//console.log(data)
+
                     data = JSON.parse(data);
                     
-                   if(data.data.checkResult !== null){
-                    console.log(data.data.checkResult.errMsg)
+                  
+                if(data.data==null){
+                    $.log(data.errMsg)
+                } else if(data.data !==null){
+                 if(data.data.checkResult !== null){
+                    console.log(data.data.helpResult.errMsg)
                     if(data.data.checkResult.code == 16005){
                       await helpme1()
 
                 }}else if(data.data.checkResult == null){
-                console.log("黑号")
+                console.log(data.data.helpResult.errMsg)
+                    
+                }
                     
                 }
             } catch (e) {
@@ -119,7 +124,7 @@ headers: {
     return new Promise(async (resolve) => {
 
                 let options = {
-    url: `https://api.m.jd.com/?functionId=redEnvelopeInteractHome&body={"linkId":"yMVR-_QKRd2Mq27xguJG-w","redEnvelopeId":"${redEnvelopeId}","inviter":"${inviter}","helpType":"2"}&t=1626359159357&appid=activities_platform&clientVersion=3.5.6`,
+    url: `https://api.m.jd.com/?functionId=openRedEnvelopeInteract&body={"linkId":"yMVR-_QKRd2Mq27xguJG-w","redEnvelopeId":"${redEnvelopeId}","inviter":"${inviter}","helpType":"2"}&t=1626363029817&appid=activities_platform&clientVersion=3.5.0`,
 
     
 headers: {
@@ -136,7 +141,7 @@ headers: {
                     data = JSON.parse(data);
 
                    
-                    console.log(data.checkResult.errMsg)
+                    console.log(data.data.helpResult.errMsg)
                     
                     
                     
