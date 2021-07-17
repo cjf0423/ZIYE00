@@ -332,7 +332,7 @@ function getUid() {
                      console.log(`开卡任务`)
                       value = tasks1[k].value2
 
-                      await join(value,value)
+                      await join(value)
 }
               
             
