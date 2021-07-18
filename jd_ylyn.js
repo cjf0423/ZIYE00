@@ -88,6 +88,10 @@ $.shareuuid = "bd93957c016242f6a51194d35449432c" //
                      await feedCow()   
                     }
                     
+                    for (let i = 0; i < $.cj; i++) {
+                     await draw()   
+                    }
+                    
 
                 }
             }
@@ -423,8 +427,9 @@ function feedCow() {
                     data = JSON.parse(data);
                     if (data.result) {
                         if (data.data) {
-                            $.cs =data.data.score2*0.1
-                            
+                            $.cs = data.data.score2*0.1
+                            $.cj = data.data.assistCount
+                            $.log($.cj)
                             console.log(`老牛等级:${data.data.level}\n下一等级还需吃奶:${data.data.score*0.1}\n剩余奶滴:${data.data.score2*0.1}`)
                         }
                     } else {
@@ -473,7 +478,8 @@ function dotask(taskType, taskValue) {
 }
 
 function draw() {
-    let config = taskPostUrl("/dingzhi/yili/yangniu/luckydraw", `activityId=dz2103100001340201&pin=${encodeURIComponent($.pin)}&actorUuid=&userUuid=`)
+    
+    let config = taskPostUrl("/dingzhi/yili/yangniu/start", `activityId=dz2103100001340201&pin=${encodeURIComponent($.pin)}&actorUuid=${$.shareuuid}`)
     //  console.log(config)
     return new Promise(resolve => {
         $.post(config, async (err, resp, data) => {
@@ -487,8 +493,8 @@ function draw() {
                         if (Object.keys(data.data).length == 0) {
                             console.log("抽奖成功,恭喜你抽了个寂寞： ")
                         } else {
-                            console.log(`恭喜你抽中 ${data.data.prize.rewardName}`)
-                            $.drawresult += `恭喜你抽中 ${data.data.prize.rewardName} `
+                            console.log(`恭喜你抽中 ${data.data.name}`)
+                            $.drawresult += `恭喜你抽中 ${data.data.name} `
                         }
                     } else {
                         console.log(data.errorMessage)
