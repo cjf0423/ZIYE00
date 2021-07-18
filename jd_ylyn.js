@@ -1,6 +1,6 @@
 /*
 柠檬伊利养牛记
-
+号1默认给我助力,后续接龙 2给1 3给2
 如果提示没有养牛 自己手动进去养一只
 活动入口：伊利京东自营旗舰店->伊利牛奶
 https://lzdz-isv.isvjcloud.com/dingzhi/yili/yangniu/activity/5070687?activityId=dz2103100001340201&shareUuid=bd93957c016242f6a51194d35449432c&adsource=ziying&shareuserid4minipg=u/cWHIy7/x3Ij+HjfbnnePkaL5GGqMTUc8u/otw2E+a7Ak3lgFoFQlZmf45w8Jzw&shopid=1000013402&lng=114.062604&lat=29.541501&sid=6e9bfee3838075a72533536815d8f3ew&un_area=4_48201_54794_0
