@@ -19,7 +19,7 @@
 
 
 
-name: whyour-sync
+name: shaolin-kongfu-sync
 on:
   schedule:
     - cron: '15 */3 * * *'
@@ -27,7 +27,7 @@ on:
   watch:
     types: started
   repository_dispatch:
-    types: sync-whyour-hundun
+    types: sync-shaolin-kongfu-js_scripts
 jobs:
   repo-sync:
     env:
@@ -39,11 +39,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync whyour-hundun
+      - name: sync shaolin-kongfu-js_scripts
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/whyour/hundun.git"
-          source_branch: "master"
-          destination_branch: "whyour"
+          source_repo: "https://github.com/shaolin-kongfu/js_scripts.git"
+          source_branch: "main"
+          destination_branch: "shaolin-kongfu"
           github_token: ${{ secrets.PAT }}
