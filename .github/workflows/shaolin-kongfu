@@ -22,7 +22,7 @@
 name: shaolin-kongfu-sync
 on:
   schedule:
-    - cron: '15 */3 * * *'
+    - cron: '15 3 */10 * *'
   workflow_dispatch:
   watch:
     types: started
