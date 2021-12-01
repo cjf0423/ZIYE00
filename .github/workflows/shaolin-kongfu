@@ -19,7 +19,7 @@
 
 
 
-name: shaolin-kongfu-sync  #作者名-sync
+name: shaolin-sync  #作者名-sync
 on:
   schedule:
     - cron: '32 4 * * *'  #时间
