@@ -22,7 +22,7 @@
 name: leafxcy-sync  #作者名-sync
 on:
   schedule:
-    - cron: '32 4 * * *'  #时间
+    - cron: '32 4 */10 * *'  #时间
   workflow_dispatch:
   watch:
     types: started
