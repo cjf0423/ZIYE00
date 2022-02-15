@@ -15,7 +15,8 @@ let notifyStr = ''
 let rndtime = "" //毫秒
 let httpResult //global buffer
 
-let zqkdCookie = ($.isNode() ? process.env.zq_cookie : $.getdata('zq_cookie')) || '';
+let zqkdCookie = ($.isNode() ? process.env.zqkdCookie : $.getdata('zqkdCookie')) || '';
+if(!zqkdCookie) zqkdCookie = ($.isNode() ? process.env.zq_cookie : $.getdata('zq_cookie')) || '';
 let zqkdCookieArr = []
 
 let userCk = ''
@@ -117,7 +118,7 @@ async function checkEnv() {
             zqkdCookieArr.push(replaceCookie(zqkdCookie))
         }
     } else {
-        console.log('未找到zqkdCookie')
+        console.log('未找到zqkdCookie或zq_cookie')
         return false
     }
     
