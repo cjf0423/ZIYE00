@@ -13,7 +13,7 @@ V2P/圈X 重写：
 
 [task_local]
 #康师傅畅饮社
-0,30 6-12,14-17,19-23 * * * https://raw.githubusercontent.com/leafxcy/JavaScript/main/ksfcys.js, tag=康师傅畅饮社, enabled=true
+42 9,18 * * * https://raw.githubusercontent.com/leafxcy/JavaScript/main/ksfcys.js, tag=康师傅畅饮社, enabled=true
 [rewrite_local]
 https://club.biqr.cn/api/member/getMemberInfo url script-request-header https://raw.githubusercontent.com/leafxcy/JavaScript/main/ksfcys.js
 [MITM]
