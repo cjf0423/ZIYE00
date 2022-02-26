@@ -1,14 +1,16 @@
 {
-    "elmA": "user_mini",
-    "elmB": "homepage",
-    "elmC": "available_hongbaos",
-    "elmD": "queryTrafficSupply",
-    "elmE": "queryTrafficSupply",
-    "elmF": "queryTrafficSupply",
-    "elmG": "bonusdetail",
-    "elmH": "supportor",
-    "elmI": "xSupply",
-    "elmJ": "xSupply",
-    "elmK": "xSupply",
-    "elmL": "xSupply",
+    "elm": {
+        "A": "user_mini",
+        "B": "homepage",
+        "C": "available_hongbaos",
+        "D": "queryTrafficSupply",
+        "E": "queryTrafficSupply",
+        "F": "queryTrafficSupply",
+        "G": "bonusdetail",
+        "H": "supportor",
+        "I": "xSupply",
+        "J": "xSupply",
+        "K": "xSupply",
+        "L": "xSupply"
+    }
 }
