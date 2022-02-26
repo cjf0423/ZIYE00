@@ -225,6 +225,7 @@ async function verifyCode(smscode) {
 
 function populateParam(param) {
     let ret = {}
+    if(!qlParam) return ret;
     for(let item of qlParam.split('&')) {
         let kv = item.split('=')
         if(kv.length == 2) {
