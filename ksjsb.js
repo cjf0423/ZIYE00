@@ -18,7 +18,7 @@ export ksjsbCookie='kuaishou.api_st=xxxxxxxxxxxx;'
 重写：
 [task_local]
 #快手极速版
-50 8,20 * * * https://raw.githubusercontent.com/leafxcy/JavaScript/main/ksjsb.js, tag=快手极速版, enabled=true
+38 7-22 * * * https://raw.githubusercontent.com/leafxcy/JavaScript/main/ksjsb.js, tag=快手极速版, enabled=true
 [rewrite_local]
 appsupport/yoda/biz/info url script-request-header https://raw.githubusercontent.com/leafxcy/JavaScript/main/ksjsb.js
 ksapp/client/package/renew url script-request-header https://raw.githubusercontent.com/leafxcy/JavaScript/main/ksjsb.js
