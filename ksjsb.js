@@ -1,5 +1,7 @@
 /*
 IOS/安卓： 快手极速版
+邀请链接(如果直接扫打不开，可以下载快手极速版后用APP的扫一扫)：
+https://raw.githubusercontent.com/leafxcy/JavaScript/main/ksjsb.jpg
 
 加了几个任务，现在一天可以到9毛以上
 脚本目前会做签到和翻倍，开宝箱和翻倍，看广告任务，逛街任务，抽奖和翻倍，多账户互助
