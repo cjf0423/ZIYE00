@@ -99,8 +99,8 @@ class UserInfo {
             for(let lines of result.body.split('\n')) {
                 if(lines.search(/"Class_Expire" *,/) > -1) {
                     let expTime = lines.match(/"Class_Expire" *, *"(.+?)"/)[1]
-                    console.log(`会员过期时间：${expTime} (不一定准确)`)
-                    notifyStr += `会员过期时间：${expTime} (不一定准确)\n`
+                    console.log(`会员过期时间：${expTime}`)
+                    notifyStr += `会员过期时间：${expTime}\n`
                 } else if(lines.search(/"Unused_Traffic" *,/) > -1) {
                     let traffic = lines.match(/"Unused_Traffic" *, *"(.+?)"/)[1]
                     console.log(`剩余流量：${traffic}`)
