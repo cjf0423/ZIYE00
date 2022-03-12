@@ -15,7 +15,7 @@ export ddgyToken='uid&token'
 #滴滴果园
 28 0,8,12,18 * * * https://raw.githubusercontent.com/leafxcy/JavaScript/main/ddgy.js, tag=滴滴果园, enabled=true
 [rewrite_local]
-https://game.xiaojukeji.com/api/game/plant/enter url script-request-header https://raw.githubusercontent.com/leafxcy/JavaScript/main/ddgy.js
+https://game.xiaojukeji.com/api/game/plant/enter url script-request-body https://raw.githubusercontent.com/leafxcy/JavaScript/main/ddgy.js
 [MITM]
 hostname = game.xiaojukeji.com
 */
