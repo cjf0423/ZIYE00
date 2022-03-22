@@ -6,6 +6,7 @@
 提现设置：默认提现5元，需要改的话自己设置TxStockCash变量，0代表不提现，1代表提现1元，5代表提现5元
 新手任务设置：默认不做新手任务，需要做的话设置TxStockNewbie为1
 分享任务设置：默认会做互助任务，需要多账号。不想做的话设置TxStockHelp为0
+可以设置某些号只助力别的号不做任务(没资格的小号可以助力大号)，在对应的ck后面加&task=0
 
 青龙捉包，需要捉APP和公众号里面的小程序
 1. 打开APP，捉wzq.tenpay.com包，把url里的openid和fskey用&连起来填到TxStockCookie
