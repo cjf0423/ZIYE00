@@ -43,6 +43,7 @@ let userCount = 0
 let test_taskList = []
 let todayDate = formatDateTime();
 let SCI_code = '000001' //上证指数
+let marketCode = {'sz':0, 'sh':1, 'hk':2, }
 let signType = {task:'welfare_sign', sign:'signdone', award:'award'}
 
 let taskList = {
@@ -112,7 +113,7 @@ class UserInfo {
                             if(cashItem.item_desc == cashStr){
                                 if(parseInt(this.coin) >= parseInt(cashItem.coins)){
                                     logAndNotify(`账号[${this.name}]金币余额多于${cashItem.coins}，开始提现${cashStr}`);
-                                    await $.wait(200);
+                                    await $.wait(100);
                                     await this.getWithdrawTicket(cashItem.item_id);
                                 } else {
                                     console.log(`账号[${this.name}]金币余额不足${cashItem.coins}，不提现`);
@@ -148,7 +149,7 @@ class UserInfo {
                             if(item.date == todayDate){
                                 if(item.status == 0){
                                     //今天未签到，去签到
-                                    await $.wait(200);
+                                    await $.wait(100);
                                     await this.signtask(actid,signType.sign);
                                 } else {
                                     //今天已签到
@@ -157,7 +158,7 @@ class UserInfo {
                             }
                         }
                         if(result.lotto_chance > 0 && result.lotto_ticket) {
-                            await $.wait(200);
+                            await $.wait(100);
                             await this.signTask(actid,signType.award,result.lotto_ticket);
                         }
                     } else if(type == signType.sign) {
@@ -193,7 +194,7 @@ class UserInfo {
                 if(result.notice_info && result.notice_info[0]) {
                     if(result.notice_info[0].answer_status == 1) {
                         console.log(`上期猜上证指数涨跌回答正确，准备领取奖励...`)
-                        await $.wait(100)
+                        await $.wait(100);
                         await this.getGuessAward(result.notice_info[0].date)
                     } else {
                         console.log(`上期猜上证指数涨跌回答错误`)
@@ -204,7 +205,7 @@ class UserInfo {
                 if(result.stock_notice_info && result.stock_notice_info[0]) {
                     if(result.stock_notice_info[0].guess_correct == 1) {
                         console.log(`上期猜个股涨跌回答正确，准备领取奖励...`)
-                        await $.wait(100)
+                        await $.wait(100);
                         await this.getGuessStockAward(result.stock_notice_info[0].date)
                     } else {
                         console.log(`上期猜个股涨跌回答错误`)
@@ -218,10 +219,10 @@ class UserInfo {
                         if(result.date_list) {
                             for(let item of result.date_list) {
                                 if(item.status == 3 && item.date == todayDate) {
-                                    await $.wait(100)
+                                    await $.wait(100);
                                     await this.getStockInfo(SCI_code,marketCode['sh'])
-                                    await $.wait(100)
-                                    await this.guessRiseFall(this.guessOption[SCI_code])
+                                    await $.wait(100);
+                                    await this.guessRiseFall(this.guessOption)
                                 }
                             }
                         }
@@ -233,7 +234,7 @@ class UserInfo {
                     if(result.recommend && result.recommend.length > 0) {
                         this.guessStockFlag = true
                         for(let item of result.recommend.sort(function(a,b){return Math.abs(b["zdf"])-Math.abs(a["zdf"])})) {
-                            await $.wait(100)
+                            await $.wait(100);
                             await this.guessStockStatus(item)
                             if(this.guessStockFlag==false) break;
                         }
@@ -306,6 +307,7 @@ class UserInfo {
             let result = httpResult;
             if(!result) return
             //console.log(result)
+            result = JSON.parse(result.body.replace(/\\x/g,''))
             if(result.retcode==0) {
                 let stockName = result.secu_info.secu_name || ''
                 if(stockName) {
@@ -314,7 +316,7 @@ class UserInfo {
                     let raise = dqj - zsj
                     let ratio = raise/zsj*100
                     let guessStr = (raise < 0) ? '跌' : '涨'
-                    this.guessOption[scode] = (raise < 0) ? 2 : 1
+                    this.guessOption = (raise < 0) ? 2 : 1
                     console.log(`${stockName}：当前价格${dqj}，前天收市价${zsj}，涨幅${Math.floor(ratio*100)/100}% (${Math.floor(raise*100)/100})，猜${guessStr}`);
                 }
             } else {
@@ -336,9 +338,9 @@ class UserInfo {
             //console.log(result)
             let guessStr = (answer==1) ? "猜涨" : "猜跌"
             if(result.retcode==0) {
-                console.log(`${guessStr}成功`)
+                console.log(`竞猜上证指数${guessStr}成功`)
             } else {
-                console.log(`${guessStr}失败: ${guessStr}`)
+                console.log(`竞猜上证指数${guessStr}失败: ${result.retmsg}`)
             }
         } catch(e) {
             console.log(e)
@@ -356,9 +358,9 @@ class UserInfo {
             //console.log(result)
             let guessStr = (answer==1) ? "猜涨" : "猜跌"
             if(result.retcode==0) {
-                console.log(`${guessStr}成功`)
+                console.log(`竞猜个股${guessStr}成功`)
             } else {
-                console.log(`${guessStr}失败: ${guessStr}`)
+                console.log(`竞猜个股${guessStr}失败: ${result.retmsg}`)
             }
         } catch(e) {
             console.log(e)
@@ -383,7 +385,7 @@ class UserInfo {
                         let guessStr = (stockItem.zdf < 0) ? '跌' : '涨'
                         let answer = (stockItem.zdf < 0) ? 2 : 1
                         console.log(`${stockItem.stockname}今天涨幅为${stockItem.zdf}%，猜${guessStr}`)
-                        await $.wait(100)
+                        await $.wait(100);
                         await this.guessStockRiseFall(stockItem,answer)
                     }
                 } else {
@@ -466,7 +468,7 @@ class UserInfo {
                             }
                             if(item.tasks && item.tasks.length > 0) {
                                 for(let task of item.tasks) {
-                                    await $.wait(200);
+                                    await $.wait(100);
                                     await this.appGetTaskStatus(taskItem,task.id,task.tid);
                                 }
                             }
@@ -492,7 +494,7 @@ class UserInfo {
             //console.log(result)
             if(result.retcode==0) {
                 if(result.done == 0) {
-                    await $.wait(200);
+                    await $.wait(100);
                     await this.appGetTaskTicket(taskItem,id,tid);
                     
                 } else {
@@ -516,7 +518,7 @@ class UserInfo {
             if(!result) return
             //console.log(result)
             if(result.retcode==0) {
-                await $.wait(200);
+                await $.wait(100);
                 await this.appTaskDone(taskItem,result.task_ticket,id,tid);
             } else {
                 console.log(`申请任务票据失败: ${result.retmsg}`)
@@ -528,7 +530,7 @@ class UserInfo {
     
     async appTaskDone(taskItem,ticket,id,tid) {
         try {
-            let url = `https://wzq.tenpay.com/cgi-bin/activity_task.fcgi?action=taskdone&channel=1&actid=${taskItem.actid}&id=${id}&tid=${tid}&task_ticket=${ticket}&openid=${this.openid}&fskey=${this.qlskey}`
+            let url = `https://wzq.tenpay.com/cgi-bin/activity_task.fcgi?action=taskdone&channel=1&actid=${taskItem.actid}&id=${id}&tid=${tid}&task_ticket=${ticket}&openid=${this.openid}&fskey=${this.qlskey}&channel=1`
             let body = ``
             let urlObject = populateUrlObject(url,this.cookie,body)
             await httpRequest('get',urlObject)
@@ -571,7 +573,7 @@ class UserInfo {
                             }
                             if(item.tasks && item.tasks.length > 0) {
                                 for(let task of item.tasks) {
-                                    await $.wait(200);
+                                    await $.wait(100);
                                     await this.wxGetTaskStatus(taskItem,task.id,task.tid);
                                 }
                             }
@@ -597,7 +599,7 @@ class UserInfo {
             //console.log(result)
             if(result.retcode==0) {
                 if(result.done == 0) {
-                    await $.wait(200);
+                    await $.wait(100);
                     await this.wxGetTaskTicket(taskItem,id,tid);
                 } else {
                     console.log(`${taskItem.taskName}[${taskItem.actid}-${id}]已完成`);
@@ -620,7 +622,7 @@ class UserInfo {
             if(!result) return
             //console.log(result)
             if(result.retcode==0) {
-                await $.wait(200);
+                await $.wait(100);
                 await this.wxTaskDone(taskItem,result.task_ticket,id,tid);
             } else {
                 console.log(`申请任务票据失败: ${result.retmsg}`)
@@ -661,7 +663,7 @@ class UserInfo {
             //console.log(result)
             if(result.retcode==0) {
                 if(result.ticket) {
-                    await $.wait(200);
+                    await $.wait(100);
                     await this.withdraw(result.ticket,item_id);
                 } else {
                     console.log(`申请提现票据失败`);
@@ -775,20 +777,20 @@ class UserInfo {
         try {
             await this.bullStatus();
             if(!this.bullStatusFlag) return;
-            await $.wait(200);
+            await $.wait(100);
             await this.bullTaskDone(bullTaskArray["rock_bullish"])
-            await $.wait(200);
+            await $.wait(100);
             for(let i=0; i<10; i++){
                 await this.bullTaskDone(bullTaskArray["open_box"])
                 if(i < 9) await $.wait(2500)
             }
-            await $.wait(200);
+            await $.wait(100);
             await this.bullTaskDone(bullTaskArray["open_blindbox"])
-            await $.wait(200);
+            await $.wait(100);
             await this.bullTaskDone(bullTaskArray["query_blindbox"])
-            await $.wait(200);
+            await $.wait(100);
             await this.bullTaskDone(bullTaskArray["feed"])
-            await $.wait(200);
+            await $.wait(100);
         } catch(e) {
             console.log(e)
         } finally {}
@@ -879,7 +881,7 @@ class UserInfo {
         console.log('\n=================== 用户信息 ===================')
         for(let user of userList) {
             await user.getUserInfo(); 
-            await $.wait(200);
+            await $.wait(100);
         }
         
         let validUserList = userList.filter(x => x.valid)
@@ -889,29 +891,29 @@ class UserInfo {
         for(let user of validUserList) {
             console.log(`\n----------- 账号${user.index}[${user.name}] -----------`)
             await user.signTask(2002,signType.task); 
-            await $.wait(200);
+            await $.wait(100);
             await user.guessHome(); 
-            await $.wait(200);
+            await $.wait(100);
             for(let id of taskList.app.daily) {
                 let taskItem = {"taskName":"APP任务","activity":"task_daily","type":"routine","actid":id}
                 await user.appGetTaskList(taskItem,'app'); 
-                await $.wait(200);
+                await $.wait(100);
             }
             for(let id of taskList.wx.daily) {
                 let taskItem = {"taskName":"微信任务","activity":"task_daily","type":"routine","actid":id}
                 await user.wxGetTaskList(taskItem,'wx'); 
-                await $.wait(200);
+                await $.wait(100);
             }
             for(let task of taskList.app.dailyShare) {
                 await user.appGetShareCode(task); 
-                await $.wait(200);
+                await $.wait(100);
             }
             for(let task of taskList.wx.dailyShare) {
                 await user.wxGetShareCode(task); 
-                await $.wait(200);
+                await $.wait(100);
             }
             await user.userBullTask(); 
-            await $.wait(200);
+            await $.wait(100);
         }
         
         console.log('\n=================== 新手任务 ===================')
@@ -921,12 +923,12 @@ class UserInfo {
                 for(let id of taskList.app.newbie) {
                     let taskItem = {"taskName":"APP新手任务","activity":"task_continue","type":"app_new_user","actid":id}
                     await user.appGetTaskList(taskItem,'app'); 
-                    await $.wait(200);
+                    await $.wait(100);
                 }
                 for(let id of taskList.wx.newbie) {
                     let taskItem = {"taskName":"微信新手任务","activity":"task_continue","type":"wzq_welfare_growth","actid":id}
                     await user.wxGetTaskList(taskItem,'wx'); 
-                    await $.wait(200);
+                    await $.wait(100);
                 }
             }
             
@@ -936,7 +938,7 @@ class UserInfo {
                     console.log(`\n----------- 账号${user.index}[${user.name}] -----------`)
                     for(let task of taskList.wx.newbieShare) {
                         await user.wxGetShareCode(task,'newbie'); 
-                        await $.wait(200);
+                        await $.wait(100);
                     }
                 }
                 for(let idx=0; idx < validUserCount; idx++) {
@@ -945,7 +947,7 @@ class UserInfo {
                     console.log(`\n--> 账号${helper.index}[${helper.name}] 去助力 账号${helpee.index}[${helpee.name}]:`)
                     for(let type in helpee.shareCodes.newbie) {
                         await helper.doShare(type,helpee.shareCodes.newbie[type]); 
-                        await $.wait(200);
+                        await $.wait(100);
                     }
                 }
             } else {
@@ -966,7 +968,7 @@ class UserInfo {
                     console.log(`\n--> 账号${helper.index}[${helper.name}] 去助力 账号${helpee.index}[${helpee.name}]:`)
                     for(let type in helpee.shareCodes.task) {
                         await helper.doShare(type,helpee.shareCodes.task[type]); 
-                        await $.wait(200);
+                        await $.wait(100);
                     }
                 }
             } else {
@@ -979,7 +981,7 @@ class UserInfo {
         console.log('\n=================== 提现 ===================')
         for(let user of validUserList) {
             await user.getUserInfo(true); 
-            await $.wait(200);
+            await $.wait(100);
         }
         
         await showmsg();
@@ -1061,11 +1063,11 @@ async function showmsg() {
     }
 }
 
-function formatDateTime(inputTime='') {
-    var date = new Date(inputTime);
+function formatDateTime() {
+    var date = new Date();
     var y = date.getFullYear();
     var m = padStr(date.getMonth()+1,2);
-    var d = padStr(date.getDate()+1,2);
+    var d = padStr(date.getDate(),2);
     return `${y}${m}${d}`;
 };
 
