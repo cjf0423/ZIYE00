@@ -172,7 +172,7 @@ class UserInfo {
     
     async signTask(actid,type,ticket='') {
         try {
-            let url = `https://wzq.tenpay.com/cgi-bin/activity_sign_task.fcgi?actid=${actid}&channel=1&type=welfare_sign&action=home&date=${todayDate}&openid=${this.openid}&fskey=${this.fskey}&reward_ticket=${ticket}`
+            let url = `https://wzq.tenpay.com/cgi-bin/activity_sign_task.fcgi?actid=${actid}&channel=1&type=${type}&action=home&date=${todayDate}&openid=${this.openid}&fskey=${this.fskey}&reward_ticket=${ticket}`
             let body = ``
             let urlObject = populateUrlObject(url,this.cookie,body)
             await httpRequest('get',urlObject)
@@ -202,7 +202,7 @@ class UserInfo {
                         }
                     } else if(type == signType.sign) {
                         console.log(`签到获得${result.reward_desc}`);
-                    } else if(type == signType.sign) {
+                    } else if(type == signType.award) {
                         console.log(`领取连续签到奖励获得${result.reward_desc}`);
                     }
                 }
@@ -875,10 +875,10 @@ class UserInfo {
             if(result.retcode==0) {
                 if(type == 'newbie') {
                     this.shareCodes.newbie[share_type] = result.share_code
-                    console.log(`获取到新手任务[${share_type}]互助码：${result.share_code}`)
+                    console.log(`获取新手任务[${share_type}]互助码：${result.share_code}`)
                 } else {
                     this.shareCodes.task[share_type] = result.share_code
-                    console.log(`获取到日常任务[${share_type}]互助码：${result.share_code}`)
+                    console.log(`获取日常任务[${share_type}]互助码：${result.share_code}`)
                 }
             } else {
                 console.log(`获取[${share_type}]互助码失败：${result.retmsg}`);
