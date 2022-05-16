@@ -114,8 +114,8 @@ function trainscheck() {
                         starttime = yupiaoinfo[8],
                         arrivetime = yupiaoinfo[9];
                         total = yupiaoinfo[10].split(":")[0] + '小时' + yupiaoinfo[10].split(":")[1] + '分钟',
-                           shangwu = yupiaoinfo[32] ? ' 商务:' + yupiaoinfo[32] : "",
-                           tedeng = yupiaoinfo[25] ? ' 特等:' + yupiaoinfo[25] : "",
+                           shangwu = yupiaoinfo[32] ? ' 商务座:' + yupiaoinfo[32] : "",
+                           tedeng = yupiaoinfo[25] ? ' 特等座:' + yupiaoinfo[25] : "",
                             yingzuo = yupiaoinfo[29] ? ' 硬座:' + yupiaoinfo[29] : "",
                             yingwo = yupiaoinfo[28] ? " 硬卧:" + yupiaoinfo[28] : "",
                             ruanwo = yupiaoinfo[23] ? " 软卧:" + yupiaoinfo[23] : "",
