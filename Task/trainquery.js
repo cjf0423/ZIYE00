@@ -37,7 +37,7 @@ const $ = new Env('列车时刻查询');
 let leftstation = $.getdata('left') || '北京';
 
 // 目的地
-let tostation = $.getdata('end') || '上海';
+let tostation = $.getdata('end') || '广州';
 
 //乘客类型，'ADULT'是成人，'0X00'是学生
 let purpose = $.getdata('people') || 'ADULT';
@@ -100,6 +100,7 @@ function trainscheck() {
                 'Referer': 'https://kyfw.12306.cn/otn/leftTicket/init'
             }
         };
+
         $.get(myRequest, (err, resp, data) => {
             //console.log('余票信息' + "\n\n" + data);
             try {
@@ -113,6 +114,8 @@ function trainscheck() {
                         starttime = yupiaoinfo[8],
                         arrivetime = yupiaoinfo[9];
                         total = yupiaoinfo[10].split(":")[0] + '小时' + yupiaoinfo[10].split(":")[1] + '分钟',
+                           shangwu = yupiaoinfo[32] ? ' 商务:' + yupiaoinfo[32] : "",
+                           tedeng = yupiaoinfo[25] ? ' 特等:' + yupiaoinfo[25] : "",
                             yingzuo = yupiaoinfo[29] ? ' 硬座:' + yupiaoinfo[29] : "",
                             yingwo = yupiaoinfo[28] ? " 硬卧:" + yupiaoinfo[28] : "",
                             ruanwo = yupiaoinfo[23] ? " 软卧:" + yupiaoinfo[23] : "",
@@ -122,7 +125,7 @@ function trainscheck() {
                             dongwo = yupiaoinfo[33] ? ' 动卧:' + yupiaoinfo[33] : ""
                             ruanwopro = yupiaoinfo[21] ? ' 豪华软卧:' + yupiaoinfo[21] : ""
                     }
-                    trainlist = '[' + (i + 1) + '] 车次:' + train + " " + starttime + "--" + arrivetime + " 总计时间:" + total + ' 出发站:'+ ress.data.map[`${yupiaoinfo[6]}`]+ yideng + erdeng + yingwo + ruanwo + yingzuo + wuzuo + dongwo +ruanwopro+ '\n'
+                    trainlist = '[' + (i + 1) + '] 车次:' + train + " " + starttime + "--" + arrivetime + " 总计时间:" + total + ' 出发站:'+ ress.data.map[`${yupiaoinfo[6]}`]+tedeng +yideng + erdeng + yingwo + ruanwo + yingzuo +shangwu+ wuzuo + dongwo +ruanwopro+ '\n'
                         //trainno = ress.data.result[i].split("|")[2]
                     $.log(trainlist);
                     if (reg.test(K) && K == ress.data.result[i].split("|")[3]) {
@@ -187,13 +190,14 @@ function prize() {
             }
         }
         $.get(prizeurl, async(err, resp, data) => {
-            console.log('票价信息: 响应码: ' + resp.statusCode + " \n" + data + '\n');
+            //console.log('票价信息: 响应码: ' + resp.statusCode + " \n" + data + '\n');
             try {
                 if (data == -1) {
                     $.msg('列车查询失败‼️', '该' + traincode + '次列车车票暂停发售或者查询失败,请重试', err);
                     return
                 }
                 let obj = JSON.parse(data).data
+           $.log(JSON.stringify(obj,null,2))
                 var seatinfo = "";
                 for (arr in obj) {
                     if (obj[arr].indexOf("¥") > -1) {
@@ -228,7 +232,7 @@ function mapSeat(seat) {
         "AI": ["一等卧", info[23]],
         "A6": ["豪华软卧", info[21]],
         "A9": ["商务座", info[32]],
-        "P": ["特等座", info[32]],
+        "P": ["特等座", info[25]],
         "F": ["动卧", info[33]],
         "WZ": ["无座", info[26]]
     }
