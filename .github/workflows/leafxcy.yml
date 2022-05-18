@@ -27,7 +27,7 @@ on:
   watch:
     types: started
   repository_dispatch:
-    types: sync-leafxcy-JavaScript  #要改sync-作者名-仓库名
+    types: sync-leafTheFish-DeathNote  #要改sync-作者名-仓库名
 jobs:
   repo-sync:
     env:
@@ -39,11 +39,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync leafxcy-JavaScript  #要改sync-作者名-仓库名
+      - name: sync-leafTheFish-DeathNote  #要改sync-作者名-仓库名
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/leafxcy/JavaScript.git"  #要改GitHub地址.git
+          source_repo: "https://github.com/leafTheFish/DeathNote.git"  #要改GitHub地址.git
           source_branch: "main"  #要改
-          destination_branch: "leafxcy"  #名字
+          destination_branch: "leafTheFish"  #名字
           github_token: ${{ secrets.PAT }}
