@@ -39,7 +39,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync-leafTheFish-DeathNote  #要改sync-作者名-仓库名
+      - name: sync leafTheFish-DeathNote  #要改sync 作者名-仓库名
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
