@@ -18,31 +18,55 @@ module.exports = {
     }, {
         "id": "elmXH",
         "name": "循环获取CK",
-        "val": "0",
+        "val": "1",
         "type": "number",
         "desc": "关闭 1开启,默认关闭"
     }, {
         "id": "elmTX",
-        "name": "自动兑换",
-        "val": "0",
+        "name": "超级会员兑换红包",
+        "val": "10",
         "type": "number",
-        "desc": "关闭 设置1 超级会员可用"
+        "desc": "关闭 设置1自动兑换,设置10只兑换10"
     }, {
         "id": "elmXYZ",
-        "name": "执行概率",
+        "name": "下单任务是否执行",
         "val": "100",
         "type": "number",
-        "desc": "不执行 可设置0-100,默认百分百"
+        "desc": "0不执行 100执行,默认100"
+    }, {
+        "id": "elmRW",
+        "name": "其他任务是否执行",
+        "val": "1",
+        "type": "number",
+        "desc": "0不执行,1执行，2强制执行，默认0"
+    }, {
+        "id": "elmSM",
+        "name": "其他任务执行方式",
+        "val": "0",
+        "type": "number",
+        "desc": "0立刻执行,1扫描执行,默认0"
+    }, {
+        "id": "elmHBTZ",
+        "name": "红包通知",
+        "val": "30&3",
+        "type": "number",
+        "desc": "格式 30&3 表示门槛小于等于30 红包大于等于3   默认100不通知"
+    }, {
+        "id": "elmYS",
+        "name": "请求延时",
+        "val": "100",
+        "type": "number",
+        "desc": "1000等于1秒 默认100 "
     }, {
         "id": "elmntfst",
         "name": "推送控制",
-        "val": "1",
+        "val": "0",
         "type": "number",
         "desc": "关闭，1推送,默认12点以及23点推送"
     }, {
         "id": "elmmsgst",
         "name": "通知控制",
-        "val": "2",
+        "val": "0",
         "type": "number",
         "desc": "关闭，1为 所有通知，2为 12，23 点通知，3为 6，12，18，23 点通知 "
     }, {
@@ -60,7 +84,7 @@ module.exports = {
     "favIconColor": "primary",
     "datas": [{
         "key": "elmbody",
-        "val": "SID=AAAAAAAAAAAAAAAAAAA; USERID=8888888888;longitude=111.1111111111;latitude=33.3333333333;"
+        "val": "SID=XXXXXXXXXXXXXX;USERID=2222222222;longitude=111.11111111234;latitude=22.2222222222;"
     }, {
         "key": "elmbody2",
         "val": ""
@@ -69,42 +93,6 @@ module.exports = {
         "val": ""
     }, {
         "key": "elmbody4",
-        "val": ""
-    }, {
-        "key": "elmbody5",
-        "val": ""
-    }, {
-        "key": "elmbody6",
-        "val": ""
-    }, {
-        "key": "elmbody7",
-        "val": ""
-    }, {
-        "key": "elmbody8",
-        "val": ""
-    }, {
-        "key": "elmbody9",
-        "val": ""
-    }, {
-        "key": "elmbody10",
-        "val": ""
-    }, {
-        "key": "elmbody11",
-        "val": ""
-    }, {
-        "key": "elmbody12",
-        "val": ""
-    }, {
-        "key": "elmbody13",
-        "val": ""
-    }, {
-        "key": "elmbody14",
-        "val": ""
-    }, {
-        "key": "elmbody15",
-        "val": ""
-    }, {
-        "key": "elmbody16",
         "val": ""
     }],
     "sessions": [],
