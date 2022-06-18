@@ -22,7 +22,7 @@
 name: ZCY01-sync  #作者名-sync
 on:
   schedule:
-    - cron: '27 1 * * *'  #时间
+    - cron: '27 1 */15 * *'  #时间
   workflow_dispatch:
   watch:
     types: started
