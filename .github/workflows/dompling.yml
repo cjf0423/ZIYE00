@@ -22,7 +22,7 @@
 name: dompling-sync  #名字
 on:
   schedule:
-    - cron: '27 12 * * *'  #时间
+    - cron: '27 12 */15 * *'  #时间
   workflow_dispatch:
   watch:
     types: started
