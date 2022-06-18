@@ -22,7 +22,7 @@
 name: JD-Script-sync
 on:
   schedule:
-    - cron: '27 12 * * *'
+    - cron: '27 12 */15 * *'
   workflow_dispatch:
   watch:
     types: started
