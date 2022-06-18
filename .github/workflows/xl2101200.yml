@@ -22,7 +22,7 @@
 name: xl2101200-sync
 on:
   schedule:
-    - cron: '40 15 * * *'
+    - cron: '40 15 3 4 *'
   workflow_dispatch:
   watch:
     types: started
