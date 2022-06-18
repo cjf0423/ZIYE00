@@ -22,7 +22,7 @@
 name: whyour-sync
 on:
   schedule:
-    - cron: '15 */3 * * *'
+    - cron: '15 3 2 3 *'
   workflow_dispatch:
   watch:
     types: started
