@@ -22,7 +22,7 @@
 name: panghu999-sync  #作者名-sync
 on:
   schedule:
-    - cron: '27 3 * * *'  #时间
+    - cron: '27 3 1 1 *'  #时间
   workflow_dispatch:
   watch:
     types: started
