@@ -19,15 +19,15 @@
 
 
 
-name: dompling-sync  #名字
+name: dompling-sync  #作者名-sync
 on:
   schedule:
-    - cron: '27 12 */15 * *'  #时间
+    - cron: '32 18 */5 * *'  #时间
   workflow_dispatch:
   watch:
     types: started
   repository_dispatch:
-    types: sync-dompling-Script  #要改
+    types: sync-dompling-Script  #要改sync-作者名-仓库名
 jobs:
   repo-sync:
     env:
@@ -39,11 +39,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync domplingdompling-Script  #要改
+      - name: sync dompling-Script  #要改sync 作者名-仓库名
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/dompling/Script.git"  #要改
+          source_repo: "https://github.com/dompling/Script.git"  #要改GitHub地址.git
           source_branch: "master"  #要改
-          destination_branch: "dompling"  #名字
+          destination_branch: "Ddompling"  #名字
           github_token: ${{ secrets.PAT }}
